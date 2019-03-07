@@ -249,8 +249,7 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>扩展</h1>
-<p>扩展机制可以帮助你扩展Crosswalk运行时环境的功能。通过创建一个扩展程序，你可以向Javascript环境中引入新的对象或者函数，并且用原生代码实现这些功能，可以选择使用Objective-C或者Swift。一个Crosswalk扩展包括：</p>
+  <h1>扩展</h1><p>扩展机制可以帮助你扩展Crosswalk运行时环境的功能。通过创建一个扩展程序，你可以向Javascript环境中引入新的对象或者函数，并且用原生代码实现这些功能，可以选择使用Objective-C或者Swift。一个Crosswalk扩展包括：</p>
 <ul>
 <li><p>原生代码（使用Objective-C或者Swift）：</p>
 <ul>
@@ -264,47 +263,39 @@
 </li>
 </ul>
 <p>针对iOS运行时的Crosswalk提供了一种自动生成JavaScript映射代码的方法并且允许你注入自己的JavaScript代码。</p>
-<h2>如何编写一个扩展程序</h2>
-<p>本小节将展示如何实现一个扩展程序。</p>
-<h3>创建一个Cocoa Touch Framework</h3>
-<ol>
+<h2>如何编写一个扩展程序</h2><p>本小节将展示如何实现一个扩展程序。</p>
+<h3>创建一个Cocoa Touch Framework</h3><ol>
 <li><p>打开Xcode, 然后执行&quot;File&quot; -&gt; &quot;New&quot; -&gt; &quot;Project...&quot;。 创建一个&quot;Cocoa Touch Framework&quot; 项目。</p>
 </li>
 <li><p>选择你已经在Navigator面板上创建的工程，然后选取 &quot;File&quot; -&gt; &quot;Save As Workspace...&quot;，为该项目创建一个工作空间。</p>
 </li>
 <li><p>使用CocoaPod整合<code>crosswalk-ios</code>库。关于CocoaPods的安装和使用，请参考：<a href="https://cocoapods.org/">CocoaPods</a>。</p>
 <p> 在项目目录中，创建一个文件命名为<code>Podfile</code>：</p>
-<pre><code> touch Podfile;</code></pre>
-<p> 内容如下：</p>
+<pre><code> touch Podfile;</code></pre><p> 内容如下：</p>
 <pre><code> platform :ios, &#39;8.1&#39;
  use_frameworks!
- pod &#39;crosswalk-ios&#39;, &#39;~&gt; 1.2&#39;</code></pre>
-<p> 在项目中安装<code>Pods</code>目标。首先关闭Xcode，然后进入项目目录中，执行命令：</p>
-<pre><code> pod install</code></pre>
-<p> 在安装结束后，你将会发现生成了一个<code>&lt;projectName&gt;.xcworkspace</code>，并且CocaPods的输出会通知你从现在开始使用这个工作空间来代替 <code>&lt;projectName&gt;.xcodeproj</code>。</p>
+ pod &#39;crosswalk-ios&#39;, &#39;~&gt; 1.2&#39;</code></pre><p> 在项目中安装<code>Pods</code>目标。首先关闭Xcode，然后进入项目目录中，执行命令：</p>
+<pre><code> pod install</code></pre><p> 在安装结束后，你将会发现生成了一个<code>&lt;projectName&gt;.xcworkspace</code>，并且CocaPods的输出会通知你从现在开始使用这个工作空间来代替 <code>&lt;projectName&gt;.xcodeproj</code>。</p>
 </li>
 <li><p>创建一个<code>extensions.plist</code>文件来定义应用JavaScript运行时和原生扩展类的映射信息。</p>
 <p> 在<code>File</code> -&gt; <code>New...</code> -&gt; <code>File...</code>下选取<code>iOS</code> -&gt; <code>Resource</code> -&gt; <code>Property List</code>。在项目目录下创建一个名为<code>extensions.plist</code>的plist文件。</p>
 <p> 新添加命名为<code>XWalkExtensions</code>的一行，并且类型为<code>Dictionary</code>。键／值对定义如下： </p>
 </li>
 </ol>
-<table style="table-layout: auto;">
+<table style="table-layout: auto">
  <tr><th>字段</th><th>类型</th><th width="100%">内容</th><th>样例</th></tr>
- <tr><td>键</td><td>String</td><td>JavaScript运行时的外部命名空间</td><td><code>&quot;xwalk.sample.echo&quot;</code></td></tr>
- <tr><td>值</td><td>String</td><td>原生类名</td><td><code>&quot;EchoExtension&quot;</code></td></tr>
+ <tr><td>键</td><td>String</td><td>JavaScript运行时的外部命名空间</td><td>`"xwalk.sample.echo"`</td></tr>
+ <tr><td>值</td><td>String</td><td>原生类名</td><td>`"EchoExtension"`</td></tr>
 </table>
 
-<h3>扩展程序的实现</h3>
-<ol>
+<h3>扩展程序的实现</h3><ol>
 <li><p>根据你在<strong>extensions.plist</strong>中定义的名字创建一个源自<code>XWalkExtension</code>的子类。其中你的子类可以用Object-C或者Swift实现，推荐使用Swift。</p>
 </li>
 <li><p>在这个类中写你自己的逻辑。</p>
 </li>
 </ol>
 <p>针对iOS平台的Crosswalk提供了一个最方便的方法来生成原生代码和JavaScript之间的映射，这意味着你不需要同时写原生代码和JavaScript逻辑，然后通过JSON序列化／反序列化支持的底层postMessage的方式进行通信。通过映射，你仅需要根据CrossWalk iOS要求的前缀来命名原生属性和方法，javaScript实现将会据此自动生成并在运行时自动注入，你可以直接使用它。</p>
-<h4>原生代码到JavaScript的映射</h4>
-<h5>方法映射</h5>
-<ul>
+<h4>原生代码到JavaScript的映射</h4><h5>方法映射</h5><ul>
 <li><p>本地方法前缀：<code>jsfunc_</code></p>
 </li>
 <li><p>本地定义：<code>func jsfunc_&lt;functionName&gt;(cid: UInt32, &lt;params...&gt;) {}</code></p>
@@ -314,10 +305,10 @@
 <li><p>例如：</p>
 </li>
 </ul>
-<table style="table-layout: auto;">
+<table style="table-layout: auto">
  <tr><th>World</th><th width="100%">定义</th></tr>
- <tr><td>本地</td><td><code>func jsfunc_echo(cid: UInt32, message: String, callback: UInt32)</code></td></tr>
- <tr><td>JavaScript</td><td><code>function echo(message, callback)</code></td></tr>
+ <tr><td>本地</td><td>`func jsfunc_echo(cid: UInt32, message: String, callback: UInt32)`</td></tr>
+ <tr><td>JavaScript</td><td>`function echo(message, callback)`</td></tr>
 </table>
 
 <ul>
@@ -325,8 +316,7 @@
 <p><code>echo.echo(&quot;Echo from native:&quot;, function(msg) {...})</code></p>
 </li>
 </ul>
-<h5>属性映射</h5>
-<ul>
+<h5>属性映射</h5><ul>
 <li><p>原生方法前缀：<code>jsprop_</code></p>
 </li>
 <li><p>原生定义：<code>dynamic var jsprop_&lt;propertyName&gt;: &lt;Type&gt;</code></p>
@@ -336,10 +326,10 @@
 <li><p>样例：</p>
 </li>
 </ul>
-<table style="table-layout: auto;">
+<table style="table-layout: auto">
  <tr><th>World</th><th width="100%">定义</th></tr>
- <tr><td>本地</td><td><code>dynamic var jsprop_prefix: String = &quot;&quot;</code></td></tr>
- <tr><td>JavaScript</td><td><code>prefix</code></td></tr>
+ <tr><td>本地</td><td>`dynamic var jsprop_prefix: String = ""`</td></tr>
+ <tr><td>JavaScript</td><td>`prefix`</td></tr>
 </table>
 
 <ul>
@@ -348,8 +338,7 @@
 <code>echo.prefix = &#39;HelloWorld&#39;;</code></p>
 </li>
 </ul>
-<h5>构造器映射</h5>
-<ul>
+<h5>构造器映射</h5><ul>
 <li><p>原生方法前缀：<code>none</code></p>
 </li>
 <li><p>原生定义：<code>initFromJavaScript</code></p>
@@ -357,8 +346,7 @@
 <li><p>JavaScript映射：<code>&lt;Constructor&gt;</code></p>
 </li>
 </ul>
-<h3>测试你的扩展程序</h3>
-<ol>
+<h3>测试你的扩展程序</h3><ol>
 <li><p>创建一个测试应用和工作空间。</p>
 </li>
 <li><p>嵌入XWalkView框架和扩展框架到应用中。</p>
@@ -368,7 +356,6 @@
 <li><p>加载扩展程序。</p>
 </li>
 </ol>
-
   <footer class="article-next">
     
 
@@ -445,7 +432,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

@@ -229,29 +229,25 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Crosswalk Lite</h1>
-<p>Crosswalk Lite，或者称为&quot;Lite&quot;, 均表示精简版的Crosswalk运行时，通过移除较不常见的库和特性，压缩APK实现将Crosswalk运行时的容量尽量减少。</p>
-<h2>概述</h2>
-<p>Crosswalk是基于<a href="https://www.chromium.org/Home">开源的Chromium</a>进行开发，随着不断添加的新特性，Crosswalk也在不断成长。通过Crosswalk编译会使APK大小增加~20MB，这对于较小的应用而言将会负担很重。这些应用也许并不需要所有的前沿特性。Crosswalk Lite通过难度较大的裁剪来创建一个更小的重发布的运行时，同时保持了大部分用户常使用的特性。</p>
+  <h1>Crosswalk Lite</h1><p>Crosswalk Lite，或者称为&quot;Lite&quot;, 均表示精简版的Crosswalk运行时，通过移除较不常见的库和特性，压缩APK实现将Crosswalk运行时的容量尽量减少。</p>
+<h2>概述</h2><p>Crosswalk是基于<a href="https://www.chromium.org/Home">开源的Chromium</a>进行开发，随着不断添加的新特性，Crosswalk也在不断成长。通过Crosswalk编译会使APK大小增加~20MB，这对于较小的应用而言将会负担很重。这些应用也许并不需要所有的前沿特性。Crosswalk Lite通过难度较大的裁剪来创建一个更小的重发布的运行时，同时保持了大部分用户常使用的特性。</p>
 <p>最终，选择哪个版本的Crosswalk取决于你的需求。我们希望了解到你们项目的需求。</p>
-<h3>支持的平台</h3>
-<ul>
+<h3>支持的平台</h3><ul>
 <li>Lite目前只支持Android，并且不支持共享模式</li>
 <li>Lite只支持x86和ARM的32位版本。x86_64和ARM64都还未支持。</li>
 </ul>
-<h3>大小和特性选择</h3>
-<p>下表展示了使用Crosswalk和Crosswalk Lite编译一个web应用时，可能会增加的额外大小。</p>
+<h3>大小和特性选择</h3><p>下表展示了使用Crosswalk和Crosswalk Lite编译一个web应用时，可能会增加的额外大小。</p>
 <table style="text-align:center;border:1px solid black">
-<tr><th colspan=2 style="text-align:center;border:1px solid black">Crosswalk</th>
-    <th colspan=2 style="color:blue;text-align:center">Crosswalk Lite</th></tr>
+<tr><th colspan="2" style="text-align:center;border:1px solid black">Crosswalk</th>
+    <th colspan="2" style="color:blue;text-align:center">Crosswalk Lite</th></tr>
 <tr><td style="border:1px solid black">APK</td>
     <td style="border:1px solid black">Installed</td>
-    <td style="border:1px solid black;color:blue;">APK</td>
-    <td style="border:1px solid black;color:blue;">Installed</td></tr>
+    <td style="border:1px solid black;color:blue">APK</td>
+    <td style="border:1px solid black;color:blue">Installed</td></tr>
 <tr><td style="border:1px solid black">20MB</td>
      <td style="border:1px solid black">55MB</td>
-     <td style="border:1px solid black;color:blue;">10-15MB</td>
-     <td style="border:1px solid black;color:blue;">40MB</td></tr>
+     <td style="border:1px solid black;color:blue">10-15MB</td>
+     <td style="border:1px solid black;color:blue">40MB</td></tr>
 </table>
 
 <ul>
@@ -261,33 +257,27 @@
 <li>使用LZMA压缩最后的库生成一个更小的APK。在应用第一次运行时，APK必须被解压。参见下文中的<a href="#runtime-behavior">运行时表现</a>。</li>
 <li>编译选项被设置为对大小最优的。</li>
 </ul>
-<h3>可构性</h3>
-<p>理想情况下，开发人员可以选取他们需要的选项，为他们的应用创建一个定制的运行时。可是Chromium是一个大型并且相对负责的项目，它没有被设计成模块化，团队重构的能力和保证可靠编译目前都不可行。从长远来看，我们希望改进Chromium, Blink和Crosswalk来实现特性模块化，这样便可以在APK编译阶段打开／关闭某些特性（例如WebRTC）。</p>
-<h3><a class="doc-anchor" id="runtime-behavior"></a> 运行时表现</h3>
-<ul>
+<h3>可构性</h3><p>理想情况下，开发人员可以选取他们需要的选项，为他们的应用创建一个定制的运行时。可是Chromium是一个大型并且相对负责的项目，它没有被设计成模块化，团队重构的能力和保证可靠编译目前都不可行。从长远来看，我们希望改进Chromium, Blink和Crosswalk来实现特性模块化，这样便可以在APK编译阶段打开／关闭某些特性（例如WebRTC）。</p>
+<h3><a class="doc-anchor" id="runtime-behavior"></a> 运行时表现</h3><ul>
 <li>通过Lite编译的应用在第一次启动时会弹出一个显示<a href="/assets/crosswalk-lite-uncompress-dialog.png">&quot;Preparing runtime...&quot;</a>的对话框。</li>
 </ul>
-<h3>发布周期</h3>
-<ul>
+<h3>发布周期</h3><ul>
 <li>Lite的发布不会像主线Crosswalk一样频繁，也不会使用相同的频率去rebase最新的Chromium。</li>
 <li>Lite跟主项目不同，不遵循canary/beta/stable发布通道。</li>
 <li>发行周期为12周，或者根据需求调整。</li>
 </ul>
-<h3>QA和验证</h3>
-<ul>
+<h3>QA和验证</h3><ul>
 <li>Lite会定期测试。然而，我们的主要精力还是放在主流的Crosswalk中。同时因为跟Crosswalk相比，Lite与Chromium的差异更多，所以可能存在更多意外的bug。</li>
 <li>假设Lite移除了很多用户较少使用的特性，请在选取使用Lite编译之前确定你的应用并不需要这些特性。</li>
 <li>如果Lite中做的一些优化被证明是安全的，它们将会被合并到主流的Crosswalk发行版中。</li>
 </ul>
-<h2>怎样参与贡献</h2>
-<p>为了对Crosswalk Lite做贡献，请遵循页面 <a href="https://crosswalk-project.org/contribute/index_zh.html">https://crosswalk-project.org/contribute/index_zh.html</a> 上的指南。</p>
+<h2>怎样参与贡献</h2><p>为了对Crosswalk Lite做贡献，请遵循页面 <a href="https://crosswalk-project.org/contribute/index_zh.html">https://crosswalk-project.org/contribute/index_zh.html</a> 上的指南。</p>
 <pre><code class="language-cmdline">$ gclient config --name=src/xwalk \
     git://github.com/crosswalk-project/crosswalk.git@origin/crosswalk-lite</code></pre>
 <ul>
 <li>代码审阅和贡献模型均与Crosswalk相同</li>
 <li>Crosswalk Lite在多个分支下被开发，虽然我们将考虑backport相关分支到Crosswalk。</li>
 </ul>
-
   <footer class="article-next">
     
 
@@ -323,7 +313,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

@@ -249,12 +249,9 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Cordova插件支持</h1>
-<p>针对iOS平台的Crosswalk基于Crosswalk Extension机制，通过引入Cordova框架，提供了对Cordova插件的支持。<a href="https://cocoapods.org/pods/crosswalk-extension-cordova">Cordova extension</a>负责管理Cordova插件的生命循环，复制Cordova插件运行的环境，并基于Crosswalk 扩展框架提供Cordova插件需要的功能。你无需改变任何插件的代码，只需利用已有的Cordova插件来扩展Crosswalk的功能。</p>
-<h2>Cordova插件API</h2>
-<p>未来，我们将会支持所有的Corvode插件API，目前可用的API如下：</p>
-<h3>已经被支持的插件</h3>
-<ul>
+  <h1>Cordova插件支持</h1><p>针对iOS平台的Crosswalk基于Crosswalk Extension机制，通过引入Cordova框架，提供了对Cordova插件的支持。<a href="https://cocoapods.org/pods/crosswalk-extension-cordova">Cordova extension</a>负责管理Cordova插件的生命循环，复制Cordova插件运行的环境，并基于Crosswalk 扩展框架提供Cordova插件需要的功能。你无需改变任何插件的代码，只需利用已有的Cordova插件来扩展Crosswalk的功能。</p>
+<h2>Cordova插件API</h2><p>未来，我们将会支持所有的Corvode插件API，目前可用的API如下：</p>
+<h3>已经被支持的插件</h3><ul>
 <li><a href="https://github.com/apache/cordova-plugin-battery-status">org.apache.cordova.battery-status</a></li>
 <li><a href="https://github.com/apache/cordova-plugin-console">org.apache.cordova.console</a></li>
 <li><a href="https://github.com/apache/cordova-plugin-contacts">org.apache.cordova.contacts</a></li>
@@ -274,16 +271,12 @@
 <li><a href="https://github.com/apache/cordova-plugin-splashscreen">org.apache.cordova.splashscreen</a></li>
 <li><a href="https://github.com/apache/cordova-plugin-statusbar">org.apache.cordova.statusbar</a></li>
 </ul>
-<h3>在开发中</h3>
-<ul>
+<h3>在开发中</h3><ul>
 <li><a href="https://github.com/apache/cordova-plugin-camera">org.apache.cordova.camera</a></li>
 </ul>
 <p>由衷地欢迎您加入我们，为Crosswalk提供更多的Cordova插件贡献一份力量。</p>
-<h2>快速入门</h2>
-<p>本小节，我们通过创建一个嵌入了<code>org.apache.cordova.device</code>插件的简单应用来展示在应用中使用Cordova插件的过程。</p>
-<h3>搭建DeviceDemo工程</h3>
-<h4>创建DeviceDemo工程</h4>
-<p>我们需要创建一个应用工程来支持Cordova插件和web资源。</p>
+<h2>快速入门</h2><p>本小节，我们通过创建一个嵌入了<code>org.apache.cordova.device</code>插件的简单应用来展示在应用中使用Cordova插件的过程。</p>
+<h3>搭建DeviceDemo工程</h3><h4>创建DeviceDemo工程</h4><p>我们需要创建一个应用工程来支持Cordova插件和web资源。</p>
 <ol>
 <li><p>创建<code>DeviceDemo</code>工程</p>
 <ul>
@@ -317,8 +310,7 @@ pod &#39;crosswalk-extension-cordova&#39;, &#39;~&gt; 1.1&#39;</code></pre>
 <li><p>打开<code>DeviceDemo.xcworkspace</code>，尝试编译<code>DeviceDemo</code>应用目标，查看其是否正常工作。</p>
 </li>
 </ol>
-<h4>引入<code>org.apache.cordova.device</code>插件资源</h4>
-<p>下一步是从 <a href="https://github.com/apache/cordova-plugin-device">org.apache.cordova.device</a> 将原生代码和html5资源引入到项目中。</p>
+<h4>引入<code>org.apache.cordova.device</code>插件资源</h4><p>下一步是从 <a href="https://github.com/apache/cordova-plugin-device">org.apache.cordova.device</a> 将原生代码和html5资源引入到项目中。</p>
 <ol>
 <li><p>克隆org.apache.cordova.device</p>
 <pre><code class="language-bash">git clone https://github.com/apache/cordova-plugin-device.git</code></pre>
@@ -367,8 +359,7 @@ vim plugins/org.apache.cordova.device/www/device.js</code></pre>
   }
   // BOTTOM OF METADATA
   });</code></pre>
-<h4>创建Web应用</h4>
-<p>在引入设备插件以后，我们需要利用device插件的能力来创建web应用。</p>
+<h4>创建Web应用</h4><p>在引入设备插件以后，我们需要利用device插件的能力来创建web应用。</p>
 <ol>
 <li><p>在<code>www</code>目录下创建<code>index.html</code>。</p>
 <pre><code class="language-bash">touch index.html
@@ -425,7 +416,7 @@ vim index.html</code></pre>
 </li>
 </ol>
 <p>　在这个演示中，我们将监听<code>deviceready</code>事件并从<code>device</code>对象检索系统信息，然后将它们添加到表格中。<code>device</code>对象是由<code>org.apache.cordova.device</code>插件提供，系统信息是从iOS系统层收集到的。</p>
-<ol>
+<ol start="2">
 <li><p>将web资源嵌入项目</p>
 <p>我们需要将web资源（包括插件和app资源）添加到项目中，并且打包成一个原生的iOS应用。</p>
 <ul>
@@ -461,9 +452,7 @@ vim index.html</code></pre>
 <p>现在这个演示应该可以使用了。</p>
 </li>
 </ol>
-<h2>演示</h2>
-<p>在<a href="https://github.com/crosswalk-project/ios-extensions-crosswalk">ios-extension-crosswalk</a>项目下的<a href="https://github.com/crosswalk-project/ios-extensions-crosswalk/tree/master/demos">演示</a>文件夹中，有两个演示可以用来展示Cordova插件的使用。你可以试用一下来了解它们如何工作。　　　</p>
-
+<h2>演示</h2><p>在<a href="https://github.com/crosswalk-project/ios-extensions-crosswalk">ios-extension-crosswalk</a>项目下的<a href="https://github.com/crosswalk-project/ios-extensions-crosswalk/tree/master/demos">演示</a>文件夹中，有两个演示可以用来展示Cordova插件的使用。你可以试用一下来了解它们如何工作。　　　</p>
   <footer class="article-next">
     
 
@@ -534,7 +523,7 @@ vim index.html</code></pre>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

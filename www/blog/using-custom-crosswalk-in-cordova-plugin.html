@@ -130,7 +130,7 @@
   <header class="article-header">
     <h1 class="article-title">How to change the Crosswalk version used by the Cordova Crosswalk Webview plugin</h1>
     <span class="article-meta">
-      <a href="using-custom-crosswalk-in-cordova-plugin.html"><time class="js-vagueTime" datetime="Mon, 17 Aug 2015 12:00:00 GMT">Mon, 17 Aug 2015 12:00:00 GMT</time></a>
+      <a href="using-custom-crosswalk-in-cordova-plugin.html"><time class="js-vagueTime" datetime="Mon, 17 Aug 2015 15:00:00 GMT">Mon, 17 Aug 2015 15:00:00 GMT</time></a>
        
         by <span class="article-author">Francesco Balestrieri</span>
       
@@ -139,51 +139,38 @@
   
   <p>With the <a href="https://cordova.apache.org/news/2015/04/21/tools-release.html">release of Cordova CLI 5</a>, using Crosswalk in a Cordova application is as easy as installing a plugin. The Crosswalk webview plugin uses the latest stable Crosswalk release by default, but some users have expressed the wish to change this to a different version. Luckily, this is not very difficult to do.</p>
 <p>The plugin uses the <a href="https://gradle.org/">Gradle</a> build system, and expects the Crosswalk library to be packaged as an <a href="http://tools.android.com/tech-docs/new-build-system/aar-format">AAR bundle</a> and published to a <a href="https://maven.apache.org/">Maven</a> repository, so changing the Crosswalk version means modifying the build configuration. For the Beta and Stable releases this is very easy, whereas for Canary or to use a custom-built version of Crosswalk it&#39;s a little more complicated.</p>
-<h2>Specifying a Crosswalk version from the Stable or Beta channels</h2>
-<p>The Crosswalk Project hosts the official <a href="https://download.01.org/crosswalk/releases/crosswalk/android/maven2/">Maven repository</a> for Crosswalk, for the Stable and Beta channels. To use any release in either of these channels, it&#39;s enough to add one preference in the application&#39;s config.xml file.</p>
+<h2>Specifying a Crosswalk version from the Stable or Beta channels</h2><p>The Crosswalk Project hosts the official <a href="https://download.01.org/crosswalk/releases/crosswalk/android/maven2/">Maven repository</a> for Crosswalk, for the Stable and Beta channels. To use any release in either of these channels, it&#39;s enough to add one preference in the application&#39;s config.xml file.</p>
 <p>For example for the Stable channel:</p>
 <pre><code>&lt;platform name=&quot;android&quot;&gt;
     ...
     &lt;preference name=&quot;xwalkVersion&quot; value=&quot;xwalk_core_library:14.43.343.17&quot; /&gt;
     ...
-&lt;/platform&gt;</code></pre>
-<p>For the Beta channel:</p>
-<pre><code>&lt;preference name=&quot;xwalkVersion&quot; value=&quot;xwalk_core_library_beta:15.44.384.4&quot; /&gt;</code></pre>
-<p>It&#39;s also possible to specify just the major Crosswalk version, or an open-ended range. See the <a href="https://www.npmjs.com/package/cordova-plugin-crosswalk-webview#configure">plugin documentation on NPM</a> for more details.</p>
-<h2>Specifying a Crosswalk version from the Canary channel</h2>
-<p>Canary releases are not currently published to the Crosswalk Maven repository, mainly because we don&#39;t encourage their use in production applications. If needed, however, they can be installed in a local Maven repository that Gradle can point to.</p>
+&lt;/platform&gt;</code></pre><p>For the Beta channel:</p>
+<pre><code>&lt;preference name=&quot;xwalkVersion&quot; value=&quot;xwalk_core_library_beta:15.44.384.4&quot; /&gt;</code></pre><p>It&#39;s also possible to specify just the major Crosswalk version, or an open-ended range. See the <a href="https://www.npmjs.com/package/cordova-plugin-crosswalk-webview#configure">plugin documentation on NPM</a> for more details.</p>
+<h2>Specifying a Crosswalk version from the Canary channel</h2><p>Canary releases are not currently published to the Crosswalk Maven repository, mainly because we don&#39;t encourage their use in production applications. If needed, however, they can be installed in a local Maven repository that Gradle can point to.</p>
 <p>First of all, you&#39;ll need to have Maven installed. On OS X, wich is what I used to test these instructions:</p>
-<pre><code>$ brew install maven</code></pre>
-<p>You&#39;ll then need to download the Crosswalk canary AAR from the Crosswalk download site, for example:</p>
-<pre><code>$ wget https://download.01.org/crosswalk/releases/crosswalk/android/canary/16.44.389.0/crosswalk-16.44.389.0.aar</code></pre>
-<p>And install the downloaded file to the local Maven repository:</p>
+<pre><code>$ brew install maven</code></pre><p>You&#39;ll then need to download the Crosswalk canary AAR from the Crosswalk download site, for example:</p>
+<pre><code>$ wget https://download.01.org/crosswalk/releases/crosswalk/android/canary/16.44.389.0/crosswalk-16.44.389.0.aar</code></pre><p>And install the downloaded file to the local Maven repository:</p>
 <pre><code>$ mvn install:install-file -DgroupId=org.xwalk -DartifactId=xwalk_core_library_canary \
       -Dversion=16.44.389.0 -Dpackaging=aar  -Dfile=crosswalk-16.44.389.0.aar \
-      -DgeneratePom=true</code></pre>
-<p>Next, you&#39;ll need to change the gradle configuration of the plugin. From your cordova project root folder open the file </p>
+      -DgeneratePom=true</code></pre><p>Next, you&#39;ll need to change the gradle configuration of the plugin. From your cordova project root folder open the file </p>
 <p><code>platforms/android/cordova-plugin-crosswalk-webview/&lt;appname&gt;.gradle</code></p>
 <p>At the beginning of the file, you&#39;ll see the Maven repository configuration:</p>
 <pre><code>repositories {
     Maven {
         url &#39;https://download.01.org/crosswalk/releases/crosswalk/android/maven2&#39;
     }
-}</code></pre>
-<p>To use the local Maven repository instead, replace the text above with the following:</p>
+}</code></pre><p>To use the local Maven repository instead, replace the text above with the following:</p>
 <pre><code>repositories {
     mavenLocal()
-}</code></pre>
-<p>Finally, configure the Crosswalk version in config.xml:</p>
+}</code></pre><p>Finally, configure the Crosswalk version in config.xml:</p>
 <pre><code>&lt;platform name=&quot;android&quot;&gt;
     ...
     &lt;preference name=&quot;xwalkVersion&quot; value=&quot;xwalk_core_library_canary:16.44.389.0&quot; /&gt;
     ...
-&lt;/platform&gt;</code></pre>
-<p>The application is now using a canary version of Crosswalk.</p>
-<h2>Using a custom-built version of Crosswalk</h2>
-<p>The instructions for the canary channel are the same also when using a local build of Crosswalk, except that you&#39;ll be building the Crosswalk AAR instead of downloading it. To build the Crosswalk AAR, use</p>
-<pre><code>$ ninja -C out/Release xwalk_core_library_aar</code></pre>
-<p>For more information about building Crosswalk, check <a href="https://crosswalk-project.org/contribute/building_crosswalk.html">this link</a>.</p>
-
+&lt;/platform&gt;</code></pre><p>The application is now using a canary version of Crosswalk.</p>
+<h2>Using a custom-built version of Crosswalk</h2><p>The instructions for the canary channel are the same also when using a local build of Crosswalk, except that you&#39;ll be building the Crosswalk AAR instead of downloading it. To build the Crosswalk AAR, use</p>
+<pre><code>$ ninja -C out/Release xwalk_core_library_aar </code></pre><p>For more information about building Crosswalk, check <a href="https://crosswalk-project.org/contribute/building_crosswalk.html">this link</a>.</p>
   
    
      <a href="http://twitter.com/xwalk_project" class="article-promo well">
@@ -222,7 +209,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

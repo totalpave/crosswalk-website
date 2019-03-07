@@ -130,7 +130,7 @@
   <header class="article-header">
     <h1 class="article-title">Crosswalk 11 Beta: SIMD updates, Chromium 40, Service Worker</h1>
     <span class="article-meta">
-      <a href="crosswalk-11-beta.html"><time class="js-vagueTime" datetime="Wed, 14 Jan 2015 12:00:00 GMT">Wed, 14 Jan 2015 12:00:00 GMT</time></a>
+      <a href="crosswalk-11-beta.html"><time class="js-vagueTime" datetime="Wed, 14 Jan 2015 16:00:00 GMT">Wed, 14 Jan 2015 16:00:00 GMT</time></a>
        
         by <span class="article-author">Francesco Balestrieri</span>
       
@@ -138,8 +138,7 @@
   </header>
   
   <p>Crosswalk 11 for Android has entered the Beta channel. This release sees an update to Chromium 40 and introduces some new functionality in the SIMD.js API. As usual, we welcome feedback on the <a href="https://lists.crosswalk-project.org/mailman/listinfo/crosswalk-help">crosswalk-help</a> mailing list or <a href="https://crosswalk-project.org/jira/">JIRA</a>.</p>
-<h2>Chromium 40 and Service Worker</h2>
-<p>Crosswalk 11 is rebased to Chromium 40, which introduces the <a href="http://www.w3.org/TR/service-workers/">Service Worker API</a>. Service Worker is a powerful API that can be used to improve the offline experience of applications that access data across a network.  </p>
+<h2>Chromium 40 and Service Worker</h2><p>Crosswalk 11 is rebased to Chromium 40, which introduces the <a href="http://www.w3.org/TR/service-workers/">Service Worker API</a>. Service Worker is a powerful API that can be used to improve the offline experience of applications that access data across a network.  </p>
 <p>Two APIs for use within the service worker are included. The <a href="https://fetch.spec.whatwg.org/">Fetch API</a> which allows to make cross-origin network requests and return the responses as well as the <a href="https://slightlyoff.github.io/ServiceWorker/spec/service_worker/index.html#cache-objects">Cache API</a> which makes it possible to save fetched responses and return the from the cache next time the resource is requested, while bypassing the network and thus making the app work offline.</p>
 <p>Only a subset of the Cache API is supported for now but full compatibility with the spec can be reached by using a <a href="https://github.com/coonsta/cache-polyfill/blob/master/dist/serviceworker-cache-polyfill.js">polyfill</a>. </p>
 <p>Below are some useful resources about Service Worker, we are eager to hear how you will use the API for your applications!</p>
@@ -149,8 +148,7 @@
 <li><a href="http://www.chromium.org/blink/serviceworker">http://www.chromium.org/blink/serviceworker</a></li>
 </ul>
 <p>For a list of new features in Chromium 40, check the <a href="https://www.chromestatus.com/features">Chromium Dashboard</a></p>
-<h2>SIMD updates</h2>
-<p>The <a href="https://github.com/johnmccutchan/ecmascript_simd/">SIMD.js API</a> now implements load and store of data types. These APIs allow developers to load or store all or partial elements of SIMD data from or to variable typed arrays and are important for several use cases:</p>
+<h2>SIMD updates</h2><p>The <a href="https://github.com/johnmccutchan/ecmascript_simd/">SIMD.js API</a> now implements load and store of data types. These APIs allow developers to load or store all or partial elements of SIMD data from or to variable typed arrays and are important for several use cases:</p>
 <ol>
 <li>load/store SIMD data from/to non 16 bytes aligned memory.</li>
 <li>load/store 1, 2 or 3 float32/int32 packed data structure from/to memory to/from SIMD types.</li>
@@ -176,11 +174,9 @@ SIMD.int32x4.loadXYZ
 SIMD.int32x4.store
 SIMD.int32x4.storeX
 SIMD.int32x4.storeXY
-SIMD.int32x4.storeXYZ</code></pre>
-<hr>
+SIMD.int32x4.storeXYZ</code></pre><hr>
 <p><a href="https://crosswalk-project.org/jira/secure/ReleaseNote.jspa?projectId=10001&amp;version=10700">Full release notes in Jira</a></p>
 <p>Download Crosswalk 11 from the <a href="https://download.01.org/crosswalk/releases/crosswalk/android/beta/">Beta Channel</a> </p>
-
   
    
      <a href="http://twitter.com/xwalk_project" class="article-promo well">
@@ -219,7 +215,7 @@ SIMD.int32x4.storeXYZ</code></pre>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

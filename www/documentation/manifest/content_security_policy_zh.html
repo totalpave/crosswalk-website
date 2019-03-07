@@ -279,34 +279,28 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>内容安全策略</h1>
-<p>内容安全策略域规定了应用可以加载并执行哪些类型的内容。</p>
+  <h1>内容安全策略</h1><p>内容安全策略域规定了应用可以加载并执行哪些类型的内容。</p>
 <p>如果这个字段没有被设定，则没有执行内容安全策略。默认情况下，这意味着一个Crosswalk应用可以从任何站点加载脚本和对象（通过<code>&lt;script&gt;</code>, <code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>和<code>&lt;applet&gt;</code>元素）。</p>
 <p>提供最小保护的建议默认值是：
     &quot;csp&quot;: &quot;script-src &#39;self&#39;; object-src &#39;self&#39;&quot;</p>
 <p>这个限制了该应用只能使用来自它自身（例如，在Crosswalk中，作为应用的一部分）的JavaScript（通过<code>&lt;script&gt;</code>元素加载）和对象（通过<code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>, 和<code>&lt;applet&gt;</code>元素加载）。</p>
 <p>参见Google的<a href="https://developer.chrome.com/extensions/contentSecurityPolicy">Content Security Policy (CSP)</a>页面中某些关于可以被设置的策略类型的样例；也可以查看<a href="http://www.w3.org/TR/CSP/">完整的规范</a>，尽管仅对于CSP的HTTP头部变量。</p>
-<h2>何时改变内容安全策略</h2>
-<p>只有当你想要加强你应用的安全性时,需要改变内容安全策略：如上文所述，除非你明确地设置了<code>csp</code>字段，否则Crosswalk不会强制执行内容安全策略。</p>
+<h2>何时改变内容安全策略</h2><p>只有当你想要加强你应用的安全性时,需要改变内容安全策略：如上文所述，除非你明确地设置了<code>csp</code>字段，否则Crosswalk不会强制执行内容安全策略。</p>
 <p>如果你决定加强你应用的安全性并设置一种内容安全策略，你可能发现这个策略<em>太</em>严格了。在这种情况下，你可能需要放宽一些限制。下文给出了一些关于设置内容安全策略的例子，但是需要在某些特定条件下才能放宽它。</p>
 <ul>
 <li><p><strong>确保应用仅仅从一个受限制的远程主机上加载脚本</strong></p>
 <p>在某些情况下，你可能需要加载一个远程资源到Crosswalk应用中：例如，在一个HTML页面中从网络加载资源：</p>
-<pre><code>&lt;script src=&quot;http://cdn.crosswalk-project.org/utils.js&quot;&gt;&lt;/script&gt;</code></pre>
-<p>同时，你可能想要加强Crosswalk的安全性所以限制应用<em>仅仅</em>从特定域或者应用中加载脚本。（默认的Crosswalk配置允许从任何远程主机加载脚本。）</p>
+<pre><code>&lt;script src=&quot;http://cdn.crosswalk-project.org/utils.js&quot;&gt;&lt;/script&gt;</code></pre><p>同时，你可能想要加强Crosswalk的安全性所以限制应用<em>仅仅</em>从特定域或者应用中加载脚本。（默认的Crosswalk配置允许从任何远程主机加载脚本。）</p>
 <p>在这种情况下，你可以明确地指定CSP，和资源白名单。例如仅限定应用本身和已知域：</p>
-<pre><code>&quot;csp&quot;: &quot;script-src &#39;self&#39; https://cdn.crosswalk-project.org/; object-src &#39;self&#39;&quot;</code></pre>
-<p>这样便只允许从应用本身或者从<code>https:\/\/cdn.crosswalk-project.org/</code>中加载脚本。注意你可以使用任意以&quot;<a href="https://&quot;开头的URL；或者指向&quot;localhost&quot;或者&quot;127.0.0.1&quot;的&quot;http://&quot;URL。如果你有自己的服务器和应用，并且它们运行在同一台机器上，那么后者可能会更有用。">https://&quot;开头的URL；或者指向&quot;localhost&quot;或者&quot;127.0.0.1&quot;的&quot;http://&quot;URL。如果你有自己的服务器和应用，并且它们运行在同一台机器上，那么后者可能会更有用。</a></p>
+<pre><code>&quot;csp&quot;: &quot;script-src &#39;self&#39; https://cdn.crosswalk-project.org/; object-src &#39;self&#39;&quot;</code></pre><p>这样便只允许从应用本身或者从<code>https:\/\/cdn.crosswalk-project.org/</code>中加载脚本。注意你可以使用任意以&quot;https://&quot;开头的URL；或者指向&quot;localhost&quot;或者&quot;127.0.0.1&quot;的&quot;http://&quot;URL。如果你有自己的服务器和应用，并且它们运行在同一台机器上，那么后者可能会更有用。</p>
 </li>
 <li><p><strong>在脚本内使用<code>eval()</code></strong></p>
 <p>下文的CSP (上文推荐为最低策略):</p>
-<pre><code>&quot;csp&quot;: &quot;script-src &#39;self&#39;; object-src &#39;self&#39;&quot;</code></pre>
-<p>禁用了“不安全”的JavaScript。这意味着任何对<code>eval()</code>的调用都不被允许。</p>
+<pre><code>&quot;csp&quot;: &quot;script-src &#39;self&#39;; object-src &#39;self&#39;&quot;</code></pre><p>禁用了“不安全”的JavaScript。这意味着任何对<code>eval()</code>的调用都不被允许。</p>
 <p>在大多数情况下，<strong>尽量</strong>避免使用<code>eval()</code>，因为它可能成为一个跨站点脚本攻击的载体。当一个应用拥有可以访问系统资源的权限时（就像Crosswalk应用），这将非常危险。</p>
 <p>然而，你可能发现你必须使用一个依赖于<code>eval()</code>的第三方库；或者在某些情景下，使用<code>eval()</code>是最明智和实际的解决方案。在这些情况下，你可能决定适当放宽内容安全策略来允许调用<code>eval()</code>。</p>
 <p>你可以通过向CSP中添加<code>&#39;unsafe-eval&#39;</code>来允许使用<code>eval()</code>，如下所示：</p>
-<pre><code>&quot;csp&quot;: &quot;script-src &#39;self&#39; &#39;unsafe-eval&#39;; object-src &#39;self&#39;&quot;</code></pre>
-</li>
+<pre><code>&quot;csp&quot;: &quot;script-src &#39;self&#39; &#39;unsafe-eval&#39;; object-src &#39;self&#39;&quot;</code></pre></li>
 <li><p><strong>支持内联JavaScript</strong></p>
 <p>在一些情景下，你可能需要通过<code>&lt;script&gt;</code>元素在一个HTML文件中引入内联JavaScript。例如：</p>
 <pre><code>&lt;!DOCTYPE html&gt;
@@ -328,21 +322,16 @@
     });
     &lt;/script&gt;
   &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<p>这个通常不是必须的，因为你可以把脚本放到一个外部文件中，并且通过<code>src</code>属性引用它：</p>
-<pre><code>&lt;script src=&quot;myscript.js&quot;&gt;&lt;/script&gt;</code></pre>
-<p>但是也存在偶尔需要内联一段脚本的情况（例如，为了性能原因）。</p>
+&lt;/html&gt;</code></pre><p>这个通常不是必须的，因为你可以把脚本放到一个外部文件中，并且通过<code>src</code>属性引用它：</p>
+<pre><code>&lt;script src=&quot;myscript.js&quot;&gt;&lt;/script&gt;</code></pre><p>但是也存在偶尔需要内联一段脚本的情况（例如，为了性能原因）。</p>
 <p>假设你有一段内联JavaScript并且已经规范化了一个<code>csp</code>，你可能发现你收到这个警告：</p>
 <pre><code>Refused to execute inline script because it violates the following
 Content Security Policy directive: &quot;script-src &#39;self&#39;&quot;. Either
 the &#39;unsafe-inline&#39; keyword, a hash (&#39;sha256-...&#39;), or a
-nonce (&#39;nonce-...&#39;) is required to enable inline execution.</code></pre>
-<p>最快速的解决方案便是添加<code>&#39;unsafe-inline&#39;</code>关键字：</p>
-<pre><code>&quot;csp&quot;: &quot;script-src &#39;self&#39; &#39;unsafe-inline&#39;; object-src &#39;self&#39;&quot;</code></pre>
-<p>内联脚本现在应该可以运行了。</p>
+nonce (&#39;nonce-...&#39;) is required to enable inline execution.</code></pre><p>最快速的解决方案便是添加<code>&#39;unsafe-inline&#39;</code>关键字：</p>
+<pre><code>&quot;csp&quot;: &quot;script-src &#39;self&#39; &#39;unsafe-inline&#39;; object-src &#39;self&#39;&quot;</code></pre><p>内联脚本现在应该可以运行了。</p>
 </li>
 </ul>
-
   <footer class="article-next">
     
 
@@ -455,7 +444,7 @@ nonce (&#39;nonce-...&#39;) is required to enable inline execution.</code></pre>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

@@ -279,16 +279,13 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>xwalk_hosts</h1>
-<p><a href="http://www.w3.org/TR/XMLHttpRequest/">XMLHttpRequest对象</a>用于通过HTTP与远程服务器通信（例如大名鼎鼎的<a href="http://www.adaptivepath.com/ideas/ajax-new-approach-web-applications/">Ajax</a>）。正常情况下，这些请求会被<a href="http://www.w3.org/Security/wiki/Same_Origin_Policy">同源访问策略</a>限制：只有与发出请求的脚本位于相同主机的资源才可以被访问。</p>
+  <h1>xwalk_hosts</h1><p><a href="http://www.w3.org/TR/XMLHttpRequest/">XMLHttpRequest对象</a>用于通过HTTP与远程服务器通信（例如大名鼎鼎的<a href="http://www.adaptivepath.com/ideas/ajax-new-approach-web-applications/">Ajax</a>）。正常情况下，这些请求会被<a href="http://www.w3.org/Security/wiki/Same_Origin_Policy">同源访问策略</a>限制：只有与发出请求的脚本位于相同主机的资源才可以被访问。</p>
 <p>如果你尝试从你的web应用访问资源，但是它们却位于不同的来源，你可能已经看到下列信息：</p>
 <pre><code>XMLHttpRequest cannot load http://crosswalk-project.org/. No
 &#39;Access-Control-Allow-Origin&#39; header is present on the requested
-resource. Origin &#39;file://&#39; is therefore not allowed access.</code></pre>
-<p>这表明如果发出这样的请求，那么你要访问的服务器会返回正确的头部。这里提到的&#39;Access-Control-Allow-Origin&#39;头部是<a href="http://www.w3.org/TR/cors/">跨域资源共享规范</a>的一部分。跨域的资源分享使得客户端可以向不同源的服务器发出请求，通过需要的header提供客户端和服务器的通信。然而实际上，很多你可能想要访问的web服务（除非你自己控制它们）在没有认证的情况下均不允许跨域的资源共享。</p>
+resource. Origin &#39;file://&#39; is therefore not allowed access.</code></pre><p>这表明如果发出这样的请求，那么你要访问的服务器会返回正确的头部。这里提到的&#39;Access-Control-Allow-Origin&#39;头部是<a href="http://www.w3.org/TR/cors/">跨域资源共享规范</a>的一部分。跨域的资源分享使得客户端可以向不同源的服务器发出请求，通过需要的header提供客户端和服务器的通信。然而实际上，很多你可能想要访问的web服务（除非你自己控制它们）在没有认证的情况下均不允许跨域的资源共享。</p>
 <p>Crosswalk为部署在Android上的应用提供了一种绕开这些限制的方法。</p>
-<h2>允许跨域请求</h2>
-<p>Crosswalk提供了一个manifest字段,<code>xwalk_hosts</code>, 其中它可以保证在Android平台上应用可以使用XMLHttpRequest发出跨域请求。这样避免了同源的约束，同时也避免了使用跨域资源共享的需求。</p>
+<h2>允许跨域请求</h2><p>Crosswalk提供了一个manifest字段,<code>xwalk_hosts</code>, 其中它可以保证在Android平台上应用可以使用XMLHttpRequest发出跨域请求。这样避免了同源的约束，同时也避免了使用跨域资源共享的需求。</p>
 <p>这个字段包含一组代表应用可以访问的主机的URL模式。其中值完全可以表示主机名，像：</p>
 <ul>
 <li><code>&quot;http://crosswalk-project.org/&quot;</code></li>
@@ -306,8 +303,7 @@ resource. Origin &#39;file://&#39; is therefore not allowed access.</code></pre>
     &quot;http://crosswalk-project.org/&quot;,
     &quot;http://*.intel.com/&quot;
   ]
-}</code></pre>
-<p>一旦你规定了应用可以访问的域名，<code>XMLHttpRequest</code>便可以照常向他们发送请求：</p>
+}</code></pre><p>一旦你规定了应用可以访问的域名，<code>XMLHttpRequest</code>便可以照常向他们发送请求：</p>
 <pre><code>var xhr = new XMLHttpRequest();
 xhr.open(&quot;GET&quot;, &quot;http://crosswalk-project.org/&quot;, true);
 xhr.onreadystatechange = function () {
@@ -316,7 +312,6 @@ xhr.onreadystatechange = function () {
   }
 }
 xhr.send();</code></pre>
-
   <footer class="article-next">
     
 
@@ -429,7 +424,7 @@ xhr.send();</code></pre>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

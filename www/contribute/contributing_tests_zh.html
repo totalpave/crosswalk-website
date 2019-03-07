@@ -185,11 +185,9 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>贡献测试代码</h1>
-<p>这个页面列出了为Crosswalk贡献测试用例和测试套件的过程。整个过程遵循<a href="/contribute/contributing-code_zh.html">贡献代码</a>，下文中列出了更多相关细节。</p>
+  <h1>贡献测试代码</h1><p>这个页面列出了为Crosswalk贡献测试用例和测试套件的过程。整个过程遵循<a href="/contribute/contributing-code_zh.html">贡献代码</a>，下文中列出了更多相关细节。</p>
 <p>关于如何获取源代码，请参考<a href="/documentation/test_suite_zh.html">Crosswalk测试套件</a>。</p>
-<h2>概述</h2>
-<p>欢迎以及鼓励每个人贡献测试用例或者测试套件。</p>
+<h2>概述</h2><p>欢迎以及鼓励每个人贡献测试用例或者测试套件。</p>
 <p>关于贡献测试用例到Crosswalk测试套件，请参考下面的步骤：</p>
 <ul>
 <li>复制<a href="https://github.com/crosswalk-project/crosswalk-test-suite">Crosswalk测试套件资源库</a> (如果你是一段时间之前复制的，请确认你仍然保持相对同步）。</li>
@@ -208,14 +206,10 @@
 $ git checkout -b topic
 $ git add file1 file2 ... fileN 
 $ git commit (Follow &quot;Commit message guidelines&quot; section below to add commit messages)
-$ git push origin topic</code></pre>
-<h2>选取一个bug报告</h2>
-<p><a href="https://crosswalk-project.org/jira/">Jira问题追踪工具</a>是Crosswalk项目贡献者的交流中心。为了测试套件的bug和任务，你可以选取<a href="https://crosswalk-project.org/jira/browse/XWALK/component/10303">Crosswalk测试套件元素</a>，选取一个issue作为工作研究点。如果你面临的问题在上面没有类似的，可以新建一个新的问题。为了避免重复，在创建新的issue之前一定要检索数据。</p>
-<p>如果你需要声明一个新的测试用例（参见下文），你应该记录下你研究的issue的ID，以便将其包含在你的测试用例PR中。ID是位于问题链接尾部的标识符<strong>XWALK-N</strong>：例如，对于<a href="https://crosswalk-project.org/jira/browse/XWALK-4782，ID是**XWALK-4782**。">https://crosswalk-project.org/jira/browse/XWALK-4782，ID是**XWALK-4782**。</a></p>
-<h2>代码风格指南</h2>
-<p>补丁必须遵循代码风格指南。详见<a href="https://github.com/crosswalk-project/crosswalk-test-suite/blob/master/doc/Coding_Style_Guide_CheatSheet.md">Crosswalk测试套件代码风格</a>。</p>
-<h2>提交信息指南</h2>
-<p>你的提交和／或PR应该包含你所研究的issue的ID。请参考<a href="/contribute/contributing-code_zh.html">贡献代码</a>页面的“代码贡献”部分。</p>
+$ git push origin topic</code></pre><h2>选取一个bug报告</h2><p><a href="https://crosswalk-project.org/jira/">Jira问题追踪工具</a>是Crosswalk项目贡献者的交流中心。为了测试套件的bug和任务，你可以选取<a href="https://crosswalk-project.org/jira/browse/XWALK/component/10303">Crosswalk测试套件元素</a>，选取一个issue作为工作研究点。如果你面临的问题在上面没有类似的，可以新建一个新的问题。为了避免重复，在创建新的issue之前一定要检索数据。</p>
+<p>如果你需要声明一个新的测试用例（参见下文），你应该记录下你研究的issue的ID，以便将其包含在你的测试用例PR中。ID是位于问题链接尾部的标识符<strong>XWALK-N</strong>：例如，对于<a href="https://crosswalk-project.org/jira/browse/XWALK-4782%EF%BC%8CID%E6%98%AF**XWALK-4782**%E3%80%82">https://crosswalk-project.org/jira/browse/XWALK-4782，ID是**XWALK-4782**。</a></p>
+<h2>代码风格指南</h2><p>补丁必须遵循代码风格指南。详见<a href="https://github.com/crosswalk-project/crosswalk-test-suite/blob/master/doc/Coding_Style_Guide_CheatSheet.md">Crosswalk测试套件代码风格</a>。</p>
+<h2>提交信息指南</h2><p>你的提交和／或PR应该包含你所研究的issue的ID。请参考<a href="/contribute/contributing-code_zh.html">贡献代码</a>页面的“代码贡献”部分。</p>
 <p>测试用例最好遵循下面的提交信息模板：</p>
 <pre><code>[区域前缀] 大写，简短（50或者更少的字符）
 
@@ -231,14 +225,10 @@ $ git push origin topic</code></pre>
 单元测试平台：Crosswalk Project for &lt;Android|IoT|Linux|Windows&gt;; &lt;version&gt;
 单元测试结果总结: 通过 5, 失败 0, 阻塞 0
 
-BUG=https://crosswalk-project.org/jira/browse/XWALK-4782</code></pre>
-<h2>回复审阅者</h2>
-<p>当PR被审阅后，<a href="https://github.com/crosswalk-project/crosswalk-test-suite">Crosswalk测试套件代码库</a>审阅者将会通过你的补丁。一个审阅者可以在pull请求中回复&quot;LGTM&quot;表示赞同，也可以请求你修改补丁。当你提交修改补丁时，在你和审阅者之间，可能会有多次审阅流程。</p>
-<h2>认证和作者姓名</h2>
-<p>除了在COPYING和／或者NOTICE文件中指出，或者包含在头部的认证信息中，Crosswalk测试套件源代码遵循BSD许可证,许可证信息可以在LICENSE文件中找到。</p>
+BUG=https://crosswalk-project.org/jira/browse/XWALK-4782</code></pre><h2>回复审阅者</h2><p>当PR被审阅后，<a href="https://github.com/crosswalk-project/crosswalk-test-suite">Crosswalk测试套件代码库</a>审阅者将会通过你的补丁。一个审阅者可以在pull请求中回复&quot;LGTM&quot;表示赞同，也可以请求你修改补丁。当你提交修改补丁时，在你和审阅者之间，可能会有多次审阅流程。</p>
+<h2>认证和作者姓名</h2><p>除了在COPYING和／或者NOTICE文件中指出，或者包含在头部的认证信息中，Crosswalk测试套件源代码遵循BSD许可证,许可证信息可以在LICENSE文件中找到。</p>
 <p>请确保在新代码的文件头部，包含有licence的说明字样。如果你是一个新的文件的作者，licence的编写可以参考LICENSE文件或者其他现存的文件。</p>
 <p>当你第一次完成一个patch时，你应该将你的名字添加到AUTHORS文件中。详见<a href="https://github.com/crosswalk-project/crosswalk-test-suite/blob/master/tools/template/">Crosswalk测试模板</a>。</p>
-
   <footer class="article-next">
     
 
@@ -274,7 +264,7 @@ BUG=https://crosswalk-project.org/jira/browse/XWALK-4782</code></pre>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

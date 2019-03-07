@@ -264,23 +264,13 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Embedding Mode &amp; Native APIs</h1>
-<p>Embedding mode enables application developers to embed the Crosswalk runtime in their own iOS applications. The main interface is <code>XWalkView</code>, which is derived from <code>WKWebView</code>. You can use it as you would use <code>WKWebView</code> or <code>UIWebView</code> to load web pages or the whole web application.  It also enables the Crosswalk extension and Cordova plugin support provided by the Crosswalk runtime.</p>
-<h2>Creating an application with embedding mode</h2>
-<p>You may refer to the implementation in AppShell, which is a standalone application with a single view controller that wraps a Crosswalk XWalkView as its main view.</p>
-<h2>Embedding API</h2>
-<h3>XWalkView</h3>
-<p><code>XWalkView</code> is derived from <code>WKWebView</code> and extends <code>WKWebView</code> as follows:</p>
-<pre><code>public func loadExtension(object: AnyObject, namespace: String)</code></pre>
-<p><code>loadExtension</code> is used to load the extension instance object in the Crosswalk runtime, and inject the instance object under <code>namespace</code> in the Javascript world.</p>
-<pre><code>public func loadFileURL(URL: NSURL, allowingReadAccessToURL readAccessToURL: NSURL) -&gt; WKNavigation?</code></pre>
-<p><code>loadFileURL</code> enables WKWebView to load URLs with the &#39;file://&#39; scheme. This is a bug of WKWebView in iOS 8.  It can be removed once this issue fixed with later versions of the iOS SDK.</p>
-<h3>XWalkExtensionFactory</h3>
-<p>This class is responsible for creating an extension instance with its name. The extension should be packed as a framework and placed in the <code>Frameworks</code> folder of the application.</p>
-<pre><code>public class func createExtension(name: String) -&gt; AnyObject?</code></pre>
-<pre><code>public class func createExtension(name: String, initializer: Selector, arguments: [AnyObject]) -&gt; AnyObject?</code></pre>
-<pre><code>public class func createExtension(name: String, initializer: Selector, varargs: AnyObject...) -&gt; AnyObject?</code></pre>
-
+  <h1>Embedding Mode &amp; Native APIs</h1><p>Embedding mode enables application developers to embed the Crosswalk runtime in their own iOS applications. The main interface is <code>XWalkView</code>, which is derived from <code>WKWebView</code>. You can use it as you would use <code>WKWebView</code> or <code>UIWebView</code> to load web pages or the whole web application.  It also enables the Crosswalk extension and Cordova plugin support provided by the Crosswalk runtime.</p>
+<h2>Creating an application with embedding mode</h2><p>You may refer to the implementation in AppShell, which is a standalone application with a single view controller that wraps a Crosswalk XWalkView as its main view.</p>
+<h2>Embedding API</h2><h3>XWalkView</h3><p><code>XWalkView</code> is derived from <code>WKWebView</code> and extends <code>WKWebView</code> as follows:</p>
+<pre><code>public func loadExtension(object: AnyObject, namespace: String)</code></pre><p><code>loadExtension</code> is used to load the extension instance object in the Crosswalk runtime, and inject the instance object under <code>namespace</code> in the Javascript world.</p>
+<pre><code>public func loadFileURL(URL: NSURL, allowingReadAccessToURL readAccessToURL: NSURL) -&gt; WKNavigation?</code></pre><p><code>loadFileURL</code> enables WKWebView to load URLs with the &#39;file://&#39; scheme. This is a bug of WKWebView in iOS 8.  It can be removed once this issue fixed with later versions of the iOS SDK.</p>
+<h3>XWalkExtensionFactory</h3><p>This class is responsible for creating an extension instance with its name. The extension should be packed as a framework and placed in the <code>Frameworks</code> folder of the application.</p>
+<pre><code>public class func createExtension(name: String) -&gt; AnyObject?</code></pre><pre><code>public class func createExtension(name: String, initializer: Selector, arguments: [AnyObject]) -&gt; AnyObject?</code></pre><pre><code>public class func createExtension(name: String, initializer: Selector, varargs: AnyObject...) -&gt; AnyObject?</code></pre>
   <footer class="article-next">
     
 
@@ -357,7 +347,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

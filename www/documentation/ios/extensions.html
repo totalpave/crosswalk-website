@@ -264,8 +264,7 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Extensions</h1>
-<p>Extensions enable you to extend the ability of the Crosswalk runtime. By creating an extension, you can introduce new objects or functions to the Javascript world, and implement those features in native code, written in either Objective-C or Swift. A Crosswalk Extension consist of:</p>
+  <h1>Extensions</h1><p>Extensions enable you to extend the ability of the Crosswalk runtime. By creating an extension, you can introduce new objects or functions to the Javascript world, and implement those features in native code, written in either Objective-C or Swift. A Crosswalk Extension consist of:</p>
 <ul>
 <li><p>Native source codes (in Objective-C or Swift):</p>
 <ul>
@@ -279,10 +278,8 @@
 </li>
 </ul>
 <p>The Crosswalk for iOS runtime provides a way to auto-generate JavaScript mapping codes and allow you to inject your own JavaScript code for the extension.</p>
-<h2>How to write an extension</h2>
-<p>This section shows how to implement an extension.</p>
-<h3>Create a Cocoa Touch Framework Project</h3>
-<ol>
+<h2>How to write an extension</h2><p>This section shows how to implement an extension.</p>
+<h3>Create a Cocoa Touch Framework Project</h3><ol>
 <li><p>Open Xcode, in &quot;File&quot; -&gt; &quot;New&quot; -&gt; &quot;Project...&quot;. Create a &quot;Cocoa Touch Framework&quot; project.</p>
 </li>
 <li><p>Select the project you&#39;ve created in Navigator panel, choose &quot;File&quot; -&gt; &quot;Save As Workspace...&quot; to create a workspace for the project.</p>
@@ -293,8 +290,7 @@
 <p> With the contents as below:</p>
 <pre><code> platform :ios, &#39;8.1&#39;
  use_frameworks!
- pod &#39;crosswalk-ios&#39;, &#39;~&gt; 1.2&#39;</code></pre>
-<p> Install <code>Pods</code> target into the project. Quit the Xcode first, then in the project directory, use command:</p>
+ pod &#39;crosswalk-ios&#39;, &#39;~&gt; 1.2&#39;</code></pre><p> Install <code>Pods</code> target into the project. Quit the Xcode first, then in the project directory, use command:</p>
 <pre><code class="language-cmdline"> &gt; pod install</code></pre>
 <p> After the installation, you will find an <code>&lt;projectName&gt;.xcworkspace</code> is generated, and CocoaPods output will notify you to use this workspace instead of the <code>&lt;projectName&gt;.xcodeproj</code> from now on.</p>
 </li>
@@ -303,23 +299,20 @@
 <p> Add a new row named <code>XWalkExtensions</code> with type <code>Dictionary</code>. The key/value defines like this:</p>
 </li>
 </ol>
-<table style="table-layout: auto;">
+<table style="table-layout: auto">
  <tr><th>Field</th><th>Type</th><th width="100%">Content</th><th>Example</th></tr>
- <tr><td>key</td><td>String</td><td>The exposed namespace in JavaScript runtime</td><td><code>&quot;xwalk.sample.echo&quot;</code></td></tr>
- <tr><td>value</td><td>String</td><td>The native class name</td><td><code>&quot;EchoExtension&quot;</code></td></tr>
+ <tr><td>key</td><td>String</td><td>The exposed namespace in JavaScript runtime</td><td>`"xwalk.sample.echo"`</td></tr>
+ <tr><td>value</td><td>String</td><td>The native class name</td><td>`"EchoExtension"`</td></tr>
 </table>
 
-<h3>Implement The Extension</h3>
-<ol>
+<h3>Implement The Extension</h3><ol>
 <li><p>Create a subclass which derives from <code>XWalkExtension</code> with the name you defined in the <strong>extensions.plist</strong>. Your subclass can be implemented with either Objective-C or Swift, and Swift is more recommended.</p>
 </li>
 <li><p>Write your own logic in this class.</p>
 </li>
 </ol>
 <p>Crosswalk for iOS provided a most convenient way to generate mappings between native and JavaScript, which means you don&#39;t need to write both native and JavaScript logic, then via low level postMessage way with JSON marshalling/unmarshalling support to communicate in between. With the mapping you only need to define the native properties and functions with the prefix that Crosswalk for iOS required, then the JavaScript implementation is automatically generated and inject into the JavaScript world, you can use it directly.</p>
-<h4>Native to JavaScript Mapping</h4>
-<h5>Method Mapping</h5>
-<ul>
+<h4>Native to JavaScript Mapping</h4><h5>Method Mapping</h5><ul>
 <li><p>Native Method Prefix: <code>jsfunc_</code></p>
 </li>
 <li><p>Native Definition: <code>func jsfunc_&lt;functionName&gt;(cid: UInt32, &lt;params...&gt;) {}</code></p>
@@ -329,10 +322,10 @@
 <li><p>Example:</p>
 </li>
 </ul>
-<table style="table-layout: auto;">
+<table style="table-layout: auto">
  <tr><th>World</th><th width="100%">Definition</th></tr>
- <tr><td>Native</td><td><code>func jsfunc_echo(cid: UInt32, message: String, callback: UInt32)</code></td></tr>
- <tr><td>JavaScript</td><td><code>function echo(message, callback)</code></td></tr>
+ <tr><td>Native</td><td>`func jsfunc_echo(cid: UInt32, message: String, callback: UInt32)`</td></tr>
+ <tr><td>JavaScript</td><td>`function echo(message, callback)`</td></tr>
 </table>
 
 <ul>
@@ -340,8 +333,7 @@
 <p><code>echo.echo(&quot;Echo from native:&quot;, function(msg) {...})</code></p>
 </li>
 </ul>
-<h5>Property Manpping</h5>
-<ul>
+<h5>Property Manpping</h5><ul>
 <li><p>Native Method Prefix: <code>jsprop_</code></p>
 </li>
 <li><p>Native Definition: <code>dynamic var jsprop_&lt;propertyName&gt;: &lt;Type&gt;</code></p>
@@ -351,10 +343,10 @@
 <li><p>Example:</p>
 </li>
 </ul>
-<table style="table-layout: auto;">
+<table style="table-layout: auto">
  <tr><th>World</th><th width="100%">Definition</th></tr>
- <tr><td>Native</td><td><code>dynamic var jsprop_prefix: String = &quot;&quot;</code></td></tr>
- <tr><td>JavaScript</td><td><code>prefix</code></td></tr>
+ <tr><td>Native</td><td>`dynamic var jsprop_prefix: String = ""`</td></tr>
+ <tr><td>JavaScript</td><td>`prefix`</td></tr>
 </table>
 
 <ul>
@@ -363,8 +355,7 @@
 <code>echo.prefix = &#39;HelloWorld&#39;;</code></p>
 </li>
 </ul>
-<h5>Constructor Mapping</h5>
-<ul>
+<h5>Constructor Mapping</h5><ul>
 <li><p>Native Method Prefix: <code>none</code></p>
 </li>
 <li><p>Native Definition: <code>initFromJavaScript</code></p>
@@ -372,8 +363,7 @@
 <li><p>JavaScript Mapping: <code>&lt;Constructor&gt;</code></p>
 </li>
 </ul>
-<h3>Test your extension</h3>
-<ol>
+<h3>Test your extension</h3><ol>
 <li><p>Create the test app and workspace.</p>
 </li>
 <li><p>Embed the XWalkView framework and the extension framework into the app.</p>
@@ -383,7 +373,6 @@
 <li><p>Load the extension.</p>
 </li>
 </ol>
-
   <footer class="article-next">
     
 
@@ -460,7 +449,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

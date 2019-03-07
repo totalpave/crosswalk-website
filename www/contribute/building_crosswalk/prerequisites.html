@@ -219,29 +219,22 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Prerequisites</h1>
-<p>This page lists some initial setup that must be done on all platforms before being able to check out and build Crosswalk.</p>
-<h2>Proxy Setup</h2>
-<p>Crosswalk needs to be able to fetch code and tools from GitHub and Google&#39;s
+  <h1>Prerequisites</h1><p>This page lists some initial setup that must be done on all platforms before being able to check out and build Crosswalk.</p>
+<h2>Proxy Setup</h2><p>Crosswalk needs to be able to fetch code and tools from GitHub and Google&#39;s
 servers. If you are behind a network proxy, you must make sure your environment
 is properly set up and the appropriate variables are set.</p>
-<h3>Linux</h3>
-<ol>
+<h3>Linux</h3><ol>
 <li><p>Set the <code>http_proxy</code> and <code>https_proxy</code> environment variables.</p>
 <pre><code> export http_proxy=http://example-host:port
- export https_proxy=http://example-host:port</code></pre>
-</li>
+ export https_proxy=http://example-host:port</code></pre></li>
 <li><p>Create a Boto configuration file somewhere with the following contents:</p>
 <pre><code> [Boto]
  proxy = &lt;example-host&gt;
- proxy_port = &lt;port-number&gt;</code></pre>
-<p> After that, point the <code>NO_AUTH_BOTO_CONFIG</code> environment variable to the file
+ proxy_port = &lt;port-number&gt;</code></pre><p> After that, point the <code>NO_AUTH_BOTO_CONFIG</code> environment variable to the file
  you created:</p>
-<pre><code> export NO_AUTH_BOTO_CONFIG=/path/to/boto-file</code></pre>
-</li>
+<pre><code> export NO_AUTH_BOTO_CONFIG=/path/to/boto-file</code></pre></li>
 </ol>
-<h3>Windows</h3>
-<p>The proxy setup on Windows is a bit more intricate and require some additional
+<h3>Windows</h3><p>The proxy setup on Windows is a bit more intricate and require some additional
 steps compared to Linux.</p>
 <p>Any environment variable described below can be set in two different ways:</p>
 <ol>
@@ -249,8 +242,7 @@ steps compared to Linux.</p>
 <pre><code># Set the value only for the duration of this CMD session.
 setx myvar=value
 # Set the value for all future sessions, but NOT this one.
-setx myvar value</code></pre>
-</li>
+setx myvar value</code></pre></li>
 <li><p>Using Windows&#39; GUI.</p>
 <p>In the Windows Start menu, search for &quot;Environment variables&quot;.
 Alternatively, click on the System icon in the Control Panel; then go to
@@ -262,32 +254,27 @@ command prompt sessions will NOT be able to see the new environment
 variables.</p>
 </li>
 </ol>
-<h4>Proxy variables</h4>
-<ol>
+<h4>Proxy variables</h4><ol>
 <li><p>Set the <code>http_proxy</code> and <code>https_proxy</code> environment variables by following
 the steps described above.</p>
 </li>
 <li><p>Create a Boto configuration file somewhere with the following contents:</p>
 <pre><code> [Boto]
  proxy = &lt;example-host&gt;
- proxy_port = &lt;port-number&gt;</code></pre>
-<p> After that, point the <code>NO_AUTH_BOTO_CONFIG</code> environment variable to the file
+ proxy_port = &lt;port-number&gt;</code></pre><p> After that, point the <code>NO_AUTH_BOTO_CONFIG</code> environment variable to the file
  you created by following the steps described above.</p>
 </li>
 </ol>
-<h4>Windows proxy settings</h4>
-<p>Also known as &quot;Internet Explorer proxy settings&quot;. If you are already able to
+<h4>Windows proxy settings</h4><p>Also known as &quot;Internet Explorer proxy settings&quot;. If you are already able to
 browse the internet using IE, there&#39;s nothing to do.</p>
 <p>Otherwise, you need to launch IE and go to Settings, Internet options,
 Connections, LAN and set everything up accordingly.</p>
-<h2>depot_tools bootstrap</h2>
-<p><code>depot_tools</code> is responsible for installing build dependencies (such as git and
+<h2>depot_tools bootstrap</h2><p><code>depot_tools</code> is responsible for installing build dependencies (such as git and
 Python on Windows), tools such as ninja and managing source code.</p>
 <p>The instructions for downloading depot_tools are available
 <a href="https://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up">here</a>.
 In particular, remember to adjust your <code>PATH</code> environment variable accordingly
 and, on Windows, make sure git and Python are correctly downloaded.</p>
-
   <footer class="article-next">
     
 
@@ -323,7 +310,7 @@ and, on Windows, make sure git and Python are correctly downloaded.</p>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

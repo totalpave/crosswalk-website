@@ -185,9 +185,7 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>编译Crosswalk</h1>
-<h2>环境</h2>
-<ol>
+  <h1>编译Crosswalk</h1><h2>环境</h2><ol>
 <li><p>请遵循Chromium wiki上面的步骤，搭建你的编译环境。</p>
 <ul>
 <li><a href="http://www.chromium.org/developers/how-tos/build-instructions-windows">Building on Windows</a></li>
@@ -210,93 +208,69 @@
 
 </li>
 </ol>
-<h2>代理设置</h2>
-<p>如果你在使用一个网络代理，那么你需要确保你的环境是否被正确地创建，以及变量设置是否合适。在Linux环境下，你至少需要做以下几步：</p>
+<h2>代理设置</h2><p>如果你在使用一个网络代理，那么你需要确保你的环境是否被正确地创建，以及变量设置是否合适。在Linux环境下，你至少需要做以下几步：</p>
 <ol>
 <li><p>设置<code>http_proxy</code>和<code>https_proxy</code>环境变量:</p>
 <pre><code> export http_proxy=http://example-host:port
- export https_proxy=http://example-host:port</code></pre>
-</li>
+ export https_proxy=http://example-host:port</code></pre></li>
 <li><p>在某处创建一个Boto配置文件，包含以下内容：</p>
 <pre><code> [Boto]
  proxy = example-host
- proxy_port = port number</code></pre>
-<p> 然后, 将<code>NO_AUTH_BOTO_CONFIG</code>环境变量指向你创建的文件：</p>
-<pre><code> export NO_AUTH_BOTO_CONFIG=/path/to/boto-file</code></pre>
-</li>
+ proxy_port = port number</code></pre><p> 然后, 将<code>NO_AUTH_BOTO_CONFIG</code>环境变量指向你创建的文件：</p>
+<pre><code> export NO_AUTH_BOTO_CONFIG=/path/to/boto-file</code></pre></li>
 </ol>
-<h2>下载Crosswalk源码</h2>
-<h3>开始之前： Android</h3>
-<p>如果编译的是Android平台上的Crosswalk，你首先应该设置
+<h2>下载Crosswalk源码</h2><h3>开始之前： Android</h3><p>如果编译的是Android平台上的Crosswalk，你首先应该设置
 <code>XWALK_OS_ANDROID</code>环境变量：</p>
-<pre><code>export XWALK_OS_ANDROID=1</code></pre>
-<p>你必须这样做，否则你下载的代码将不会包含某些对于Android环境下编译必要的组件。</p>
+<pre><code>export XWALK_OS_ANDROID=1</code></pre><p>你必须这样做，否则你下载的代码将不会包含某些对于Android环境下编译必要的组件。</p>
 <p>如果你在下载源码时没有这个设置，你可以在之后设置并且再执行一次<code>gclient sync</code>，将其它的针对Android平台的组件包含进来。</p>
-<h3>获取源码</h3>
-<ol>
+<h3>获取源码</h3><ol>
 <li><p>创建一个源码目录：</p>
 <pre><code>cd &lt;home directory&gt;
 mkdir crosswalk-src
-cd crosswalk-src</code></pre>
-</li>
+cd crosswalk-src</code></pre></li>
 <li><p>自动生成gclient的配置文件(<code>.gclient</code>)：</p>
 <pre><code>gclient config --name=src/xwalk \
-  https://github.com/crosswalk-project/crosswalk.git</code></pre>
-<p>你可以将<code>https://</code>替换成<code>git://</code>或者<code>ssh://git@</code>，依赖于你的代理需求和你是否想使用你的GitHub证书。</p>
+  https://github.com/crosswalk-project/crosswalk.git</code></pre><p>你可以将<code>https://</code>替换成<code>git://</code>或者<code>ssh://git@</code>，依赖于你的代理需求和你是否想使用你的GitHub证书。</p>
 </li>
 <li><p>在包含<code>.gclient</code>文件的目录下，获取源码：</p>
-<pre><code>gclient sync</code></pre>
-</li>
+<pre><code>gclient sync</code></pre></li>
 </ol>
-<h3>追踪一个不同的Crosswalk分支</h3>
-<p>如果你想要追踪一个不是<code>master</code>的分支（例如beta或者一个稳定分支），你可以使用下面两种方式：</p>
+<h3>追踪一个不同的Crosswalk分支</h3><p>如果你想要追踪一个不是<code>master</code>的分支（例如beta或者一个稳定分支），你可以使用下面两种方式：</p>
 <p><em>在初次checkout之前设定分支</em></p>
 <p>如果你还没有Crosswalk的源代码，则将你需要checkout的分支的URL传递给<code>gclient config</code>调用。例如，为了追终<em>crosswalk-2</em> branch:</p>
 <pre><code>gclient config --name=src/xwalk \
-  git://github.com/crosswalk-project/crosswalk.git@origin/crosswalk-2</code></pre>
-<p><em>为一个已经存在的checkout改变分支</em></p>
+  git://github.com/crosswalk-project/crosswalk.git@origin/crosswalk-2</code></pre><p><em>为一个已经存在的checkout改变分支</em></p>
 <p>如果你已经克隆了一个Crosswalk，并且想改变追踪的分支，你需要新建一个git分支，然后编辑你的<code>.gclient</code>文件。</p>
 <p>例如，假设你想要追踪<em>crosswalk-2</em>分支。
 首先，在你的Crosswalk仓库中新建一个分支：</p>
 <pre><code>cd /path/to/src/xwalk
-git checkout -b crosswalk-2 origin/crosswalk-2</code></pre>
-<p>然后，编辑你的<code>.gclient</code>文件（上面产生的）并且改变入口<code>url</code>。它看上去应该像这样：</p>
+git checkout -b crosswalk-2 origin/crosswalk-2</code></pre><p>然后，编辑你的<code>.gclient</code>文件（上面产生的）并且改变入口<code>url</code>。它看上去应该像这样：</p>
 <pre><code class="language-python">&quot;url&quot;: &quot;git://github.com/crosswalk-project/crosswalk.git@origin/crosswalk-2&quot;,</code></pre>
 <p>然后，再次同步你的代码：</p>
-<pre><code>gclient sync</code></pre>
-<h2>构建桌面版Crosswalk</h2>
-<p>下面这些步骤涵盖了编译Crosswalk的方方面面。编译的Crosswalk是运行在桌面环境(Windows, Linux,或Mac OS)下的。</p>
+<pre><code>gclient sync</code></pre><h2>构建桌面版Crosswalk</h2><p>下面这些步骤涵盖了编译Crosswalk的方方面面。编译的Crosswalk是运行在桌面环境(Windows, Linux,或Mac OS)下的。</p>
 <ol>
 <li><p><code>gyp</code>是被用于生成Crosswalk项目的工具。这些项目随后会被用作实际代码编译的基础。</p>
 <p>为了编译项目，进入<code>src</code>目录并运行</p>
 <p>在Linux, Mac操作系统下：</p>
 <pre><code>export GYP_GENERATORS=&#39;ninja&#39;
-python xwalk/gyp_xwalk</code></pre>
-<p>在Windows下：</p>
+python xwalk/gyp_xwalk</code></pre><p>在Windows下：</p>
 <pre><code>set GYP_DEFINES=target_arch=x64
 set GYP_GENERATORS=ninja
-python xwalk\gyp_xwalk</code></pre>
-<p>如果你想创建一个Visual Studio项目，以便使用Visual Studio下编译／编辑Crosswalk，你应该按如下方式设置GYP_GENERATORS：</p>
-<pre><code>set GYP_GENERATORS=ninja,ninja-msvs</code></pre>
-<p>注意：在Windows下，<code>set</code>在当前的cmd窗口下有效。<code>setx</code>使得在<em>未来的</em>cmd窗口下永久有效，类似于在环境变量对话框内设置变量。</p>
+python xwalk\gyp_xwalk</code></pre><p>如果你想创建一个Visual Studio项目，以便使用Visual Studio下编译／编辑Crosswalk，你应该按如下方式设置GYP_GENERATORS：</p>
+<pre><code>set GYP_GENERATORS=ninja,ninja-msvs</code></pre><p>注意：在Windows下，<code>set</code>在当前的cmd窗口下有效。<code>setx</code>使得在<em>未来的</em>cmd窗口下永久有效，类似于在环境变量对话框内设置变量。</p>
 </li>
 <li><p>现在你已经使用<code>gyp</code>构建了项目，并且已经准备实际编译。编译Crosswalk启动器（可以运行一个web应用）:</p>
-<pre><code> ninja -C out/Release xwalk or ninja -C out/Release_x64 xwalk (on Windows)</code></pre>
-</li>
+<pre><code> ninja -C out/Release xwalk or ninja -C out/Release_x64 xwalk (on Windows)</code></pre></li>
 </ol>
-<h3>测试桌面版Crosswalk</h3>
-<p>启动一个Crosswalk应用最简单的方式是使用一个应用的manifest作为参数的<code>xwalk</code>命令：</p>
-<pre><code>xwalk /path/to/manifest.json</code></pre>
-<p>Crosswalk将会解析manifest，并且从已经在<code>start_url</code>中定义好的入口处启动应用。</p>
+<h3>测试桌面版Crosswalk</h3><p>启动一个Crosswalk应用最简单的方式是使用一个应用的manifest作为参数的<code>xwalk</code>命令：</p>
+<pre><code>xwalk /path/to/manifest.json</code></pre><p>Crosswalk将会解析manifest，并且从已经在<code>start_url</code>中定义好的入口处启动应用。</p>
 <p>如果你没有任何的HTML应用来测试，
 <a href="/documentation/samples_zh.html">Crosswalk样例</a>中包含一些你可以试试。</p>
-<h2>编译Android版Crosswalk</h2>
-<p>如上面所提到的，Android平台的Crosswalk的编译过程主要基于Chrome的过程，所以需要确定你
+<h2>编译Android版Crosswalk</h2><p>如上面所提到的，Android平台的Crosswalk的编译过程主要基于Chrome的过程，所以需要确定你
 <a href="http://code.google.com/p/chromium/wiki/AndroidBuildInstructions">对其很熟悉</a>。</p>
 <ol>
 <li><p>为Android平台的Crosswalk安装依赖关系：</p>
-<pre><code>./build/install-build-deps-android.sh</code></pre>
-<p>注意这个需要你的系统对<code>apt-get</code>的支持。
+<pre><code>./build/install-build-deps-android.sh</code></pre><p>注意这个需要你的系统对<code>apt-get</code>的支持。
 如果你的系统中没有<code>apt-get</code> (例如Fedora Linux)，下面的命令可以安装依赖：</p>
 <pre><code>sudo yum install alsa-lib-devel alsa-lib-devel.i686 bison \
 cairo-devel.i686 cups-devel cups-devel.i686 dbus-devel \
@@ -314,41 +288,31 @@ libXrender-devel.i686 libXScrnSaver-devel libXtst-devel \
 libXtst-devel.i686 lighttpd nss-devel nss.i686 pango-devel.i686 \
 pciutils-devel pciutils-devel.i686 pulseaudio-libs-devel python-pexpect \
 svn systemd-devel systemd-devel.i686 xorg-x11-server-Xvfb \
-xorg-x11-utils zlib-devel.i686 zlib.i686</code></pre>
-</li>
+xorg-x11-utils zlib-devel.i686 zlib.i686</code></pre></li>
 <li><p>配置 gyp。</p>
 <p>gyp是在Chromium中使用的编译系统生成器，用于为Ninja和其他系统生成实际的编译文件。为了生成Android环境的编译文件还需要一些变量。</p>
 <p>在包含你的<code>.gclient</code>文件的目录下（在<code>src/</code>之上）生成一个名为<code>chromium.gyp_env</code>的文件。</p>
-<pre><code>echo &quot;{ &#39;GYP_DEFINES&#39;: &#39;OS=android target_arch=ia32&#39;, }&quot; &gt; chromium.gyp_env</code></pre>
-<p>如果你需要编译ARM版，使用<code>target_arch=arm</code>代替上述的
+<pre><code>echo &quot;{ &#39;GYP_DEFINES&#39;: &#39;OS=android target_arch=ia32&#39;, }&quot; &gt; chromium.gyp_env</code></pre><p>如果你需要编译ARM版，使用<code>target_arch=arm</code>代替上述的
 <code>target_arch=ia32</code>。</p>
 </li>
 <li><p>配置setup来生成Crosswalk项目。</p>
 <pre><code>export GYP_GENERATORS=&#39;ninja&#39;
-python xwalk/gyp_xwalk</code></pre>
-</li>
+python xwalk/gyp_xwalk</code></pre></li>
 <li><p>通过工具和嵌入式库，编译Android版Crosswalk的主要部分，你可以运行：</p>
-<pre><code>ninja -C out/Release xwalk_core_library</code></pre>
-<p>这样将会在<code>out/Release</code>下创建一个名为<code>xwalk_core_library</code>的目录，目录中包含有特定平台（例如X86或者ARM版）的Crosswalk库，这些库可以将Crosswalk嵌入到项目中。</p>
+<pre><code>ninja -C out/Release xwalk_core_library</code></pre><p>这样将会在<code>out/Release</code>下创建一个名为<code>xwalk_core_library</code>的目录，目录中包含有特定平台（例如X86或者ARM版）的Crosswalk库，这些库可以将Crosswalk嵌入到项目中。</p>
 <p>编译Crosswalk的运行时库（在Crosswalk共享模式下，一个可以作为应用的runtime的APK），运行：</p>
-<pre><code>ninja -C out/Release xwalk_runtime_lib_apk</code></pre>
-<p>这将会在<code>out/Release/apks</code>下生成一个名称为<code>XWalkRuntimeLib.apk</code>的APK。</p>
+<pre><code>ninja -C out/Release xwalk_runtime_lib_apk</code></pre><p>这将会在<code>out/Release/apks</code>下生成一个名称为<code>XWalkRuntimeLib.apk</code>的APK。</p>
 <p>为了构造一个简单的web应用APK（为了快速安装／目标测试），只要执行：</p>
-<pre><code>ninja -C out/Release xwalk_app_template_apk</code></pre>
-<p>这将会在<code>out/Release/apks</code>下生成一个名称为<code>XWalkAppTemplate.apk</code>的APK。</p>
+<pre><code>ninja -C out/Release xwalk_app_template_apk</code></pre><p>这将会在<code>out/Release/apks</code>下生成一个名称为<code>XWalkAppTemplate.apk</code>的APK。</p>
 <p>最终，你也可以通过使用Gradle和Maven构建AAR文件。下列命令将会生成特定平台下的AAR文件，AAR文件包含了Crosswalk库。</p>
-<pre><code>ninja -C out/Release xwalk_core_library_aar xwalk_shared_library_aar</code></pre>
-<p>ARR文件都将位于<code>out/Release</code>目录下。</p>
+<pre><code>ninja -C out/Release xwalk_core_library_aar xwalk_shared_library_aar</code></pre><p>ARR文件都将位于<code>out/Release</code>目录下。</p>
 </li>
 </ol>
-<h2>运行测试用例</h2>
-<p>如果你有兴趣运行Crosswalk的测试用例，你可以在<code>src</code>目录下编译测试用例：</p>
+<h2>运行测试用例</h2><p>如果你有兴趣运行Crosswalk的测试用例，你可以在<code>src</code>目录下编译测试用例：</p>
 <pre><code>ninja -C out/Release xwalk_unittest
-ninja -C out/Release xwalk_browsertest</code></pre>
-<p>然后运行它们：</p>
+ninja -C out/Release xwalk_browsertest</code></pre><p>然后运行它们：</p>
 <pre><code>./out/Release/xwalk_unitttest
 ./out/Release/xwalk_browsertest</code></pre>
-
   <footer class="article-next">
     
 
@@ -384,7 +348,7 @@ ninja -C out/Release xwalk_browsertest</code></pre>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

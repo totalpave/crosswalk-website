@@ -229,30 +229,25 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>使用Crosswalk Lite</h1>
-<p>使用Crosswalk Lite或者&quot;Lite&quot;编译你的应用与使用正常的Crosswalk编译是相同的。关于如何搭建你的开发环境，请参见<a href="/documentation/getting_started_zh.html">开始页面</a>。基于NPM的<code>crosswalk-app-tools</code>是用于创建Crosswalk应用的打包工具。关于工具更多的细节，请参见<a href="/documentation/crosswalk-app-tools.html">crosswalk-app-tools的使用</a>。</p>
-<h2>使用Lite编译</h2>
-<p>为了使用Lite编译你的应用，请在打包命令中添加参数<code>--android=&quot;lite&quot;</code>：</p>
+  <h1>使用Crosswalk Lite</h1><p>使用Crosswalk Lite或者&quot;Lite&quot;编译你的应用与使用正常的Crosswalk编译是相同的。关于如何搭建你的开发环境，请参见<a href="/documentation/getting_started_zh.html">开始页面</a>。基于NPM的<code>crosswalk-app-tools</code>是用于创建Crosswalk应用的打包工具。关于工具更多的细节，请参见<a href="/documentation/crosswalk-app-tools.html">crosswalk-app-tools的使用</a>。</p>
+<h2>使用Lite编译</h2><p>为了使用Lite编译你的应用，请在打包命令中添加参数<code>--android=&quot;lite&quot;</code>：</p>
 <pre><code class="language-cmdline">$ crosswalk-pkg --android=&quot;lite&quot; &lt;your webapp path&gt;</code></pre>
 <p><code>crosswalk-pkg</code>将会下载Lite引擎并且创建一个你的应用的APK。</p>
-<h3>手动下载Crosswalk-Lite</h3>
-<p>或者你可以从<a href="https://download.01.org/crosswalk/releases/crosswalk-lite/android/canary/latest/">build目录</a>手动下载Lite引擎到你本地的机器，然后运行：</p>
+<h3>手动下载Crosswalk-Lite</h3><p>或者你可以从<a href="https://download.01.org/crosswalk/releases/crosswalk-lite/android/canary/latest/">build目录</a>手动下载Lite引擎到你本地的机器，然后运行：</p>
 <pre><code class="language-cmdline">$ crosswalk-pkg --android=&quot;lite&quot; \
                 --crosswalk=&lt;downloads path&gt;/crosswalk-17.46.455.1.zip \
-                &lt;your webapp path&gt;</code></pre>
+                &lt;your webapp path&gt; </code></pre>
 <p>其他的编译版本可以在<a href="https://download.01.org/crosswalk/releases/crosswalk-lite/android/canary/">编译输出变量</a>上查找。</p>
 <p>Lite只能通过标准的“嵌入模式”绑定你的应用，其中Lite库会被添加到你的APK中。不支持<a href="/documentation/shared_mode_zh.html">共享模式</a>。</p>
-<h2>嵌入Lite webview</h2>
-<p>开发人员可以像使用Crosswalk一样，将Lite webview嵌入到它们基于Java的Android项目中。关于嵌入的详细细节，请参见[嵌入Crosswalk项目](<a href="https://crosswalk-project.org/documentation/android/">https://crosswalk-project.org/documentation/android/</a> embedding_crosswalk_zh.html)和<a href="https://crosswalk-project.org/documentation/android/embedding_crosswalk/crosswalk_aar_zh.html">使用Crosswalk AAR开发</a>。一个关于Lite的不同点就是<a href="#onXwalkReady">下文</a>中描述的<code>onXWalkReady()</code>。</p>
+<h2>嵌入Lite webview</h2><p>开发人员可以像使用Crosswalk一样，将Lite webview嵌入到它们基于Java的Android项目中。关于嵌入的详细细节，请参见[嵌入Crosswalk项目](<a href="https://crosswalk-project.org/documentation/android/">https://crosswalk-project.org/documentation/android/</a> embedding_crosswalk_zh.html)和<a href="https://crosswalk-project.org/documentation/android/embedding_crosswalk/crosswalk_aar_zh.html">使用Crosswalk AAR开发</a>。一个关于Lite的不同点就是<a href="#onXwalkReady">下文</a>中描述的<code>onXWalkReady()</code>。</p>
 <p>从Lite v17开始，我们为Lite添加了maven服务器。现在我们针对Crosswalk和Crosswalk Lite拥有两个分离的maven链接。请确认你项目中的maven链接是针对Crosswalk Lite的，而不是Crosswalk。</p>
 <ul>
 <li>Crosswalk: <a href="https://download.01.org/crosswalk/releases/crosswalk/android/maven2/">https://download.01.org/crosswalk/releases/crosswalk/android/maven2/</a> </li>
 <li>Crosswalk Lite: <a href="https://download.01.org/crosswalk/releases/crosswalk-lite/android/maven2/">https://download.01.org/crosswalk/releases/crosswalk-lite/android/maven2/</a></li>
 </ul>
-<p>最新的Lite发行版本：<br/> 
+<p>最新的Lite发行版本：<br> 
  <a href="https://download.01.org/crosswalk/releases/crosswalk-lite/android/canary/latest/">https://download.01.org/crosswalk/releases/crosswalk-lite/android/canary/latest/</a></p>
-<h3><a class="doc-anchor" id="onXwalkReady"></a>新的API: <code>org.xwalk.core.XWalkActivity.onXWalkReady()</code></h3>
-<p><code>onXwalkReady</code> API是为了检测Crosswalk环境是否可用而引入的。Crosswalk环境在如下两种场景下不可用：</p>
+<h3><a class="doc-anchor" id="onXwalkReady"></a>新的API: <code>org.xwalk.core.XWalkActivity.onXWalkReady()</code></h3><p><code>onXwalkReady</code> API是为了检测Crosswalk环境是否可用而引入的。Crosswalk环境在如下两种场景下不可用：</p>
 <ul>
 <li>共享模式: 需要从例如Google Play之类的app store下载。</li>
 <li>Crosswalk-Lite: <code>libxwalkcore.so</code>被LZMA压缩，首先需要被解压。</li>
@@ -294,12 +289,9 @@ public class MainActivity extends XWalkActivity {
         //initXWalkView in onXWalkReady().
         initXWalkView();
     }
-}</code></pre>
-<h2>运行一个Lite应用</h2>
-<p>一个通过Lite编译的应用第一次运行时，<code>libxwalkcore.so</code>必须被解压。下列对话框将会展示几秒钟：
-  <img src='/assets/crosswalk-lite-uncompress-dialog.png' style="display: block; margin: 0 auto; width: 50%"/>
+}</code></pre><h2>运行一个Lite应用</h2><p>一个通过Lite编译的应用第一次运行时，<code>libxwalkcore.so</code>必须被解压。下列对话框将会展示几秒钟：
+  <img src="/assets/crosswalk-lite-uncompress-dialog.png" style="display: block; margin: 0 auto; width: 50%">
 这个仅在第一次运行时展示。</p>
-
   <footer class="article-next">
     
 
@@ -346,7 +338,7 @@ public class MainActivity extends XWalkActivity {
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

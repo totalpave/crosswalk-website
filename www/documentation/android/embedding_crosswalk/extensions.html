@@ -283,16 +283,14 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Use Crosswalk extensions with the embedding API</h1>
-<p><a href="https://crosswalk-project.org/apis/embeddingapidocs_v2/reference/org/xwalk/core/XWalkExtension.html">Extensions</a> are supported in version 2.1 and later of the <a href="/documentation/apis/embedding_api.html">embedding API</a>. The extensions API is similar to the one for <a href="/documentation/android/android_extensions.html">Crosswalk runtime extensions</a>, but with a few differences due to the usage model of an <em>embedding application</em> (i.e. an Android application which embeds Crosswalk using Java code):</p>
+  <h1>Use Crosswalk extensions with the embedding API</h1><p><a href="https://crosswalk-project.org/apis/embeddingapidocs_v2/reference/org/xwalk/core/XWalkExtension.html">Extensions</a> are supported in version 2.1 and later of the <a href="/documentation/apis/embedding_api.html">embedding API</a>. The extensions API is similar to the one for <a href="/documentation/android/android_extensions.html">Crosswalk runtime extensions</a>, but with a few differences due to the usage model of an <em>embedding application</em> (i.e. an Android application which embeds Crosswalk using Java code):</p>
 <ul>
 <li>There is no support for lifecycle events. The extension <em>cannot</em> use <code>onResume()</code>, <code>onPause()</code>, <code>onDestroy()</code>, or <code>onActivityResult()</code>. Such events should be taken care of by the embedding application.</li>
 <li>No configuration file is needed, because the embedding application is responsible for creating and destroying the extensions in Java code.</li>
 <li>No support for [<code>make_apk.py</code>]. The embedding application is likely to be built using Android SDK tools, ant etc.; the extension code should be compiled and packaged as part of this build.</li>
 </ul>
 <p>The following sections explain how to add code for an extension and use it in an embedding application. Before following them, you will need to <a href="/documentation/android/embedding_crosswalk.html">create an application with the embedding API</a>.</p>
-<h2>Write the extension</h2>
-<p>Create a Java class which extends <a href="https://crosswalk-project.org/apis/embeddingapidocs_v2/reference/org/xwalk/core/XWalkExtension.html"><code>XWalkExtension</code></a>. For example:</p>
+<h2>Write the extension</h2><p>Create a Java class which extends <a href="https://crosswalk-project.org/apis/embeddingapidocs_v2/reference/org/xwalk/core/XWalkExtension.html"><code>XWalkExtension</code></a>. For example:</p>
 <p><strong><code>org/crosswalkproject/sample/ExtensionEcho.java</code>:</strong></p>
 <pre><code>package org.crosswalkproject.sample;
 
@@ -324,8 +322,7 @@ public class ExtensionEcho extends XWalkExtension {
     return &quot;From java sync: &quot; + message;
   }
 
-}</code></pre>
-<p>This extension only does some basic string manipulation, but a real extension could make use of the full range of Android APIs, as well as any imported Java libraries.</p>
+}</code></pre><p>This extension only does some basic string manipulation, but a real extension could make use of the full range of Android APIs, as well as any imported Java libraries.</p>
 <p>Some hints about the code:</p>
 <ul>
 <li><p>The JavaScript string in the constructor can be passed in different ways: it could be passed in as a <code>String</code> (as done here), read from a <code>.js</code> file in the <code>assets/</code> directory, fetched from a web server, etc.</p>
@@ -334,8 +331,7 @@ public class ExtensionEcho extends XWalkExtension {
 </li>
 </ul>
 <p>Note that it is also possible to include an extension in binary format, in a jar or <code>.class</code> file bundled with the embedding application. Extensions included by the embedding application can be used the same way as any other imported Java classes.</p>
-<h2>Use the extension in the embedding application</h2>
-<p>To use the extension, you need to initialise it just after the embedding application&#39;s main activity is started. For example, if your activity was <code>src/org/crosswalkproject/sample/MainActivity.java</code> (see the <a href="/documentation/android_extensions/write_an_extension.html">embedding tutorial</a>), you could use the extension as follows:</p>
+<h2>Use the extension in the embedding application</h2><p>To use the extension, you need to initialise it just after the embedding application&#39;s main activity is started. For example, if your activity was <code>src/org/crosswalkproject/sample/MainActivity.java</code> (see the <a href="/documentation/android_extensions/write_an_extension.html">embedding tutorial</a>), you could use the extension as follows:</p>
 <ol>
 <li><p>Add code to the main activity to create an instance of the extension when the activity is ready:</p>
 <pre><code>import org.crosswalkproject.sample.ExtensionEcho;
@@ -356,8 +352,7 @@ public class MainActivity extends Activity {
     mXWalkView = (XWalkView) findViewById(R.id.activity_main);
     mXWalkView.load(&quot;file:///android_asset/index.html&quot;, null);
   }
-}</code></pre>
-<p>Note that it is recommended that you create extensions before creating the <code>XWalkView</code> instance.</p>
+}</code></pre><p>Note that it is recommended that you create extensions before creating the <code>XWalkView</code> instance.</p>
 <p>Also note that if you create multiple instances of an extension with the same name (<code>&quot;echo&quot;</code> in the example above), only the first has any effect. Any subsequent instances you create will not have any effect (the C++ code in Crosswalk ignores an attempt to add an extension which has the same name as an existing one).</p>
 </li>
 <li><p>Use the extension from JavaScript in the web part of the application. The following code performs a simple test on the extension and writes the result into a paragraph element:</p>
@@ -391,10 +386,8 @@ catch (e) {
   console.log(e);
   document.title = &quot;Fail&quot;;
 }
-&lt;/script&gt;</code></pre>
-</li>
+&lt;/script&gt;</code></pre></li>
 </ol>
-
   <footer class="article-next">
     
 
@@ -430,7 +423,7 @@ catch (e) {
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

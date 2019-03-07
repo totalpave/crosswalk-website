@@ -219,30 +219,24 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Tracking a different Crosswalk branch</h1>
-<p>If you want to track a Crosswalk branch other than <code>master</code> (e.g. a beta or
+  <h1>Tracking a different Crosswalk branch</h1><p>If you want to track a Crosswalk branch other than <code>master</code> (e.g. a beta or
 stable branch), there are two different approaches you can use, described
 below.</p>
-<h2>Set the branch before the initial checkout</h2>
-<p>If you haven&#39;t checked out Crosswalk&#39;s source code yet, just pass the URL of
+<h2>Set the branch before the initial checkout</h2><p>If you haven&#39;t checked out Crosswalk&#39;s source code yet, just pass the URL of
 the branch you want to checkout to the <code>gclient config</code> call. For example, to
 track the <em>crosswalk-2</em> branch:</p>
 <pre><code>gclient config --name=src/xwalk \
-  https://github.com/crosswalk-project/crosswalk.git@origin/crosswalk-2</code></pre>
-<h2>Change the branch for an existing checkout</h2>
-<p>If you have already cloned Crosswalk and want to change the branch being
+  https://github.com/crosswalk-project/crosswalk.git@origin/crosswalk-2</code></pre><h2>Change the branch for an existing checkout</h2><p>If you have already cloned Crosswalk and want to change the branch being
 tracked, you need to check out a new git branch and then edit your <code>.gclient</code>
 file.</p>
 <p>For example, let&#39;s assume you want to track the <em>crosswalk-2</em> branch. First of
 all, check out a new branch in your Crosswalk repository:</p>
 <pre><code>cd /path/to/src/xwalk
-git checkout -b crosswalk-2 origin/crosswalk-2</code></pre>
-<p>Next, edit your <code>.gclient</code> file (generated above) and change the <code>url</code> entry.
+git checkout -b crosswalk-2 origin/crosswalk-2</code></pre><p>Next, edit your <code>.gclient</code> file (generated above) and change the <code>url</code> entry.
 It should look like this:</p>
 <pre><code class="language-python">&quot;url&quot;: &quot;https://github.com/crosswalk-project/crosswalk.git@origin/crosswalk-2&quot;,</code></pre>
 <p>After that, sync your code again:</p>
 <pre><code>gclient sync</code></pre>
-
   <footer class="article-next">
     
 
@@ -278,7 +272,7 @@ It should look like this:</p>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

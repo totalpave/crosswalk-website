@@ -249,23 +249,17 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>嵌入模式 &amp; 原生API</h1>
-<p>嵌入模式使得应用开发人员可以将Crosswalk运行时环境嵌入到他们自己的iOS应用中。主要接口便是<code>XWalkView</code>，它是由<code>WKWebView</code>演变而来。当你需要使用<code>WKWebView</code>或者<code>UIWebView</code>来加载页面或者整个web应用时可以使用它。它也支持Crosswalk运行时环境提供的Crosswalk扩展包和Cordova插件。</p>
-<h2>使用嵌入式模式创建一个应用</h2>
-<p>你可以参考AppShell的实现，它是一个独立应用程序，其中一个单独的ViewController将Crosswalk XwalkView封装成它的main view。</p>
-<h2>嵌入式API</h2>
-<h3>XWalkView</h3>
-<p><code>XWalkView</code>源自<code>WKWebView</code>并对<code>WKWebView</code>进行了如下扩展：</p>
+  <h1>嵌入模式 &amp; 原生API</h1><p>嵌入模式使得应用开发人员可以将Crosswalk运行时环境嵌入到他们自己的iOS应用中。主要接口便是<code>XWalkView</code>，它是由<code>WKWebView</code>演变而来。当你需要使用<code>WKWebView</code>或者<code>UIWebView</code>来加载页面或者整个web应用时可以使用它。它也支持Crosswalk运行时环境提供的Crosswalk扩展包和Cordova插件。</p>
+<h2>使用嵌入式模式创建一个应用</h2><p>你可以参考AppShell的实现，它是一个独立应用程序，其中一个单独的ViewController将Crosswalk XwalkView封装成它的main view。</p>
+<h2>嵌入式API</h2><h3>XWalkView</h3><p><code>XWalkView</code>源自<code>WKWebView</code>并对<code>WKWebView</code>进行了如下扩展：</p>
 <pre><code class="language-swift">public func loadExtension(object: AnyObject, namespace: String)</code></pre>
 <p><code>loadExtension</code>被用来加载Crosswalk运行时环境的扩展实例对象，并将实例对象注入到JavaScript环境下的<code>namespace</code>中。</p>
 <pre><code class="language-swift">public func loadFileURL(URL: NSURL, allowingReadAccessToURL readAccessToURL: NSURL) -&gt; WKNavigation?</code></pre>
 <p><code>loadFileURL</code>使得WKWebView可以加载&#39;file://&#39;模式的URL。这是一个存在于iOS 8中WKWebView的bug。一旦这个问题被后续版本的iOS SDK修复，这个API便可以被移除。</p>
-<h3>XWalkExtensionFactory</h3>
-<p>这个类负责创建命名的扩展实例。扩展实例应该被打包成框架并放在应用的<code>Frameworks</code>文件夹下。</p>
+<h3>XWalkExtensionFactory</h3><p>这个类负责创建命名的扩展实例。扩展实例应该被打包成框架并放在应用的<code>Frameworks</code>文件夹下。</p>
 <pre><code class="language-swift">public class func createExtension(name: String) -&gt; AnyObject?</code></pre>
 <pre><code class="language-swift">public class func createExtension(name: String, initializer: Selector, arguments: [AnyObject]) -&gt; AnyObject?</code></pre>
 <pre><code class="language-swift">public class func createExtension(name: String, initializer: Selector, varargs: AnyObject...) -&gt; AnyObject?</code></pre>
-
   <footer class="article-next">
     
 
@@ -342,7 +336,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

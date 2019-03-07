@@ -185,10 +185,8 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Developing Crosswalk on Windows with Microsoft Visual Studio</h1>
-<p>It is possible to use Visual Studio IDE to develop, debug and run Crosswalk. Visual Studio can provide great features to make it easier to contribute such as code completion, advanced debugger and so forth. However Crosswalk is a pretty big project with a rather big codebase and Visual Studio can require a lot of RAM to operate (~1.2Gb).</p>
-<h2>Getting started with Visual Studio</h2>
-<ol>
+  <h1>Developing Crosswalk on Windows with Microsoft Visual Studio</h1><p>It is possible to use Visual Studio IDE to develop, debug and run Crosswalk. Visual Studio can provide great features to make it easier to contribute such as code completion, advanced debugger and so forth. However Crosswalk is a pretty big project with a rather big codebase and Visual Studio can require a lot of RAM to operate (~1.2Gb).</p>
+<h2>Getting started with Visual Studio</h2><ol>
 <li><p>Go to Tools -&gt; Options. Open &quot;Projects and Solutions&quot; and then &quot;Build and Run&quot;. In the new screen, enter 1 as the number of parallel project builds. This is because the integration of <a href="https://chromium.googlesource.com/chromium/src/+/master/docs/ninja_build.md">Ninja</a> with MSVS doesn&#39;t support concurrent builds. However that doesn&#39;t mean there can&#39;t be multiple compilation jobs. Each target will be built one by one (e.g. <code>base/</code> then <code>content/</code>) but multiple jobs will be created to build the various files. At the end of the day your CPU cores will be fully utilized.</p>
 </li>
 <li><p>Go to File -&gt; Open -&gt; Project/Solution. Navigate to <code>crosswalk-src/src/xwalk/</code> and open <code>xwalk.sln</code>. You can open another project such as <code>content/content_shell.vcxproj</code> if you want to build <code>content_shell</code> only. If <code>xwalk.sln</code> is missing make sure that you correctly set the <code>GYP_GENERATORS</code> (See <a href="/contribute/building_crosswalk.html">Building Section</a>.</p>
@@ -200,20 +198,18 @@
 <li><p><code>xwalk.exe</code> executable should be in <code>crosswalk-src/src/out/Release</code> or <code>crosswalk-src/src/out/Debug</code>.</p>
 </li>
 </ol>
-<h2>Running and debugging inside Visual Studio</h2>
-<ol>
+<h2>Running and debugging inside Visual Studio</h2><ol>
 <li><p>In the Solution Explorer (right-hand side panel) you can click on which target you want to debug. Say you want to debug <code>xwalk</code>, you can right click on it and select &quot;Set as startup project.&quot; Make sure you built in Debug otherwise breakpoints are not going to be resolved.</p>
 </li>
 <li><p>Now you need to pass the right arguments to the Crosswalk executable so it can load a page/application. In the Debug menu, select &quot;xwalk properties&quot; (or mytarget properties), then in the new window, navigate to &quot;Configuration Properties&quot; then &quot;Debugging&quot;.  In the &quot;Command Arguments&quot; specify what you want to pass. Click OK.</p>
 </li>
 </ol>
-<p><a href="/assets/win-10-visual-studio-debug.png"><img src="/assets/win-10-visual-studio-debug.png" style="display: block; margin: 0 auto"/></a></p>
-<ol>
+<p><a href="/assets/win-10-visual-studio-debug.png"><img src="/assets/win-10-visual-studio-debug.png" style="display: block; margin: 0 auto"></a></p>
+<ol start="3">
 <li>If you press F5 or click &quot;Debug&quot; -&gt; &quot;Start Debugging&quot; it will launch xwalk with a debugger attached. Note that it&#39;s attaching to the Browser Process. If you want to attach to the Render Process, click &quot;Attach to Process&quot; in the Debug menu and pick the right process. You can add breakpoints by clicking in the editor and look up variables and so forth. Very convenient.</li>
 </ol>
-<p><a href="/assets/win-10-visual-studio-debug2.png"><img src="/assets/win-10-visual-studio-debug2.png" style="display: block; margin: 0 auto"/></a></p>
-<h2>Getting the most out of Visual Studio</h2>
-<p>A few tips on getting the most out of building with Visual Studio:</p>
+<p><a href="/assets/win-10-visual-studio-debug2.png"><img src="/assets/win-10-visual-studio-debug2.png" style="display: block; margin: 0 auto"></a></p>
+<h2>Getting the most out of Visual Studio</h2><p>A few tips on getting the most out of building with Visual Studio:</p>
 <ul>
 <li><p>As Chromium is big, Visual Studio spends a lot of time opening the xwalk project and parsing a lot of stuff that, in most cases, you don&#39;t need (e.g. all the third_party code). Fortunately there is a plugin that enables filtering what gets loaded. Download and install <a href="https://visualstudiogallery.msdn.microsoft.com/5396fa4a-d638-471b-ac3d-671ccd2ea369">Funnel</a>. Now everytime the xwalk project is opened you can choose whether to partially load the project and you can select what to load (e.g. <code>base/</code>, <code>content/</code>, or <code>third_party/WebKit</code>). Once you setup your filter, Funnel remembers it. It makes loading the entire solution much faster and lowers the memory usage while keeping all the benefits of using an IDE in the first place.</p>
 </li>
@@ -226,7 +222,6 @@
 <li><p>If you want to speed up link time, you can set <code>GYP_DEFINES = component=shared_library</code>. This will create DLLs for each of the crosswalk subprojects and avoid linking xwalk.exe with all the subprojects in it. </p>
 </li>
 </ul>
-
   <footer class="article-next">
     
 
@@ -262,7 +257,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

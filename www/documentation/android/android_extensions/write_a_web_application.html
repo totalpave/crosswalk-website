@@ -283,8 +283,7 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Write a web application</h1>
-<p>The web application for this project is a simple HTML5/CSS/Javascript application, with some additional files to enable it to be used in a Crosswalk package. Full details about adapting web applications for Crosswalk are given <a href="/documentation/android/build_an_application.html">in the <em>Getting started</em> pages</a>.</p>
+  <h1>Write a web application</h1><p>The web application for this project is a simple HTML5/CSS/Javascript application, with some additional files to enable it to be used in a Crosswalk package. Full details about adapting web applications for Crosswalk are given <a href="/documentation/android/build_an_application.html">in the <em>Getting started</em> pages</a>.</p>
 <ol>
 <li><p>Create the directories for the web application:</p>
 <pre><code>cd ~/&lt;my projects directory&gt;/xwalk-echo-project
@@ -294,8 +293,7 @@ mkdir xwalk-echo-app
 cd xwalk-echo-app
 
 # directories for application components
-mkdir -p assets js</code></pre>
-<p>The steps below assume you are adding files to the <code>xwalk-echo-app</code> directory.</p>
+mkdir -p assets js</code></pre><p>The steps below assume you are adding files to the <code>xwalk-echo-app</code> directory.</p>
 </li>
 <li><p>Add a <code>manifest.json</code> file:</p>
 <pre><code>{
@@ -310,8 +308,7 @@ mkdir -p assets js</code></pre>
       &quot;density&quot;: &quot;4.0&quot;
     }
   ]
-}</code></pre>
-</li>
+}</code></pre></li>
 <li><p>Add an icon file <code>icon.png</code>.</p>
 <p>The manifest file (above) specifies a 96x96px icon with filename <code>icon.png</code> as the application icon. Crosswalk will use this as the icon for the application in the Android target&#39;s application list/home screen etc.</p>
 <p>You can either use your own icon (with the right dimensions), or copy the default Crosswalk one by following the instructions on <a href="/documentation/android/build_an_application.html#A-simple-application">this page</a>.</p>
@@ -333,8 +330,7 @@ mkdir -p assets js</code></pre>
 
 &lt;script src=&quot;js/main.js&quot;&gt;&lt;/script&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-</li>
+&lt;/html&gt;</code></pre></li>
 <li><p>Add some simple CSS styling in <code>assets/base.css</code>:</p>
 <pre><code>body {
   font-size: 1.5em;
@@ -350,8 +346,7 @@ h1 {
 
 header {
   border-bottom: 0.25em solid black;
-}</code></pre>
-<p>This increases the font sizes and adds some lines and spacing to make the layout slightly more appealing.</p>
+}</code></pre><p>This increases the font sizes and adds some lines and spacing to make the layout slightly more appealing.</p>
 </li>
 <li><p>Add the JavaScript file <code>js/main.js</code>. The code in this file uses the Crosswalk extension to echo a message, then display the reply in a new <code>&lt;p&gt;</code> element:</p>
 <pre><code>document.addEventListener(&#39;DOMContentLoaded&#39;, function () {
@@ -362,12 +357,10 @@ header {
       document.body.appendChild(p);
     }
   );
-});</code></pre>
-<p>The listener added to the <code>DOMContentLoaded</code> event is the core piece of code here. This is responsible for calling the extension API by invoking the asynchronous <code>echoAsync()</code> method, and adding handlers which deal with the returned Promise. The <code>content</code> property of the object returned by the extension is used as the text for a new paragraph, which is then appended to the document body.</p>
+});</code></pre><p>The listener added to the <code>DOMContentLoaded</code> event is the core piece of code here. This is responsible for calling the extension API by invoking the asynchronous <code>echoAsync()</code> method, and adding handlers which deal with the returned Promise. The <code>content</code> property of the object returned by the extension is used as the text for a new paragraph, which is then appended to the document body.</p>
 </li>
 </ol>
 <p>Now both the web application and the extension are ready, you can create a package and run it on Android.</p>
-
   <footer class="article-next">
     
 
@@ -403,7 +396,7 @@ header {
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

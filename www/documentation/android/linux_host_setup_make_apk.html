@@ -279,8 +279,7 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Linux host setup</h1>
-<p>These instructions have been tested on Fedora Linux 20, 64 bit. If you are using a different platform, you may need to modify them to suit your environment (e.g. use <code>apt-get</code> instead of <code>yum</code> if using Ubuntu, change package names where they differ from Fedora&#39;s package names).</p>
+  <h1>Linux host setup</h1><p>These instructions have been tested on Fedora Linux 20, 64 bit. If you are using a different platform, you may need to modify them to suit your environment (e.g. use <code>apt-get</code> instead of <code>yum</code> if using Ubuntu, change package names where they differ from Fedora&#39;s package names).</p>
 <p>These steps will enable you to develop Crosswalk applications to run on Android:</p>
 <ol>
 <li><a href="#Install-Python">Install Python</a></li>
@@ -291,13 +290,10 @@
 <li><a href="#Download-the-Crosswalk-Android-app-template">Download the Crosswalk Android app template</a></li>
 <li><a href="#Verify-your-environment">Verify your environment</a></li>
 </ol>
-<h3 id="Install-Python">Install Python</h2>
+<h3 id="Install-Python">Install Python
 
-Python can usually be installed using your system&#39;s package manager. For example, on Fedora:
-
-    sudo yum install python
-
-<h3 id="Install-the-Oracle-JDK">Install the Oracle JDK</h3>
+<p>Python can usually be installed using your system&#39;s package manager. For example, on Fedora:</p>
+<pre><code>sudo yum install python</code></pre><h3 id="Install-the-Oracle-JDK">Install the Oracle JDK</h3>
 
 <p>The Oracle JDK has to be downloaded manually (you must accept a licence agreement):</p>
 <ol>
@@ -308,8 +304,7 @@ Python can usually be installed using your system&#39;s package manager. For exa
 <li><p>Choose a JDK download and accept the licence agreement.</p>
 </li>
 <li><p>Once downloaded, unpack the archive file:</p>
-<pre><code>tar zxvf &lt;jdk file&gt;.tar.gz</code></pre>
-<p>The JDK binaries are in <code>&lt;unpacked directory&gt;/bin</code>. We&#39;ll add that directory to our path later.</p>
+<pre><code>tar zxvf &lt;jdk file&gt;.tar.gz</code></pre><p>The JDK binaries are in <code>&lt;unpacked directory&gt;/bin</code>. We&#39;ll add that directory to our path later.</p>
 </li>
 </ol>
 <h3 id="Install-Ant">Install Ant</h3>
@@ -326,39 +321,32 @@ Python can usually be installed using your system&#39;s package manager. For exa
 <h3 id="Configure-the-tools">Configure the tools</h3>
 
 <p>The next step is to set up your environment so that binaries and scripts which were installed manually (ant, JDK) are on your <code>PATH</code>. Edit your <code>~/.bashrc</code> file, adding these lines to the end:</p>
-<pre><code>export PATH=&lt;path to ant&gt;/bin:&lt;path to JDK&gt;/bin:$PATH</code></pre>
-<p>It&#39;s also advisable to set the <code>JAVA_HOME</code> environment variable, to ensure that Ant uses the expected version of Java (rather than other versions of Java which may be installed on your system). Also in the <code>~/.bashrc</code> file, add this line:</p>
-<pre><code>export JAVA_HOME=&lt;path to JDK&gt;</code></pre>
-<p>(Note that you should not include the <code>bin/</code> directory in the path for <code>JAVA_HOME</code>.)</p>
+<pre><code>export PATH=&lt;path to ant&gt;/bin:&lt;path to JDK&gt;/bin:$PATH</code></pre><p>It&#39;s also advisable to set the <code>JAVA_HOME</code> environment variable, to ensure that Ant uses the expected version of Java (rather than other versions of Java which may be installed on your system). Also in the <code>~/.bashrc</code> file, add this line:</p>
+<pre><code>export JAVA_HOME=&lt;path to JDK&gt;</code></pre><p>(Note that you should not include the <code>bin/</code> directory in the path for <code>JAVA_HOME</code>.)</p>
 <p>Then refresh your <code>PATH</code> variable in the shell:</p>
-<pre><code>&gt; source ~/.bashrc</code></pre>
-<p>Note that we prepend the new paths to the <code>PATH</code> variable to ensure that we use scripts and binaries from our newly-installed packages.</p>
+<pre><code>&gt; source ~/.bashrc</code></pre><p>Note that we prepend the new paths to the <code>PATH</code> variable to ensure that we use scripts and binaries from our newly-installed packages.</p>
 <h3 id="Install-the-Android-SDK">Install the Android SDK</h3>
 
 <ol>
-<li><p>Download the Android SDK from <a href='http://developer.android.com/sdk/index.html' target='_blank'><a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a></a>.</p>
+<li><p>Download the Android SDK from <a href="http://developer.android.com/sdk/index.html" target="_blank">http://developer.android.com/sdk/index.html</a>.</p>
 </li>
 <li><p>Extract the SDK from the archive file you downloaded.</p>
 </li>
 <li><p>Add the Android SDK directories to your <code>PATH</code> by editing <code>~/.bashrc</code>:</p>
 <pre><code>export PATH=&lt;path to Android SDK&gt;:$PATH
 export PATH=&lt;path to Android SDK&gt;/tools:$PATH
-export PATH=&lt;path to Android SDK&gt;/platform-tools:$PATH</code></pre>
-<p>Note that, depending on your how you installed the SDK, the <code>tools</code> and <code>platform-tools</code> directories may be in slightly different locations. Amend the above paths appropriately.</p>
+export PATH=&lt;path to Android SDK&gt;/platform-tools:$PATH</code></pre><p>Note that, depending on your how you installed the SDK, the <code>tools</code> and <code>platform-tools</code> directories may be in slightly different locations. Amend the above paths appropriately.</p>
 </li>
 <li><p>Refresh your <code>PATH</code> variable:</p>
-<pre><code>&gt; source ~/.bashrc</code></pre>
-</li>
+<pre><code>&gt; source ~/.bashrc</code></pre></li>
 <li><p>Run the <em>SDK Manager</em>. You can do this from a bash shell as follows:</p>
-<pre><code>&gt; android</code></pre>
-</li>
+<pre><code>&gt; android</code></pre></li>
 <li><p>In the SDK Manager window, select the following items from the list:</p>
 <pre><code>[ ] Tools
   [x] Android SDK Platform-tools &lt;version&gt;
   [x] Android SDK Build tools &lt;version&gt;
 [ ] Android 4.3 (API &lt;version&gt;)
-  [x] SDK Platform</code></pre>
-<p>Note that if you are using devices with versions of Android later than 4.3, you should install the platform tools, build tools and SDK platform for those versions too.</p>
+  [x] SDK Platform</code></pre><p>Note that if you are using devices with versions of Android later than 4.3, you should install the platform tools, build tools and SDK platform for those versions too.</p>
 </li>
 </ol>
 <h3 id="Download-the-Crosswalk-Android-app-template">Download the Crosswalk Android app template</h3>
@@ -386,9 +374,7 @@ Apache Ant(TM) version 1.9.3 compiled on December 23 2013
 Python 2.7.6
 
 &gt; adb version
-Android Debug Bridge version 1.0.31</code></pre>
-<p>Now the host is setup, you can prepare your targets.</p>
-
+Android Debug Bridge version 1.0.31</code></pre><p>Now the host is setup, you can prepare your targets.</p></h3>
   <footer class="article-next">
     
 
@@ -475,7 +461,7 @@ Android Debug Bridge version 1.0.31</code></pre>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

@@ -279,8 +279,7 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Building a Crosswalk application</h1>
-<p>Crosswalk is a runtime for HTML5 applications. This means that any existing HTML5 applications should run on Crosswalk, providing they already run in a modern browser (Chrome, Firefox, Safari).</p>
+  <h1>Building a Crosswalk application</h1><p>Crosswalk is a runtime for HTML5 applications. This means that any existing HTML5 applications should run on Crosswalk, providing they already run in a modern browser (Chrome, Firefox, Safari).</p>
 <p>For the purposes of this tutorial, we use the simplest possible Crosswalk application: one HTML file.</p>
 <p>However, because Crosswalk applications are intended to integrate well with the target environment, they require an additional file, <code>manifest.json</code>, containing metadata for that purpose. The manifest can be used to specify icons to use at different resolutions, set an app description, adjust <a href="http://developer.chrome.com/extensions/contentSecurityPolicy.html">content security policy settings</a>, and otherwise configure how the app integrates with the target environment.</p>
 <h2 id="A-simple-application">A simple application</h2>
@@ -288,10 +287,10 @@
 <ol>
 <li><p>First, create a directory called <code>xwalk-simple</code> for the project:</p>
 <pre><code>&gt; mkdir xwalk-simple/
-&gt; cd xwalk-simple/</code></pre>
-</li>
+&gt; cd xwalk-simple/</code></pre></li>
 <li><p>Next, copy an icon file to that directory, to serve as the application icon. You can use this image:</p>
-<p><img src="/assets/cw-app-icon.png"></p>
+<img src="/assets/cw-app-icon.png">
+
 <p>To use this example, right click on the image and select <em>Save Image As...</em> (or its equivalent in your browser). Save it into the <code>xwalk-simple</code> directory as <code>icon.png</code>. (Note that this image is from the Crosswalk source code and is <a href="https://github.com/crosswalk-project/crosswalk/blob/master/LICENSE">BSD licensed</a>.)</p>
 <p>If you have your own favourite icon, copy that to the <code>xwalk-simple</code> directory instead. It should be 128 pixels square.</p>
 </li>
@@ -311,8 +310,7 @@
   &lt;body&gt;
     &lt;p&gt;hello world&lt;/p&gt;
   &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-</li>
+&lt;/html&gt;</code></pre></li>
 <li><p><code>manifest.json</code></p>
 <p>This contains the application metadata (see above).</p>
 <p>The content should be:</p>
@@ -328,14 +326,12 @@
       &quot;density&quot;: &quot;4.0&quot;
     }
   ]
-}</code></pre>
-<p>See <a href="/documentation/manifest.html">the manifest documentation</a> for more information.</p>
+}</code></pre><p>See <a href="/documentation/manifest.html">the manifest documentation</a> for more information.</p>
 </li>
 </ol>
 </li>
 </ol>
 <p>Once you&#39;ve done this, you&#39;re ready to run the application on a target.</p>
-
   <footer class="article-next">
     
 
@@ -422,7 +418,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

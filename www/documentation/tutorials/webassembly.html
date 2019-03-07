@@ -274,8 +274,7 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Web Assembly</h1>
-<p>WebAssembly or wasm is a new portable, size- and load-time-efficient format suitable for compilation to the web. It has the following advantages:</p>
+  <h1>Web Assembly</h1><p>WebAssembly or wasm is a new portable, size- and load-time-efficient format suitable for compilation to the web. It has the following advantages:</p>
 <ul>
 <li>Efficient and fast.</li>
 <li>Safe.</li>
@@ -286,11 +285,9 @@
 <p>In the following tutorial, you&#39;ll learn how to enable WebAssembly in Crosswalk and run the demo <a href="https://webassembly.github.io/demo/">Angrybots</a> on Windows and Android platforms.</p>
 <ol>
 <li><p>Check out the binary file of Angrybots:</p>
-<pre><code> $ git clone https://github.com/WebAssembly/webassembly.github.io.git</code></pre>
-</li>
+<pre><code> $ git clone https://github.com/WebAssembly/webassembly.github.io.git</code></pre></li>
 <li><p>Go to the demo folder of Angrybots:</p>
-<pre><code> $ cd webassembly.github.io/demo/AngryBots/</code></pre>
-</li>
+<pre><code> $ cd webassembly.github.io/demo/AngryBots/</code></pre></li>
 <li><p>Create a minimal <a href="/documentation/manifest.html">Crosswalk manifest</a> file, <code>manifest.json</code>, with this content:</p>
 <pre><code> {
    &quot;name&quot;: &quot;Angrybots&quot;,
@@ -299,26 +296,20 @@
    &quot;start_url&quot;: &quot;index.html&quot;,
    &quot;xwalk_package_id&quot;: &quot;com.wasm.angrybots&quot;,
    &quot;xwalk_command_line&quot;: &quot;--js-flags=--expose_wasm&quot;
- }</code></pre>
-</li>
+ }</code></pre></li>
 <li><p>Use <a href="https://github.com/crosswalk-project/crosswalk-app-tools">crosswalk-app-tools</a>  to create the Windows .msi file (on crosswalk 22 or above):</p>
-<pre><code> $ crosswalk-pkg -p windows --crosswalk=&quot;22.52.557.0&quot; .</code></pre>
-<p>or .apk file for Android, then <a href="https://developer.android.com/studio/publish/app-signing.html#signing-manually">sign</a> it:</p>
-<pre><code> $ crosswalk-pkg  -p android --crosswalk=&quot;22.52.557.0&quot; .</code></pre>
-</li>
+<pre><code> $ crosswalk-pkg -p windows --crosswalk=&quot;22.52.557.0&quot; .</code></pre><p>or .apk file for Android, then <a href="https://developer.android.com/studio/publish/app-signing.html#signing-manually">sign</a> it:</p>
+<pre><code> $ crosswalk-pkg  -p android --crosswalk=&quot;22.52.557.0&quot; .</code></pre></li>
 <li><p>Install the .msi file on Windows by double-clicking on it, or the apk file on Android via command line:</p>
-<pre><code> $ adb install com.wasm.angrybots-0.1-debug.armeabi-v7a.apk</code></pre>
-</li>
+<pre><code> $ adb install com.wasm.angrybots-0.1-debug.armeabi-v7a.apk</code></pre></li>
 <li><p>Run AngryBots.
 <img src="/assets/crosswalk-webassembly-angrybots.png" alt="Angrybots on Windows"></p>
 </li>
 </ol>
-<h2>Useful WebAssembly resources</h2>
-<ul>
+<h2>Useful WebAssembly resources</h2><ul>
 <li><a href="https://www.w3.org/community/webassembly/">W3C Community Group</a></li>
 <li><a href="https://github.com/WebAssembly/design">WebAssembly Design Documents</a></li>
 </ul>
-
   <footer class="article-next">
     
 
@@ -380,7 +371,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

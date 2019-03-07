@@ -130,7 +130,7 @@
   <header class="article-header">
     <h1 class="article-title">Crosswalk Project App Tools Alpha release</h1>
     <span class="article-meta">
-      <a href="crosswalk-app-tools-alpha.html"><time class="js-vagueTime" datetime="Fri, 08 May 2015 12:00:00 GMT">Fri, 08 May 2015 12:00:00 GMT</time></a>
+      <a href="crosswalk-app-tools-alpha.html"><time class="js-vagueTime" datetime="Fri, 08 May 2015 15:00:00 GMT">Fri, 08 May 2015 15:00:00 GMT</time></a>
        
         by <span class="article-author">Robert Staudinger</span>
       
@@ -139,8 +139,7 @@
   
   <p>We are happy to announce the alpha version for Crosswalk-app-tools. This is a preview milestone of our forthcoming Node.js based tools for Android app development. Deployment in a production environment is not encouraged at this time.</p>
 <p>Crosswalk-app-tools is licensed under the Apache License Version 2.0, please refer to the file LICENSE-APACHE-V2 included in the package.</p>
-<h3>Installation</h3>
-<p>Crosswalk-app-tools is cross-platform by virtue of being based on Node.js. However at this point most testing is done on Linux, so we expect the least number of hiccups there. In any case we have seen reports of successful runs on Apple OS X, and are looking forward to hearing about adventurous individuals giving it a spin on Microsoft Windows as well. (But be warned that there are known problems with proxy support on Windows, for starters)</p>
+<h3>Installation</h3><p>Crosswalk-app-tools is cross-platform by virtue of being based on Node.js. However at this point most testing is done on Linux, so we expect the least number of hiccups there. In any case we have seen reports of successful runs on Apple OS X, and are looking forward to hearing about adventurous individuals giving it a spin on Microsoft Windows as well. (But be warned that there are known problems with proxy support on Windows, for starters)</p>
 <p>The following components are required</p>
 <ol>
 <li>Android SDK with 5.0 (target-21) installed</li>
@@ -150,11 +149,8 @@
 <p>The best way to check if a machine has all the required dependencies is to create and build a plain empty Android app on the system. If this does not work, then building Crosswalk apps will not succeed either.</p>
 <pre><code>android create project -a MainActivity -k com.example.foo -p com.example.foo -t android-21
 cd com.example.foo
-ant debug</code></pre>
-<p>In order to get the <code>crosswalk-app</code> script available everywhere, global npm installation is required. On most Linux distributions this can be achieved by using <code>sudo</code>.</p>
-<pre><code>sudo npm install -g crosswalk-app-tools</code></pre>
-<h3>Usage</h3>
-<pre><code>Crosswalk Application Project and Packaging Tool
+ant debug</code></pre><p>In order to get the <code>crosswalk-app</code> script available everywhere, global npm installation is required. On most Linux distributions this can be achieved by using <code>sudo</code>.</p>
+<pre><code>sudo npm install -g crosswalk-app-tools</code></pre><h3>Usage</h3><pre><code>Crosswalk Application Project and Packaging Tool
 
     crosswalk-app create &lt;package-id&gt;           Create project &lt;package-id&gt;
 
@@ -175,17 +171,11 @@ Options for platform &#39;android&#39;
                                                 or version number (w.x.y.z)
 Environment Variables
 
-    CROSSWALK_APP_TOOLS_CACHE_DIR               Keep downloaded files in this dir</code></pre>
-<h4>Example: Create App</h4>
-<pre><code>crosswalk-app create com.example.foo</code></pre>
-<p>This sets up a skeleton project in directory com.example.foo/, downloads and imports Crosswalk, and puts a sample &quot;hello world&quot; web app under com.example.foo/app/.</p>
-<h4>Example: Build App</h4>
-<pre><code>cd com.example.foo
-crosswalk-app build</code></pre>
-<p>Builds packages. The APKs can be found under pkg/ when done.</p>
+    CROSSWALK_APP_TOOLS_CACHE_DIR               Keep downloaded files in this dir</code></pre><h4>Example: Create App</h4><pre><code>crosswalk-app create com.example.foo</code></pre><p>This sets up a skeleton project in directory com.example.foo/, downloads and imports Crosswalk, and puts a sample &quot;hello world&quot; web app under com.example.foo/app/.</p>
+<h4>Example: Build App</h4><pre><code>cd com.example.foo
+crosswalk-app build</code></pre><p>Builds packages. The APKs can be found under pkg/ when done.</p>
 <p>For more details, see the project&#39;s <a href="https://github.com/crosswalk-project/crosswalk-app-tools/blob/master/README.md">README file</a>.</p>
-<h2>Highlights</h2>
-<ul>
+<h2>Highlights</h2><ul>
 <li><p>Straightforward creation and building of app packages (APKs) for Android. Crosswalk is downloaded and integrated into the build process without user intervention.</p>
 </li>
 <li><p>Distributed via the Node Package Manager, with the Android SDK and Ant as only requirements, relying only on standard web app and Android development tools.</p>
@@ -193,18 +183,14 @@ crosswalk-app build</code></pre>
 <li><p>Extensible architecture allows for adding operating system support and package formats over time.</p>
 </li>
 </ul>
-<h2>Limitations</h2>
-<ul>
+<h2>Limitations</h2><ul>
 <li>Tested and known to work on Linux. Support for additional host operating systems coming soon (has been found to work on OS X, although there is no official support yet).</li>
 </ul>
-<h2>Upcoming features</h2>
-<ul>
+<h2>Upcoming features</h2><ul>
 <li>Support for W3C manifest.</li>
 <li>Support building release packages that can be round-trip tested via the Google Play Store.</li>
 </ul>
-<h2>Issue tracking</h2>
-<p>Bugs are tracked and fixed as quickly as possible. Please enter those you find. Crosswalk JIRA can be found at <a href="https://crosswalk-project.org/jira/">https://crosswalk-project.org/jira/</a> (&quot;App Tools&quot; component)</p>
-
+<h2>Issue tracking</h2><p>Bugs are tracked and fixed as quickly as possible. Please enter those you find. Crosswalk JIRA can be found at <a href="https://crosswalk-project.org/jira/">https://crosswalk-project.org/jira/</a> (&quot;App Tools&quot; component)</p>
   
    
      <a href="http://twitter.com/xwalk_project" class="article-promo well">
@@ -243,7 +229,7 @@ crosswalk-app build</code></pre>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

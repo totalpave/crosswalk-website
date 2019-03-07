@@ -219,14 +219,12 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Running Crosswalk tests</h1>
-<p>If you are making changes to Crosswalk in addition to building it yourself, you
+  <h1>Running Crosswalk tests</h1><p>If you are making changes to Crosswalk in addition to building it yourself, you
 should probably run Crosswalk&#39;s tests to make sure your changes do not
 introduce any regressions.</p>
 <p>This page assumes you have already built Crosswalk by following the
 platform-specific instructions on the other pages.</p>
-<h2>Simple test for Linux and Windows</h2>
-<p>If you just want to find out if your <code>xwalk</code> or (<code>xwalk.exe</code>) binary is working
+<h2>Simple test for Linux and Windows</h2><p>If you just want to find out if your <code>xwalk</code> or (<code>xwalk.exe</code>) binary is working
 as expected, you can simply pass it a manifest:</p>
 <pre><code># Linux
 cd /path/to/crosswalk-checkout/src/YOUR-BUILD-DIR
@@ -234,19 +232,15 @@ cd /path/to/crosswalk-checkout/src/YOUR-BUILD-DIR
 
 # Windows
 cd C:\path\to\crosswalk-checkout\src\YOUR-BUILD-DIR
-xwalk.exe C:\path\to\manifest.json</code></pre>
-<p>Crosswalk will parse the manifest and launch the application from the entry
+xwalk.exe C:\path\to\manifest.json</code></pre><p>Crosswalk will parse the manifest and launch the application from the entry
 point specified in <code>start_url</code>.</p>
 <p>If you don&#39;t have any HTML applications to test, the
 <a href="/documentation/samples.html">Crosswalk samples</a> includes a few you can try.</p>
-<h2>Build all available tests</h2>
-<p>The easiest way to build all Crosswalk tests, which are different and have
+<h2>Build all available tests</h2><p>The easiest way to build all Crosswalk tests, which are different and have
 different names depending on the platform, is to build the <code>xwalk_builder</code>
 target. This work for on all supported platforms (Android, Windows and Linux).</p>
 <pre><code>cd /path/to/crosswalk-checkout/src
-ninja -C YOUR-BUILD-DIR xwalk_builder</code></pre>
-<h2>Linux and Windows</h2>
-<p>On Linux and Windows, building the <code>xwalk_builder</code> target generates the
+ninja -C YOUR-BUILD-DIR xwalk_builder</code></pre><h2>Linux and Windows</h2><p>On Linux and Windows, building the <code>xwalk_builder</code> target generates the
 following executables in <code>YOUR-BUILD-DIR</code> (remember they end in <code>.exe</code> on
 Windows):</p>
 <ul>
@@ -259,8 +253,7 @@ Windows):</p>
 </ul>
 <p>Those are also target names, so if you only want to build a subset of the tests
 you can pass one of those names to ninja instead of <code>xwalk_builder</code>.</p>
-<h2>Android</h2>
-<p>At the moment, Crosswalk for Android is tested using device tests which are run
+<h2>Android</h2><p>At the moment, Crosswalk for Android is tested using device tests which are run
 directly on an Android device or emulator. These are known as <em>instrumentation
 tests</em>.</p>
 <p>The <code>xwalk_builder</code> target is actually building the following targets (and
@@ -281,13 +274,11 @@ python build/android/test_runner.py instrumentation \
        --apk-under-test BUILD-DIR/apks/XWalkCoreShell.apk \
        --output-directory BUILD-DIR \
        --test-apk BUILD-DIR/apks/XWalkCoreTest.apk \
-       --test-data xwview:xwalk/test/android/data/device_files/</code></pre>
-<p>Chromium&#39;s Android testing infrastructure is very flexible (but also quite
+       --test-data xwview:xwalk/test/android/data/device_files/</code></pre><p>Chromium&#39;s Android testing infrastructure is very flexible (but also quite
 complex). Please take some time to
 <a href="https://chromium.googlesource.com/chromium/src/+/master/docs/android_test_instructions.md">read its documentation</a>,
 which covers, for example, how to run only a subset of all tests or how to
 avoid some common setup issues with your device.</p>
-
   <footer class="article-next">
     
 
@@ -323,7 +314,7 @@ avoid some common setup issues with your device.</p>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

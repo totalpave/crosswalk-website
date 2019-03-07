@@ -235,10 +235,8 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Crosswalk App Tools</h1>
-<p>Crosswalk-app-tools is a new, NPM-based tool for creating and building Crosswalk applications. It replaces the Python-based make_apk.py script.  It is based on Node.js and therefore a cross-platform tool. Current host platforms supported are Microsoft Windows, Linux, and Apple OS X.</p>
-<h3>Pre-requisites</h3>
-<ul>
+  <h1>Crosswalk App Tools</h1><p>Crosswalk-app-tools is a new, NPM-based tool for creating and building Crosswalk applications. It replaces the Python-based make_apk.py script.  It is based on Node.js and therefore a cross-platform tool. Current host platforms supported are Microsoft Windows, Linux, and Apple OS X.</p>
+<h3>Pre-requisites</h3><ul>
 <li>Node.js</li>
 <li>NPM</li>
 <li>Android SDK with 5.0 (target-21) or later</li>
@@ -246,75 +244,55 @@
 <li>Apache Ant</li>
 </ul>
 <p>Full setup instructions are available in the <a href="/documentation/getting_started.html">Getting Started section</a>.</p>
-<h3>Installation</h3>
-<pre><code>&gt; npm install -g crosswalk-app-tools</code></pre>
-<p>Root or adminstrative priveleges may be needed.</p>
-<p>After installing, check dependencies:</p>
-<pre><code>&gt; crosswalk-app check android</code></pre>
+<h3>Installation</h3><pre><code>&gt; npm install -g crosswalk-app-tools</code></pre><p>Root or adminstrative priveleges may be needed.</p>
+<p>After installing, check dependencies:
+    &gt; crosswalk-app check android</p>
 <p>Two executables are provided:</p>
 <ul>
 <li>crosswalk-app: implements low level helper commands</li>
 <li>crosswalk-pkg: main tool for creating packages</li>
 </ul>
-<h2>Usage</h2>
-<h3>crosswalk-app</h3>
-<p> Crosswalk Project application creation and build tool</p>
+<h2>Usage</h2><h3>crosswalk-app</h3><p> Crosswalk Project application creation and build tool</p>
 <div class="usage">
  Usage: crosswalk-app &lt;options&gt;
 
-   crosswalk-app check [&lt;platforms&gt;]    Check host setup
-                                        Check all platforms if none given
-
-   crosswalk-app manifest &lt;path&gt;        Initialize web manifest in &lt;path&gt;
+<p>   crosswalk-app check [&lt;platforms&gt;]    Check host setup
+                                        Check all platforms if none given</p>
+<p>   crosswalk-app manifest &lt;path&gt;        Initialize web manifest in &lt;path&gt;
                 --package-id=&lt;pkg-id&gt;   Canonical package name e.g. com.example.foo
-                --platforms=&lt;target&gt;    Optional, e.g. &quot;windows&quot;
-
-   crosswalk-app create &lt;package-id&gt;    Create project &lt;package-id&gt;
-                 --platforms=&lt;target&gt;   Optional, e.g. &quot;windows&quot;
-
-   crosswalk-app build &lt;type&gt; [&lt;dir&gt;]   Build project to create packages
+                --platforms=&lt;target&gt;    Optional, e.g. &quot;windows&quot;</p>
+<p>   crosswalk-app create &lt;package-id&gt;    Create project &lt;package-id&gt;
+                 --platforms=&lt;target&gt;   Optional, e.g. &quot;windows&quot;</p>
+<p>   crosswalk-app build &lt;type&gt; [&lt;dir&gt;]   Build project to create packages
                                         type = [release|debug]
                                         Defaults to &quot;debug&quot; when not given
-                                        Builds in current dir by default
-
-   crosswalk-app platforms              List available target platforms
-
-   crosswalk-app help                   Display usage information
-
-   crosswalk-app version                Display version information
-
- <strong>Options for Android platform</strong>
- Usage: crosswalk-app create &#39;android&#39; &lt;options&gt;
-
-   --android-crosswalk                  Channel name (stable/beta/canary)
+                                        Builds in current dir by default</p>
+<p>   crosswalk-app platforms              List available target platforms</p>
+<p>   crosswalk-app help                   Display usage information</p>
+<p>   crosswalk-app version                Display version information</p>
+<p> <strong>Options for Android platform</strong>
+ Usage: crosswalk-app create &#39;android&#39; &lt;options&gt;</p>
+<p>   --android-crosswalk                  Channel name (stable/beta/canary)
                                         or version number (w.x.y.z)
                                         or crosswalk zip
                                         or xwalk_app_template dir
    --android-lite                       Use crosswalk-lite, see Crosswalk Wiki for details
    --android-shared                     Depend on shared crosswalk installation
-   --android-targets                    Target ABIs to create
-
- Environment variables for platform &#39;android&#39;
-
-   CROSSWALK_APP_TOOLS_CACHE_DIR        Keep downloaded files in this dir
-
- Options for &#39;build&#39; command
- Usage: crosswalk-app build &lt;options&gt;
-
-   --android-targets                    Target ABIs to build
-
- <strong>Options for Windows platform</strong>
-
-   --windows-crosswalk                  Path to crosswalk zip
-
+   --android-targets                    Target ABIs to create</p>
+<p> Environment variables for platform &#39;android&#39;</p>
+<p>   CROSSWALK_APP_TOOLS_CACHE_DIR        Keep downloaded files in this dir</p>
+<p> Options for &#39;build&#39; command
+ Usage: crosswalk-app build &lt;options&gt;</p>
+<p>   --android-targets                    Target ABIs to build</p>
+<p> <strong>Options for Windows platform</strong></p>
+<p>   --windows-crosswalk                  Path to crosswalk zip</p>
 </div>
 
-<h3>crosswalk-pkg</h3>
-<p> Crosswalk Project application packaging tool</p>
+<h3>crosswalk-pkg</h3><p> Crosswalk Project application packaging tool</p>
 <div class="usage">
  Usage: crosswalk-pkg &lt;options&gt; &lt;path&gt;
 
-  &lt;options&gt;
+<p>  &lt;options&gt;
     -a --android=&lt;android-conf&gt;      Extra configurations for Android
     -c --crosswalk=&lt;version-spec&gt;    Specify Crosswalk version or path
     -h --help                        Print usage information
@@ -323,46 +301,35 @@
     -p --platforms=&lt;android|windows&gt; Specify target platform
     -r --release                     Build release packages
     -t --targets=&lt;target-archs&gt;      Target CPU architectures
-    -v --version                     Print tool version
-
-  &lt;path&gt;
-    Path to directory that contains a web app
-
-  &lt;android-conf&gt;
+    -v --version                     Print tool version</p>
+<p>  &lt;path&gt;
+    Path to directory that contains a web app</p>
+<p>  &lt;android-conf&gt;
     Quoted string with extra config, e.g. &quot;shared&quot;
       &quot;shared&quot;  Build APK that depends on crosswalk in the Google Play Store
-      &quot;lite&quot;    Use crosswalk-lite, see Crosswalk Wiki
-
-  &lt;package-id&gt;
-    Canonical application name, e.g. com.example.foo, needs to
-     - contain 3 or more period-separated parts
-     - begin with lowecase letters
-
-  &lt;target-archs&gt;
+      &quot;lite&quot;    Use crosswalk-lite, see Crosswalk Wiki</p>
+<p>  &lt;package-id&gt;
+    Canonical application name, e.g. com.example.foo, needs to</p>
+<pre><code> - contain 3 or more period-separated parts
+ - begin with lowecase letters</code></pre><p>  &lt;target-archs&gt;
     List of CPU architectures for which to create packages.
-    Currently supported ABIs are: armeabi-v7a, arm64-v8a, x86, x86_64
-     - Prefixes will be matched, so &quot;a&quot;,&quot;ar&quot;, or &quot;arm&quot; yield both ARM APKs
-     - Same for &quot;x&quot; and &quot;x8&quot;, but &quot;x86&quot; is an exact match, only x86-32 conforms
-     - Short-hands &quot;32&quot; and &quot;64&quot; build ARM and x86 for the requested word size
-     - Default behavior is equivalent to &quot;32&quot;, creation of 32-bit installers
-    Example: --targets=&quot;arm x86&quot; builds both ARM plus 32-bit x86 packages
-
-  &lt;version-spec&gt;
-     - Channel name, i.e. stable/beta/canary
-     - Version number, e.g. 14.43.343.25
-     - Path to release, e.g. $HOME/Downloads/crosswalk-14.43.343.25.zip
-     - Path to build, e.g. crosswalk/src/out/Release/xwalk_app_template
-    When passing a local file or directory, only the contained ABIs can be built.
-    See &lt;target-archs&gt; for details.
-
-  Environment variables
-    CROSSWALK_APP_TOOLS_CACHE_DIR=&lt;path&gt;: Keep downloaded files in this dir
-
+    Currently supported ABIs are: armeabi-v7a, arm64-v8a, x86, x86_64</p>
+<pre><code> - Prefixes will be matched, so &quot;a&quot;,&quot;ar&quot;, or &quot;arm&quot; yield both ARM APKs
+ - Same for &quot;x&quot; and &quot;x8&quot;, but &quot;x86&quot; is an exact match, only x86-32 conforms
+ - Short-hands &quot;32&quot; and &quot;64&quot; build ARM and x86 for the requested word size
+ - Default behavior is equivalent to &quot;32&quot;, creation of 32-bit installers
+Example: --targets=&quot;arm x86&quot; builds both ARM plus 32-bit x86 packages</code></pre><p>  &lt;version-spec&gt;</p>
+<pre><code> - Channel name, i.e. stable/beta/canary
+ - Version number, e.g. 14.43.343.25
+ - Path to release, e.g. $HOME/Downloads/crosswalk-14.43.343.25.zip
+ - Path to build, e.g. crosswalk/src/out/Release/xwalk_app_template
+When passing a local file or directory, only the contained ABIs can be built.
+See &amp;lt;target-archs&amp;gt; for details.</code></pre><p>  Environment variables
+    CROSSWALK_APP_TOOLS_CACHE_DIR=&lt;path&gt;: Keep downloaded files in this dir</p>
 </div>
 
 
-<h2>Example: Creating and packaging an application</h2>
-<p>To get started, all you need is a web manifest and an html file. The web manifest holds name and settings for your application. A minimal manifest.json looks like this:</p>
+<h2>Example: Creating and packaging an application</h2><p>To get started, all you need is a web manifest and an html file. The web manifest holds name and settings for your application. A minimal manifest.json looks like this:</p>
 <pre><code>{
   "name": "My first Crosswalk application",
   "start_url": "index.html",
@@ -377,13 +344,9 @@
       &lt;title&gt;My first Crosswalk application&lt;/title&gt;
    &lt;/head&gt;
    &lt;body&gt;This is my first Crosswalk application&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<p>Finally, time to create the apk package:</p>
-<pre><code>&gt; crosswalk-pkg &lt;path&gt;</code></pre>
-<p>This sets up a skeleton project, downloads and imports Crosswalk, and creates a package using the files above.</p>
-<h2>License</h2>
-<p>The license for this project is the Apache License Version 2.0, please refer to the LICENSE-APACHE-V2 included with the package for details.</p>
-
+&lt;/html&gt;</code></pre><p>Finally, time to create the apk package:</p>
+<pre><code>&gt; crosswalk-pkg &lt;path&gt;</code></pre><p>This sets up a skeleton project, downloads and imports Crosswalk, and creates a package using the files above.</p>
+<h2>License</h2><p>The license for this project is the Apache License Version 2.0, please refer to the LICENSE-APACHE-V2 included with the package for details.</p>
   <footer class="article-next">
     
 
@@ -419,7 +382,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

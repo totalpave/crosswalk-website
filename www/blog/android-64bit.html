@@ -130,7 +130,7 @@
   <header class="article-header">
     <h1 class="article-title">Crosswalk for 64-bit Android Devices</h1>
     <span class="article-meta">
-      <a href="android-64bit.html"><time class="js-vagueTime" datetime="Fri, 06 Nov 2015 12:00:00 GMT">Fri, 06 Nov 2015 12:00:00 GMT</time></a>
+      <a href="android-64bit.html"><time class="js-vagueTime" datetime="Fri, 06 Nov 2015 16:00:00 GMT">Fri, 06 Nov 2015 16:00:00 GMT</time></a>
        
         by <span class="article-author">Crosswalk Team</span>
       
@@ -138,18 +138,13 @@
   </header>
   
   <p>Android devices with 64-bit CPUs, such as the Nexus 9 and the Lenovo P90, are increasingly entering the market. To fully support this new generation of devices, 64-bit builds of the Crosswalk for Android binaries are now available in our Canary and Beta channels, as well as the Google Play Store. When using the 64-bit version of the runtime, Crosswalk applications can take full advantage of the modern CPUs found in the latest Android mobile devices.</p>
-<h2>Why should you care?</h2>
-<p>Depending on their functionality, applications optimized for 64-bit architectures can run slightly faster on 64-bit CPUs than their 32-bit counterparts. Aside from the performance benefit, there are cases where using 64-bit Crosswalk is mandatory for your application to work. For example, if your application is using another library that is optimized for 64-bit, using the 32-bit version of Crosswalk will cause the build to fail.</p>
-<h2>How to create 64-bit versions of Crosswalk applications</h2>
-<p>By default, Crosswalk applications are packaged for 32-bit architectures. Now it is possible to specify 64-bit targets for both ARM and x86 using the <code>-t &lt;target-archs&gt;</code> option in the <code>crosswalk-pkg</code> command. For example, use the command below to build 64-bit packages for both ARM and x86:</p>
-<pre><code>$ crosswalk-pkg -c beta -t 64 /path/to/app</code></pre>
-<p>At the moment you need to specify either the Beta or Canary channel because 64-bit support is not yet available from the stable releases.</p>
+<h2>Why should you care?</h2><p>Depending on their functionality, applications optimized for 64-bit architectures can run slightly faster on 64-bit CPUs than their 32-bit counterparts. Aside from the performance benefit, there are cases where using 64-bit Crosswalk is mandatory for your application to work. For example, if your application is using another library that is optimized for 64-bit, using the 32-bit version of Crosswalk will cause the build to fail.</p>
+<h2>How to create 64-bit versions of Crosswalk applications</h2><p>By default, Crosswalk applications are packaged for 32-bit architectures. Now it is possible to specify 64-bit targets for both ARM and x86 using the <code>-t &lt;target-archs&gt;</code> option in the <code>crosswalk-pkg</code> command. For example, use the command below to build 64-bit packages for both ARM and x86:</p>
+<pre><code>$ crosswalk-pkg -c beta -t 64 /path/to/app</code></pre><p>At the moment you need to specify either the Beta or Canary channel because 64-bit support is not yet available from the stable releases.</p>
 <p>If you are using Crosswalk in shared mode, your application will automatically download the 64-bit optimized version of Crosswalk from the Play Store and no special action is required when packaging.</p>
 <p>Note: support for 64-bit is not yet available in the Crosswalk Cordova Webview plugin and will be enabled soon.</p>
-<h2>Uploading 64-bit apps to the Play Store</h2>
-<p>If you are bundling Crosswalk with your application, the Crosswalk App Tool will build architecture-specific packages for both ARM64 and x86_64 with the correct version code. You can upload these to the Play Store and they will be automatically downloaded by compatible devices.</p>
+<h2>Uploading 64-bit apps to the Play Store</h2><p>If you are bundling Crosswalk with your application, the Crosswalk App Tool will build architecture-specific packages for both ARM64 and x86_64 with the correct version code. You can upload these to the Play Store and they will be automatically downloaded by compatible devices.</p>
 <p>For more information, see the <a href="/documentation/android/android_64bit.html">documentation</a>.</p>
-
   
    
      <a href="http://twitter.com/xwalk_project" class="article-promo well">
@@ -188,7 +183,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

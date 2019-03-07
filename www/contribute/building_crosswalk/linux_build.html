@@ -219,41 +219,33 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Linux build instructions</h1>
-<h2>Requirements</h2>
-<p>These instructions assume you have already downloaded <code>depot_tools</code> and that it
+  <h1>Linux build instructions</h1><h2>Requirements</h2><p>These instructions assume you have already downloaded <code>depot_tools</code> and that it
 is in your <code>PATH</code> environment variable. See the
 <a href="prerequisites.html">prerequisites</a> page for further information.</p>
 <p>Additionally, you are expected to be using a 64-bit Linux installation.</p>
-<h2>Configure gyp</h2>
-<p>Older (&lt; 23) Crosswalk versions are based on Chromium releases that use gyp as
+<h2>Configure gyp</h2><p>Older (&lt; 23) Crosswalk versions are based on Chromium releases that use gyp as
 their meta-build system.</p>
 <p>If you want to build one of those versions, make sure you follow the gyp setup
 in the section <strong>Crosswalk 22 and earlier: gyp setup</strong> at the end of this page
 if you would like to build for a different CPU architecture or adjust any build
 parameters.</p>
-<h2>Fetching the source code</h2>
-<ol>
+<h2>Fetching the source code</h2><ol>
 <li><p>Choose where you want to download and build Crosswalk. If you are using gyp
 and opted for having a <code>chromium.gyp_env</code> file, this directory must contain
 that file.</p>
-<pre><code>cd /path/to/crosswalk-checkout</code></pre>
-</li>
+<pre><code>cd /path/to/crosswalk-checkout</code></pre></li>
 <li><p>Generate a <code>.gclient</code> file. This tells <code>gclient</code> where to fetch Crosswalk
 from. It assumes <code>depot_tools</code> is in your <code>PATH</code> variable.</p>
-<pre><code> gclient config --name src/xwalk https://github.com/crosswalk-project/crosswalk.git</code></pre>
-</li>
+<pre><code> gclient config --name src/xwalk https://github.com/crosswalk-project/crosswalk.git</code></pre></li>
 <li><p>Run <code>gclient sync</code> to fetch Crosswalk, all other git repositories it depends
 on as well as any additional helper files. If you are using Crosswalk 22 or
 earlier, this will also automatically run the <code>gyp_xwalk</code> script in the end.</p>
-<pre><code> gclient sync</code></pre>
-<p> Do not worry if <code>gyp_xwalk</code> fails due to missing dependencies; installing
+<pre><code> gclient sync</code></pre><p> Do not worry if <code>gyp_xwalk</code> fails due to missing dependencies; installing
  them is covered in a later section, after which you can run <code>gyp_xwalk</code>
  manually again.</p>
 </li>
 </ol>
-<h2>Dependency installation</h2>
-<p>The Crosswalk for Linux build requires several packages to be present on your
+<h2>Dependency installation</h2><p>The Crosswalk for Linux build requires several packages to be present on your
 Linux installation. All dependencies are checked for at configuration time --
 either when <code>gyp_xwalk</code> or <code>gn gen</code> (or <code>gn args</code>) is run, so if something is
 missing on your system you will get an error before you are able to start
@@ -261,14 +253,12 @@ building.</p>
 <p>If you are using Ubuntu or another Debian-based distribution, you can use
 Chromium&#39;s <code>install-build-deps-android.sh</code> script to install all dependencies:</p>
 <pre><code>cd /path/to/crosswalk-checkout/src
-./build/install-build-deps-android.sh</code></pre>
-<p>Users of other distros can take a look at <code>src/build/install-build-deps.sh</code> and
+./build/install-build-deps-android.sh</code></pre><p>Users of other distros can take a look at <code>src/build/install-build-deps.sh</code> and
 <code>src/build/install-build-deps-android.sh</code> to see which packages are listed and
 install the analogous versions shipped by their distributions.</p>
 <p>If you are using gyp, make sure you call <code>gyp_xwalk</code> again once everything has
 been installed.</p>
-<h2>Crosswalk 23 and later: GN setup</h2>
-<p>Starting with Crosswalk 23, GN has replaced gyp as the meta-build system for
+<h2>Crosswalk 23 and later: GN setup</h2><p>Starting with Crosswalk 23, GN has replaced gyp as the meta-build system for
 both Chromium and Crosswalk. Its setup is a bit different compared to gyp, as
 <code>chromium.gyp_env</code> (and the <code>GYP_DEFINES</code> environment variable) does not have
 any effect, and the <code>gyp_xwalk</code> is not used.</p>
@@ -277,10 +267,8 @@ as generate the files required by Ninja to build.</p>
 <p>In order to build Crosswalk, you need to have at least one line in your
 settings to pull some default variables we set:</p>
 <pre><code>cd /path/to/crosswalk-checkout
-gn args out/Default</code></pre>
-<p>A text editor will be shown, where you must add the following line:</p>
-<pre><code>import(&quot;//xwalk/build/linux.gni&quot;)</code></pre>
-<p>You can add other settings after this statement, such as <code>is_debug = false</code> for
+gn args out/Default</code></pre><p>A text editor will be shown, where you must add the following line:</p>
+<pre><code>import(&quot;//xwalk/build/linux.gni&quot;)</code></pre><p>You can add other settings after this statement, such as <code>is_debug = false</code> for
 a release build or <code>target_cpu = &quot;arm&quot;</code> to create a 32-bit ARM build.</p>
 <p>Once you have done this once, you can later call <code>gn gen out/Default</code> to just
 regenerate the ninja files based on your existing settings if you need to (most
@@ -288,8 +276,7 @@ of the time, this will be done automatically for you when building).</p>
 <p>See Chromium&#39;s
 <a href="https://www.chromium.org/developers/gn-build-configuration">page about GN</a> for
 more information, including other common settings.</p>
-<h2>Crosswalk 22 and earlier: gyp setup</h2>
-<p>Up to Crosswalk 22, both Chromium and Crosswalk used gyp as a meta-build system
+<h2>Crosswalk 22 and earlier: gyp setup</h2><p>Up to Crosswalk 22, both Chromium and Crosswalk used gyp as a meta-build system
 that generated the actual build system files used by ninja.</p>
 <p>gyp accepts flags to change its behavior. They can be used to tell it you want
 to create a 32-bit build, for example.</p>
@@ -300,8 +287,7 @@ later call <code>gclient config</code> and <code>gclient sync</code> (so the one
 It needs to look like this:</p>
 <pre><code> {
    &#39;GYP_DEFINES&#39;: &#39;key1=value1 key2=value2&#39;,
- }</code></pre>
-</li>
+ }</code></pre></li>
 <li><p>Use <code>export</code> in your shell to set the <code>GYP_DEFINES</code> environment variable.</p>
 </li>
 </ol>
@@ -312,28 +298,25 @@ to <code>x86</code>. For example, if you are using <code>chromium.gyp_env</code>
 look like this:</p>
 <pre><code>{
   &#39;GYP_DEFINES&#39;: &#39;target_arch=x86,
-}</code></pre>
-<p>Do not forget to run <code>src/xwalk/gyp_xwalk</code> (it is run automatically with
+}</code></pre><p>Do not forget to run <code>src/xwalk/gyp_xwalk</code> (it is run automatically with
 <code>gclient sync</code>) whenever you modify your gyp flags, otherwise your changes will
 have no effect.</p>
-<h2>Building Crosswalk</h2>
-<p>Once either gyp or GN has been properly configured, it is time to build
+<h2>Building Crosswalk</h2><p>Once either gyp or GN has been properly configured, it is time to build
 Crosswalk.</p>
 <pre><code>cd C:\path\to\crosswalk-checkout\src
-ninja -C YOUR-BUILD-DIR xwalk</code></pre>
-<p>You should replace <strong>YOUR-BUILD-DIR</strong> above with the appropriate directory
-created with gyp or GN:
-<em> With gyp and a 32-bit build, it&#39;s <code>out/Release</code>.
-</em> With gyp and a 64-bit build, it&#39;s <code>out/Release_x64</code>.
-* With GN, it&#39;s whatever directory you chose, such as <code>out/Default</code>.</p>
-<h2>Chromium information</h2>
-<p>Most of the instructions described in this page are similar to Chromium&#39;s own
+ninja -C YOUR-BUILD-DIR xwalk</code></pre><p>You should replace <strong>YOUR-BUILD-DIR</strong> above with the appropriate directory
+created with gyp or GN:</p>
+<ul>
+<li>With gyp and a 32-bit build, it&#39;s <code>out/Release</code>.</li>
+<li>With gyp and a 64-bit build, it&#39;s <code>out/Release_x64</code>.</li>
+<li>With GN, it&#39;s whatever directory you chose, such as <code>out/Default</code>.</li>
+</ul>
+<h2>Chromium information</h2><p>Most of the instructions described in this page are similar to Chromium&#39;s own
 instructions. We suggest you take a look at its instructions as well; it might
 help solve any questions you have after reading our documentation.</p>
 <ul>
 <li><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md">Chromium Linux build instructions</a></li>
 </ul>
-
   <footer class="article-next">
     
 
@@ -369,7 +352,7 @@ help solve any questions you have after reading our documentation.</p>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

@@ -244,30 +244,25 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Using Crosswalk Lite</h1>
-<p>Building your application with Crosswalk Lite, or &quot;Lite&quot;, is the same as the normal Crosswalk build.  For details on setting up your development system, see the <a href="/documentation/getting_started.html">Getting Started page</a>.  The NPM-based <code>crosswalk-app-tools</code> is the packaging tool for creating Crosswalk applications. For details on the tool, refer to <a href="/documentation/crosswalk-app-tools.html">Usage of crosswalk-app-tools</a>.</p>
-<h2>Build with Lite</h2>
-<p>To build your application with Lite, add the <code>--android=&quot;lite&quot;</code> parameter to the packaging command:</p>
+  <h1>Using Crosswalk Lite</h1><p>Building your application with Crosswalk Lite, or &quot;Lite&quot;, is the same as the normal Crosswalk build.  For details on setting up your development system, see the <a href="/documentation/getting_started.html">Getting Started page</a>.  The NPM-based <code>crosswalk-app-tools</code> is the packaging tool for creating Crosswalk applications. For details on the tool, refer to <a href="/documentation/crosswalk-app-tools.html">Usage of crosswalk-app-tools</a>.</p>
+<h2>Build with Lite</h2><p>To build your application with Lite, add the <code>--android=&quot;lite&quot;</code> parameter to the packaging command:</p>
 <pre><code class="language-cmdline">$ crosswalk-pkg --android=&quot;lite&quot; &lt;your webapp path&gt;</code></pre>
 <p><code>crosswalk-pkg</code> will download the Lite engine and create an APK of your application.</p>
-<h3>Download Crosswalk-Lite Manually</h3>
-<p>Alternatively, you can manually download the Lite engine from the <a href="https://download.01.org/crosswalk/releases/crosswalk-lite/android/canary/latest/">build directory</a> onto your local machine and then run:</p>
+<h3>Download Crosswalk-Lite Manually</h3><p>Alternatively, you can manually download the Lite engine from the <a href="https://download.01.org/crosswalk/releases/crosswalk-lite/android/canary/latest/">build directory</a> onto your local machine and then run:</p>
 <pre><code class="language-cmdline">$ crosswalk-pkg --android=&quot;lite&quot; \
                 --crosswalk=&lt;downloads path&gt;/crosswalk-17.46.455.1.zip \
-                &lt;your webapp path&gt;</code></pre>
+                &lt;your webapp path&gt; </code></pre>
 <p>Additional build versions can be found in the <a href="https://download.01.org/crosswalk/releases/crosswalk-lite/android/canary/">build output directory</a></p>
 <p>Lite can only be bundled with your application in the standard &quot;embedded mode&quot; where the Lite library is added to your APK. <a href="/documentation/shared_mode.html">Shared mode</a> is not supported.</p>
-<h2>Embedding Lite webview</h2>
-<p>Developers can embed the Lite webview in their Java-based Android projects just as they could with Crosswalk. For details on embedding, see <a href="https://crosswalk-project.org/documentation/android/embedding_crosswalk.html">Embedding the Crosswalk Project</a> and <a href="https://crosswalk-project.org/documentation/android/embedding_crosswalk/crosswalk_aar.html">Developing with Crosswalk AAR</a>. One difference with Lite is <code>onXWalkReady()</code>, described <a href="#onXwalkReady">below</a>.</p>
+<h2>Embedding Lite webview</h2><p>Developers can embed the Lite webview in their Java-based Android projects just as they could with Crosswalk. For details on embedding, see <a href="https://crosswalk-project.org/documentation/android/embedding_crosswalk.html">Embedding the Crosswalk Project</a> and <a href="https://crosswalk-project.org/documentation/android/embedding_crosswalk/crosswalk_aar.html">Developing with Crosswalk AAR</a>. One difference with Lite is <code>onXWalkReady()</code>, described <a href="#onXwalkReady">below</a>.</p>
 <p>Starting with Lite v17, we added the maven server for Lite. We now have 2 separate maven URLs for Crosswalk and Crosswalk Lite. Make sure the maven URL in your project is for Crosswalk Lite instead of Crosswalk.</p>
 <ul>
 <li>Crosswalk: <a href="https://download.01.org/crosswalk/releases/crosswalk/android/maven2/">https://download.01.org/crosswalk/releases/crosswalk/android/maven2/</a> </li>
 <li>Crosswalk Lite: <a href="https://download.01.org/crosswalk/releases/crosswalk-lite/android/maven2/">https://download.01.org/crosswalk/releases/crosswalk-lite/android/maven2/</a></li>
 </ul>
-<p>The latest Lite release build can be found in:<br/> 
+<p>The latest Lite release build can be found in:<br> 
  <a href="https://download.01.org/crosswalk/releases/crosswalk-lite/android/canary/latest/">https://download.01.org/crosswalk/releases/crosswalk-lite/android/canary/latest/</a></p>
-<h3><a class="doc-anchor" id="onXwalkReady"></a>New API: <code>org.xwalk.core.XWalkActivity.onXWalkReady()</code></h3>
-<p>The <code>onXwalkReady</code> API was introduced to check whether the Crosswalk environment is available to use. The Crosswalk environment is not available under two scenarios:</p>
+<h3><a class="doc-anchor" id="onXwalkReady"></a>New API: <code>org.xwalk.core.XWalkActivity.onXWalkReady()</code></h3><p>The <code>onXwalkReady</code> API was introduced to check whether the Crosswalk environment is available to use. The Crosswalk environment is not available under two scenarios:</p>
 <ul>
 <li>Shared mode: Need download from app store like Google Play</li>
 <li>Crosswalk-Lite: <code>libxwalkcore.so</code> is compressed with LZMA and needs to be decompressed first.</li>
@@ -309,12 +304,9 @@ public class MainActivity extends XWalkActivity {
         //initXWalkView in onXWalkReady().
         initXWalkView();
     }
-}</code></pre>
-<h2>Running a Lite Application</h2>
-<p>The first time an application runs that has been built with Lite, <code>libxwalkcore.so</code> must be decompressed. The following dialog is displayed for a couple of seconds:
-  <img src='/assets/crosswalk-lite-uncompress-dialog.png' style="display: block; margin: 0 auto; width: 50%"/>
+}</code></pre><h2>Running a Lite Application</h2><p>The first time an application runs that has been built with Lite, <code>libxwalkcore.so</code> must be decompressed. The following dialog is displayed for a couple of seconds:
+  <img src="/assets/crosswalk-lite-uncompress-dialog.png" style="display: block; margin: 0 auto; width: 50%">
 This is only displayed the first time.</p>
-
   <footer class="article-next">
     
 
@@ -361,7 +353,7 @@ This is only displayed the first time.</p>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

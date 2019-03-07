@@ -274,17 +274,14 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>WebVR</h1>
-<p>This short tutorial describes how to bundle some of the nifty sample applications recently released (Dec 2015) as part of the <a href="https://aframe.io/">A-Frame</a> project, authored by Mozilla&#39;s VR team (<a href="http://mozvr.com/">MozVR</a>). Your system should already be <a href="/documentation/android/system_setup.html">set up for Crosswalk development</a>.</p>
-<h2>Background</h2>
-<p>Virtual Reality has garnered increased attention in the past year, from <a href="https://www.google.com/get/cardboard/">Google Cardboard</a> on the low end to <a href="https://www.oculus.com/en-us/rift/">Oculus Rift</a> or <a href="https://www.epson.com/cgi-bin/Store/jsp/Landing/moverio-augmented-reality-smart-glasses.do">Moverio glasses/headsets</a> on the high end. The immersive, 3-dimensional visual experience gives consumers the feeling they are in the scene. Given the advances in viewing devices and APIs, the technology, while still in the early stages, promises to shake up how we consume media and interact in the digital world.</p>
+  <h1>WebVR</h1><p>This short tutorial describes how to bundle some of the nifty sample applications recently released (Dec 2015) as part of the <a href="https://aframe.io/">A-Frame</a> project, authored by Mozilla&#39;s VR team (<a href="http://mozvr.com/">MozVR</a>). Your system should already be <a href="/documentation/android/system_setup.html">set up for Crosswalk development</a>.</p>
+<h2>Background</h2><p>Virtual Reality has garnered increased attention in the past year, from <a href="https://www.google.com/get/cardboard/">Google Cardboard</a> on the low end to <a href="https://www.oculus.com/en-us/rift/">Oculus Rift</a> or <a href="https://www.epson.com/cgi-bin/Store/jsp/Landing/moverio-augmented-reality-smart-glasses.do">Moverio glasses/headsets</a> on the high end. The immersive, 3-dimensional visual experience gives consumers the feeling they are in the scene. Given the advances in viewing devices and APIs, the technology, while still in the early stages, promises to shake up how we consume media and interact in the digital world.</p>
 <p>VR for web applications has been promoted by <a href="http://threejs.org/">three.js</a>, a JavaScript library for 3D animations and graphics, and a lot of great examples using three.js can be found online. <a href="http://aframe.io">A-Frame</a> was released in Dec 2015 and simplifies the task of creating and navigating basic 3D objects with just markup. No WebGL experience required. It is a nice way to get your feet wet.</p>
-<h2>From A-Frame Samples to Android Applications</h2>
-<p>If you want to see how these applications will work on your phone, you can open up Chrome on your phone and navigate to <a href="http://aframe.io">http://aframe.io</a>. Click the glasses icon in the bottom corner of any of the samples to split the screen:</p>
-<p><img src="/assets/hello-world-in-chrome.png" style="margin:0 auto;display:block;" /></p>
+<h2>From A-Frame Samples to Android Applications</h2><p>If you want to see how these applications will work on your phone, you can open up Chrome on your phone and navigate to <a href="http://aframe.io">http://aframe.io</a>. Click the glasses icon in the bottom corner of any of the samples to split the screen:</p>
+<img src="/assets/hello-world-in-chrome.png" style="margin:0 auto;display:block">
+
 <p>Using Crosswalk we can convert these samples to Android applications (Kudos to Pablo Mendigochea for his webinar on <a href="https://www.youtube.com/watch?v=Tt-pX1JMt60">How to use Crosswalk with Moverio</a>).</p>
-<h3>Create an app</h3>
-<ol>
+<h3>Create an app</h3><ol>
 <li><p>Download the full project source from the <a href="https://github.com/aframevr/aframe">A-Frame github</a> repo:</p>
 <p><strong><a href="https://github.com/aframevr/aframe/archive/master.zip">aframe-master.zip</a></strong></p>
 <p>Unzip the file.</p>
@@ -296,22 +293,19 @@
 <ul>
 <li><p>Investigate the <code>index.html</code> file and note any resources that are not included in the directory. In the Composite index.html we see there are 2 resources pulled from other locations:</p>
 <pre><code>&lt;script src=&quot;../../dist/aframe.js&quot;&gt;&lt;/script&gt;
-&lt;a-sky src=&quot;../_skies/lake.jpg&quot;&gt;&lt;/a-sky&gt;</code></pre>
-</li>
+&lt;a-sky src=&quot;../_skies/lake.jpg&quot;&gt;&lt;/a-sky&gt;</code></pre></li>
 <li><p>Find these resources in the master tree and copy them to your new folder.</p>
 <pre><code class="language-cmdline">&gt; cp ./aframe-master/dist/aframe.min.js ~/src/showcase-composite/
 &gt; cp ./aframe-master/examples/_skies/lake.jpg ~/src/showcase-composite/</code></pre>
 <p>aframe.min.js can also be used online:</p>
-<pre><code>&lt;script src=&quot;https://aframe.io/releases/latest/aframe.min.js&quot;&gt;&lt;/script&gt;</code></pre>
-</li>
+<pre><code>&lt;script src=&quot;https://aframe.io/releases/latest/aframe.min.js&quot;&gt;&lt;/script&gt;</code></pre></li>
 <li><p>Update the index.html to reference the local versions.  In our case:</p>
 <pre><code>&lt;script src=&quot;aframe.min.js&quot;&gt;&lt;/script&gt;
-&lt;a-sky src=&quot;lake.jpg&quot;&gt;&lt;/a-sky&gt;</code></pre>
-</li>
+&lt;a-sky src=&quot;lake.jpg&quot;&gt;&lt;/a-sky&gt;</code></pre></li>
 </ul>
 </li>
 <li><p>Copy an icon to your project folder. Name it &quot;icon.png&quot; or whatever you call it in the manifest.json file (next step). Here is an icon you can use:</p>
-<p><img src="/assets/cw-app-icon.png" style="width:128px; margin:0 auto;display:block;" /></p>
+<img src="/assets/cw-app-icon.png" style="width:128px; margin:0 auto;display:block">
 </li>
 <li><p>Create a manifest.json file for the project. In our example:</p>
 <pre><code>{
@@ -325,19 +319,19 @@
     &quot;sizes&quot;: &quot;72x72&quot;
    }
  ]
-}</code></pre>
-</li>
+}</code></pre></li>
 <li><p>Build the apk and install</p>
 <pre><code class="language-cmdline">&gt; crosswalk-pkg ./showcase-composite/
 &gt; adb install -r &lt;apk for your architecture&gt;</code></pre>
 </li>
 <li><p>On your device, run the program. Below is what the Composite application looks like. As you move your phone around, the accelerometer will adjust the view. Drop your phone into Google Cardboard and take a trip to beautiful Portland!</p>
-<p><img src="/assets/aframe-composite.jpg" style="margin:0 auto;display:block;" /></p>
+<img src="/assets/aframe-composite.jpg" style="margin:0 auto;display:block">
+
 </li>
 </ol>
-<h2>All-in-one</h2>
-<p>If you would like to try all the applications on your phone without individually building each one, we created an &quot;All-in-one&quot; application:</p>
-<p><img src="/assets/aframe-allinone.jpg" style="width: 50%; margin:0 auto;display:block;" /></p>
+<h2>All-in-one</h2><p>If you would like to try all the applications on your phone without individually building each one, we created an &quot;All-in-one&quot; application:</p>
+<img src="/assets/aframe-allinone.jpg" style="width: 50%; margin:0 auto;display:block">
+
 <ol>
 <li><p>Download <a href="/assets/aframe-allinone.zip">aframe-allinone.zip</a>. Unzip it.</p>
 </li>
@@ -349,7 +343,6 @@
 &gt; adb install -r &lt;apk for your architecture&gt;</code></pre>
 </li>
 </ol>
-
   <footer class="article-next">
     
 
@@ -417,7 +410,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

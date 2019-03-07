@@ -294,13 +294,10 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Launch screen</h1>
-<p>The launch screen is a static user interface shown immediately after the application is launched. The launch screen will then be hidden at the point when the application&#39;s &quot;real&quot; user interface can be constructed: i.e. when the application and any required resources have loaded.</p>
+  <h1>Launch screen</h1><p>The launch screen is a static user interface shown immediately after the application is launched. The launch screen will then be hidden at the point when the application&#39;s &quot;real&quot; user interface can be constructed: i.e. when the application and any required resources have loaded.</p>
 <p>Because the launch screen allows a user to view application content almost immediately, it can greatly improve their perception of the application&#39;s performance and generally improve the user experience.</p>
-<h2>The full specification</h2>
-<p><a href="https://docs.google.com/a/intel.com/document/d/17PuNuHRTQuREUpaCvj-eEx7uYi2avd-VW-oaMXMpvwo/edit">Interstitial launch screens</a>.</p>
-<h2>Definition of the manifest property</h2>
-<p>The launch screen property in the manifest is called <code>xwalk_launch_screen</code> and is defined as follows:</p>
+<h2>The full specification</h2><p><a href="https://docs.google.com/a/intel.com/document/d/17PuNuHRTQuREUpaCvj-eEx7uYi2avd-VW-oaMXMpvwo/edit">Interstitial launch screens</a>.</p>
+<h2>Definition of the manifest property</h2><p>The launch screen property in the manifest is called <code>xwalk_launch_screen</code> and is defined as follows:</p>
 <pre><code>&quot;xwalk_launch_screen&quot;: {
   &quot;ready_when&quot;: &quot;first-paint | complete | custom&quot;,
   &quot;default | portrait | landscape&quot;: {
@@ -309,8 +306,7 @@
      &quot;image&quot;: &quot;foo.png [1x, foo-2x.png 2x]&quot;,
      &quot;image_border&quot;: &quot;30px [30px 30px 30px] [repeat | stretch | round] [repeat | stretch | round]&quot;
    }
-}</code></pre>
-<p>Example:</p>
+}</code></pre><p>Example:</p>
 <pre><code>&quot;xwalk_launch_screen&quot;: {
   &quot;ready_when&quot;: &quot;custom&quot;,
   &quot;portrait&quot;: {
@@ -319,17 +315,14 @@
      &quot;image&quot;: &quot;foo.png 1x, foo-2x.png 2x&quot;,
      &quot;image_border&quot;: &quot;30px 40px stretch&quot;,
    }
-}</code></pre>
-<h2>xwalk_launch_screen` members</h2>
-<table>
+}</code></pre><h2>xwalk_launch_screen` members</h2><table>
 <thead>
 <tr>
 <th>Member</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>&quot;ready_when&quot;</code></td>
 <td>The application readiness state at which to hide the launch screen. If undefined, defaults to <code>&quot;first-paint&quot;</code>. See the next section for more details.</td>
 </tr>
@@ -345,37 +338,32 @@
 <td><code>&quot;portrait&quot;</code></td>
 <td>The launch screen to use for portrait mode.</td>
 </tr>
-</tbody>
-</table>
-<h3><code>ready_when</code></h3>
-<table>
+</tbody></table>
+<h3><code>ready_when</code></h3><table>
 <thead>
 <tr>
 <th>Application readiness state</th>
 <th>Preconditions</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>&quot;first-paint&quot;</code></td>
 <td>* The first visually non-empty paint has occurred.</td>
 </tr>
 <tr>
 <td><code>&quot;user-interactive&quot;</code></td>
-<td><em> The first visually non-empty paint has occurred.<br></em> The DOM and CSSOM have been constructed.</td>
+<td>* The first visually non-empty paint has occurred.<br>* The DOM and CSSOM have been constructed.</td>
 </tr>
 <tr>
 <td><code>&quot;complete&quot;</code></td>
-<td><em> The first visually non-empty paint has occurred. <br></em> All the resources have been loaded.<br> <strong>WARNING: This may take a long time, as it only triggers after all sub-resources have been downloaded.</strong></td>
+<td>* The first visually non-empty paint has occurred. <br>* All the resources have been loaded.<br> <strong>WARNING: This may take a long time, as it only triggers after all sub-resources have been downloaded.</strong></td>
 </tr>
 <tr>
 <td><code>&quot;custom&quot;</code></td>
-<td><em> The first visually non-empty paint has occurred. <br></em> The <code>window.screen.show()</code> method was called.</td>
+<td>* The first visually non-empty paint has occurred. <br>* The <code>window.screen.show()</code> method was called.</td>
 </tr>
-</tbody>
-</table>
-<h3><code>default</code> / <code>portrait</code> / <code>landscape</code></h3>
-<p>These properties specify the images and backgrounds to use for the launch screen in different screen orientations. If only <code>portrait</code> or <code>landscape</code> are set, the launch screen will only be shown in the corresponding orientation (portrait or landscape respectively).</p>
+</tbody></table>
+<h3><code>default</code> / <code>portrait</code> / <code>landscape</code></h3><p>These properties specify the images and backgrounds to use for the launch screen in different screen orientations. If only <code>portrait</code> or <code>landscape</code> are set, the launch screen will only be shown in the corresponding orientation (portrait or landscape respectively).</p>
 <p>Each of these orientation properties can be defined by an object with the following properties:</p>
 <ul>
 <li><code>background_color</code>: The background color for the launch screen, in <a href="http://www.w3.org/TR/css3-color/#rgb-color">hexadecimal notation</a>.</li>
@@ -384,17 +372,12 @@
 <li><code>image_border</code>: A border image, split into a 9-piece image with the intermediate border pieces scaled and/or stretched to fill the whole viewport. See the <a href="https://docs.google.com/a/intel.com/document/d/17PuNuHRTQuREUpaCvj-eEx7uYi2avd-VW-oaMXMpvwo/edit?pli=1#heading=h.rq1ayw778vp6">Image Border spec</a> for full details.</li>
 </ul>
 <p>Note: The <code>background_color</code> and <code>background_image</code> will be the first thing displayed when user starts the application. The image specified by the <code>image</code> property will then be displayed over the background.</p>
-<h3>Image and color definitions</h3>
-<p>The supported image formats are <strong>png</strong>, <strong>bmp</strong>, <strong>jpg</strong>, and <strong>gif</strong>.</p>
+<h3>Image and color definitions</h3><p>The supported image formats are <strong>png</strong>, <strong>bmp</strong>, <strong>jpg</strong>, and <strong>gif</strong>.</p>
 <p>The <code>background_image</code> and <code>image</code> properties have the following format:</p>
-<pre><code>&quot;&lt;filename1&gt; &lt;density1&gt;, &lt;filename2&gt; &lt;density2&gt;, ...&quot;</code></pre>
-<p>where <code>&lt;filename*&gt;</code> is a path to an image file, relative to the manifest; and <code>&lt;density*&gt;</code> is the screen density where this image should be applied (<code>density</code> is optional if only one file is specified). For example, for the following field value:</p>
-<pre><code>&quot;background_image&quot;: &quot;file1.png 1x, file2.png 2x, file3.png&quot;</code></pre>
-<p>and a screen density of 2.5 dppx (dots per pixel), <code>file2.png</code> will be selected (as it is the closest value which is lower than the dppx).</p>
+<pre><code>&quot;&lt;filename1&gt; &lt;density1&gt;, &lt;filename2&gt; &lt;density2&gt;, ...&quot;</code></pre><p>where <code>&lt;filename*&gt;</code> is a path to an image file, relative to the manifest; and <code>&lt;density*&gt;</code> is the screen density where this image should be applied (<code>density</code> is optional if only one file is specified). For example, for the following field value:</p>
+<pre><code>&quot;background_image&quot;: &quot;file1.png 1x, file2.png 2x, file3.png&quot;</code></pre><p>and a screen density of 2.5 dppx (dots per pixel), <code>file2.png</code> will be selected (as it is the closest value which is lower than the dppx).</p>
 <p>For this field value:</p>
-<pre><code>&quot;background_image&quot;: &quot;file1.png&quot;</code></pre>
-<p>the file <code>file1.png</code> will be used as the background image at all screen densities.</p>
-
+<pre><code>&quot;background_image&quot;: &quot;file1.png&quot;</code></pre><p>the file <code>file1.png</code> will be used as the background image at all screen densities.</p>
   <footer class="article-next">
     
 
@@ -507,7 +490,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

@@ -279,8 +279,7 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Windows host setup</h1>
-<p>These instructions have been tested on Windows 7 Enterprise, 64 bit.</p>
+  <h1>Windows host setup</h1><p>These instructions have been tested on Windows 7 Enterprise, 64 bit.</p>
 <p>These steps will enable you to develop Crosswalk applications to run on Android:</p>
 <ol>
 <li><a href="#Install-Python">Install Python</a></li>
@@ -321,20 +320,18 @@
 <li><p>Click <em>Edit</em>.</p>
 </li>
 <li><p>In the <em>Variable value</em> field, add the path to <em>the executable</em> for each of the installed tools, separated with &quot;;&quot;.  For this example, we added the following at the end of the Path variable:</p>
-<pre><code>;c:\python-3.4.3;c:\ant-1.9.4\bin;c:\jdk-1.8.0_40\bin</code></pre>
-</li>
+<pre><code>;c:\python-3.4.3;c:\ant-1.9.4\bin;c:\jdk-1.8.0_40\bin</code></pre></li>
 <li><p>Click <em>OK</em>.</p>
 </li>
 </ol>
 <p>The same task can be done on the command-line (note the quotes &quot;&quot;):</p>
-<pre><code>&gt; setx path &quot;%path%;c:\python-3.4.3;c:\ant-1.9.4\bin;c:\jdk-1.8.0_40\bin&quot;</code></pre>
-<p>To ensure that Ant is using the correct version of Java (the one you just installed), set the <code>JAVA_HOME</code> environment variable to the location of the JDK:</p>
+<pre><code>&gt; setx path &quot;%path%;c:\python-3.4.3;c:\ant-1.9.4\bin;c:\jdk-1.8.0_40\bin&quot;</code></pre><p>To ensure that Ant is using the correct version of Java (the one you just installed), set the <code>JAVA_HOME</code> environment variable to the location of the JDK:</p>
 <ol>
 <li><p>Click the <em>New</em> button just under the top select box (<em>User variables...</em>).</p>
 </li>
 <li><p>Set <em>Variable name</em> to <strong>JAVA_HOME</strong>.</p>
 </li>
-<li><p>Set <em>Variable value</em> to <root directory of JDK>.  For our example, <strong>c:\jdk-1.8.0_40</strong>.</p>
+<li><p>Set <em>Variable value</em> to <root directory of jdk>.  For our example, <strong>c:\jdk-1.8.0_40</strong>.</root></p>
 </li>
 <li><p>Click <em>OK</em>.</p>
 </li>
@@ -342,25 +339,22 @@
 <h3 id="Install-the-Android-SDK">Install the Android SDK</h3>
 
 <ol>
-<li>Download Android Studio from <a href='http://developer.android.com/sdk/index.html' target='_blank'><a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a></a>.</li>
+<li>Download Android Studio from <a href="http://developer.android.com/sdk/index.html" target="_blank">http://developer.android.com/sdk/index.html</a>.</li>
 <li><p>Run the installer.  Remember the installation directory you select for the next step.</p>
 </li>
 <li><p>Add the Android SDK directories to your <code>PATH</code> either through the Environment Variables dialog or from the command-line. </p>
 <pre><code>&gt; setx path &quot;%path%;&lt;path to Android SDK&gt;&quot;
 &gt; setx path &quot;%path%;&lt;path to Android SDK&gt;\sdk\tools&quot;
-&gt; setx path &quot;%path%;&lt;path to Android SDK&gt;\sdk\platform-tools&quot;</code></pre>
-<p>The <code>tools</code> and <code>platform-tools</code> directories may be in slightly different locations, depending on how you installed the SDK. Amend the above paths appropriately.</p>
+&gt; setx path &quot;%path%;&lt;path to Android SDK&gt;\sdk\platform-tools&quot;</code></pre><p>The <code>tools</code> and <code>platform-tools</code> directories may be in slightly different locations, depending on how you installed the SDK. Amend the above paths appropriately.</p>
 </li>
 <li><p>Run the <em>SDK Manager</em>, either from inside Android Studio or from the command-line:</p>
-<pre><code>&gt; &quot;SDK Manager.exe&quot;</code></pre>
-</li>
+<pre><code>&gt; &quot;SDK Manager.exe&quot;</code></pre></li>
 <li><p>In the SDK Manager window, install the Platform tools, Build tools, and SDK Platform for the version(s) you are interested in:</p>
 <pre><code>[ ] Tools
   [x] Android SDK Platform-tools &lt;version&gt;
   [x] Android SDK Build tools &lt;version&gt;
 [ ] Android &lt;version&gt; (API &lt;version&gt;)
-  [x] SDK Platform</code></pre>
-</li>
+  [x] SDK Platform</code></pre></li>
 </ol>
 <h3 id="Download-the-Crosswalk-Android-app-template">Download the Crosswalk Android app template</h3>
 
@@ -387,10 +381,8 @@ Apache Ant(TM) version 1.9.3 compiled on December 23 2013
 Python 2.7.6
 
 &gt; adb help
-Android Debug Bridge version 1.0.31</code></pre>
-<p>Congratulations, your system is ready for Android development with Crosswalk.</p>
+Android Debug Bridge version 1.0.31</code></pre><p>Congratulations, your system is ready for Android development with Crosswalk.</p>
 <p>Now the host is setup, you can prepare your targets.</p>
-
   <footer class="article-next">
     
 
@@ -477,7 +469,7 @@ Android Debug Bridge version 1.0.31</code></pre>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

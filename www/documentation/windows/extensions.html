@@ -274,8 +274,7 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Extensions for Windows Apps</h1>
-<p>Extensions enhance the capabilities of the Crosswalk Project, enabling applications to make full use of platform features via native code.</p>
+  <h1>Extensions for Windows Apps</h1><p>Extensions enhance the capabilities of the Crosswalk Project, enabling applications to make full use of platform features via native code.</p>
 <p>Extensions are suitable for a number of use cases:</p>
 <ul>
 <li>Accessing a device capability not available via Crosswalk&#39;s JavaScript APIs. For example, using a specialised sensor or accessing part of the filesystem outside the web application&#39;s sandbox.</li>
@@ -292,8 +291,7 @@ var response = echo.echoSync(&#39;hello&#39;);
 // Asynchronous call. Pass in the callback function as the 2nd paramter
 echo.echoAsync(&#39;hello&#39;, function (response) {
   // response == &#39;You said: hello&#39;
-});</code></pre>
-<p>The native part of the extension can be implemented in C or C++. Our simple example is trivial and could be implemented using JavaScript. However, the aim is to reduce the complexity of the extension to focus on code structure and workflow.</p>
+});</code></pre><p>The native part of the extension can be implemented in C or C++. Our simple example is trivial and could be implemented using JavaScript. However, the aim is to reduce the complexity of the extension to focus on code structure and workflow.</p>
 <p>The C code which corresponds to the JavaScript API above looks like this:</p>
 <pre><code>// echoSync() handler
 static void handle_sync_message(XW_Instance instance, const char* message) {
@@ -307,8 +305,7 @@ static void handle_message(XW_Instance instance, const char* message) {
   char* response = build_response(message);
   g_messaging-&gt;PostMessage(instance, response);
   free(response);
-}</code></pre>
-<p>In this section, we write, build and package the Crosswalk extension. The extension itself is written in C and built using Visual Studio. Although we create both the extension and the application in this tutorial, they are actually two separate pieces: one extension can be used to support multiple applications, if desired.</p>
+}</code></pre><p>In this section, we write, build and package the Crosswalk extension. The extension itself is written in C and built using Visual Studio. Although we create both the extension and the application in this tutorial, they are actually two separate pieces: one extension can be used to support multiple applications, if desired.</p>
 <p>The extension consists of three parts:</p>
 <ul>
 <li>A JavaScript file. This defines the API which web applications can invoke.</li>
@@ -316,18 +313,18 @@ static void handle_message(XW_Instance instance, const char* message) {
 <li>The C file which implements the native side of the extension.</li>
 </ul>
 <p>You also need some supporting files to build and package the extension.</p>
-<h2>Install the Visual Studio Template</h2>
-<p>Download the template zip file: <a href="/assets/Crosswalk%20C-C++%20Extensions%20Template.zip">Crosswalk C-C++ Extensions Template.zip</a> (14KB)</p>
+<h2>Install the Visual Studio Template</h2><p>Download the template zip file: <a href="/assets/Crosswalk%20C-C++%20Extensions%20Template.zip%3E">Crosswalk C-C++ Extensions Template.zip</a> (14KB)</p>
 <p>Copy the zip file into: <code>C:\Users\&lt;your user name&gt;\Documents\Visual Studio 2015\Templates\ProjectTemplates\Visual C++ Project\</code> </p>
 <p> (Note: Windows File Explorer may display &quot;Documents&quot; as &quot;My Documents&quot;) <br><br></p>
-<p><img src="/assets/windows-extension-dir.png" style="display: block; margin: 0 auto"/></p>
-<h2>Getting started</h2>
-<p>Open Visual Studio and click “New Project” then “Templates” then “Visual C++” then in the list select “Crosswalk C-C++ Extensions Template”</p>
-<p><img src="/assets/windows-extension-dlg.png" style="display: block; margin: 0 auto"/></p>
+<img src="/assets/windows-extension-dir.png" style="display: block; margin: 0 auto">
+
+<h2>Getting started</h2><p>Open Visual Studio and click “New Project” then “Templates” then “Visual C++” then in the list select “Crosswalk C-C++ Extensions Template”</p>
+<img src="/assets/windows-extension-dlg.png" style="display: block; margin: 0 auto">
+
 <p>Select the location of your code and enter the name of your project.</p>
-<p><img src="/assets/windows-extension-dlg2.png" style="display: block; margin: 0 auto"/></p>
-<h2>JavaScript bridge API to the C extension</h2>
-<p>This file wires the C interface to JavaScript and provides the bridge between the HTML5 application and the C code.</p>
+<img src="/assets/windows-extension-dlg2.png" style="display: block; margin: 0 auto">
+
+<h2>JavaScript bridge API to the C extension</h2><p>This file wires the C interface to JavaScript and provides the bridge between the HTML5 application and the C code.</p>
 <p>Let’s look at the JavaScript API :</p>
 <pre><code>var echoListener = null;
 
@@ -344,9 +341,7 @@ exports.echoAsync = function (msg, callback) {
 
 exports.echoSync = function (msg) {
   return extension.internal.sendSyncMessage(msg);
-};</code></pre>
-<h4>A note on the JavaScript API</h4>
-<p>The asynchronous part of this API is not suitable for a real production environment.
+};</code></pre><h4>A note on the JavaScript API</h4><p>The asynchronous part of this API is not suitable for a real production environment.
 At the moment, when you invoke the <code>echoAsync()</code> method, you set a single global message listener: a function which waits for the next response to be returned by the C part of the extension. However, this approach would not work correctly if the processing which occurred in the extension took some time, and the <code>echoAsync()</code> method were invoked during that processing time.</p>
 <p>For example, consider the following program:</p>
 <pre><code>var callback1 = function (response) {
@@ -361,17 +356,13 @@ var callback2 = function (response) {
 echo.echoAsync(&#39;hello&#39;, callback1);
 
 // invocation 2
-echo.echoAsync(&#39;goodbye&#39;, callback2);</code></pre>
-<p>When invocation 1 occurs, the message listener is set to <code>callback1</code>. If the extension takes several seconds to respond, invocation 2 may have already happened before invocation 1 completes; and invocation 2 sets the message listener to <code>callback2</code> (there is only one listener for all responses). Consequently, when invocation 1 does eventually return, its handler (callback1) has been overwritten; so the responses for both invocation 1 and invocation 2 will be (incorrectly) handled by callback2.
+echo.echoAsync(&#39;goodbye&#39;, callback2);</code></pre><p>When invocation 1 occurs, the message listener is set to <code>callback1</code>. If the extension takes several seconds to respond, invocation 2 may have already happened before invocation 1 completes; and invocation 2 sets the message listener to <code>callback2</code> (there is only one listener for all responses). Consequently, when invocation 1 does eventually return, its handler (callback1) has been overwritten; so the responses for both invocation 1 and invocation 2 will be (incorrectly) handled by callback2.
 In practice, this means that you would see this on the console:</p>
 <pre><code>hello cruel world
-goodbye cruel world</code></pre>
-<p>instead of the anticipated:</p>
+goodbye cruel world</code></pre><p>instead of the anticipated:</p>
 <pre><code>hello world
-goodbye cruel world</code></pre>
-<p>The solution is to pass a token from the JavaScript API to the C code, then return that token as part of the response from the C code. The JavaScript API would maintain a mapping from tokens to callbacks, so when responses are returned (containing a token), the correct handler can be looked up and invoked. A typical way to implement this would be to JSON-encode messages between the JavaScript and C parts of the extension, and include a token in each message. However, this process is too complex for the scope of this tutorial.</p>
-<h2>C static constant for the JavaScript API</h2>
-<p>In <code>extension.c</code>, you should have:</p>
+goodbye cruel world</code></pre><p>The solution is to pass a token from the JavaScript API to the C code, then return that token as part of the response from the C code. The JavaScript API would maintain a mapping from tokens to callbacks, so when responses are returned (containing a token), the correct handler can be looked up and invoked. A typical way to implement this would be to JSON-encode messages between the JavaScript and C parts of the extension, and include a token in each message. However, this process is too complex for the scope of this tutorial.</p>
+<h2>C static constant for the JavaScript API</h2><p>In <code>extension.c</code>, you should have:</p>
 <pre><code>static const char* kAPI= &quot;var echoListener = null;&quot;
 &quot;&quot;
 &quot;extension.setMessageListener(function(msg) {&quot;
@@ -388,9 +379,7 @@ goodbye cruel world</code></pre>
 &quot;exports.echoSync = function (msg) {&quot;
 &quot;  return extension.internal.sendSyncMessage(msg);&quot;
 &quot;};&quot;
-;</code></pre>
-<h2>C program code</h2>
-<p>This implements the Crosswalk extension API and has access to the full native API. For the purposes of this tutorial, the C code simply prefixes a message string with &quot;You said: &quot; and returns it.</p>
+;</code></pre><h2>C program code</h2><p>This implements the Crosswalk extension API and has access to the full native API. For the purposes of this tutorial, the C code simply prefixes a message string with &quot;You said: &quot; and returns it.</p>
 <p>Create a file <code>extension/echo-extension.c</code> with this content:</p>
 <pre><code>// echo extension for Crosswalk
 // adapted from
@@ -471,9 +460,7 @@ int32_t XW_Initialize(XW_Extension extension, XW_GetInterface get_interface) {
     g_sync_messaging-&gt;Register(extension, handle_sync_message);
 
     return XW_OK;
-}</code></pre>
-<h4>Some notes on the code:</h4>
-<ul>
+}</code></pre><h4>Some notes on the code:</h4><ul>
 <li>The <code>XW_Extension.h</code> header is used to define the structures used by the extension system.</li>
 <li><p>The only symbol that should be exported is the function:
 <code>int32_t XW_Initialize(XW_Extension extension, XW_GetInterface get_interface)</code>
@@ -493,9 +480,7 @@ Its parameters are:</p>
 <li>However, in most cases, the safest approach is to provide an asynchronous API. The synchronous alternative is shown here for the sake of completeness.</li>
 <li>Both the sync (<code>XW_Internal_SyncMessagingInterface-&gt;SetSyncReply()</code>) and async (<code>XW_MessagingInterface-&gt;PostMessage()</code>) functions for returning a response &quot;preserve their inputs&quot;, so you can free any pointers you pass to those functions once you&#39;ve invoked them.</li>
 </ul>
-<h2>More details on the C interfaces</h2>
-<h3>Core interface: XW_CORE_INTERFACE</h3>
-<ul>
+<h2>More details on the C interfaces</h2><h3>Core interface: XW_CORE_INTERFACE</h3><ul>
 <li>This interface is defined in the <code>XW_Extension.h</code> header file.</li>
 <li>It is a struct <code>XW_CoreInterface</code> with the following fields:<ul>
 <li><code>SetExtensionName()</code> sets name of the extension (identified by extension) to name. This is mandatory. It should only be called during <code>XW_Initialize()</code>.</li>
@@ -506,8 +491,7 @@ Its parameters are:</p>
 </ul>
 </li>
 </ul>
-<h3>Messaging interface: XW_MESSAGING_INTERFACE</h3>
-<ul>
+<h3>Messaging interface: XW_MESSAGING_INTERFACE</h3><ul>
 <li>This interface is defined in the <code>XW_Extension.h</code> header file.</li>
 <li>It is a struct <code>XW_MessagingInterface</code> with the following fields:<ul>
 <li><code>Register()</code>: when called, this function tells Crosswalk which function should be called in event of a message from the JavaScript side.</li>
@@ -515,8 +499,7 @@ Its parameters are:</p>
 </ul>
 </li>
 </ul>
-<h3>Sync messaging interface (experimental): XW_INTERNAL_SYNC_MESSAGING_INTERFACE</h3>
-<ul>
+<h3>Sync messaging interface (experimental): XW_INTERNAL_SYNC_MESSAGING_INTERFACE</h3><ul>
 <li>This interface is defined in the <code>XW_Extension_SyncMessage.h</code> header file. It is marked as internal, and no guarantee will be made for its compatibility with future Crosswalk versions.</li>
 <li>It is a struct <code>XW_Internal_SyncMessagingInterface</code> with the following fields:<ul>
 <li>Register(): this function tells Crosswalk which function should be called in event of a synchronous message from the JavaScript side.</li>
@@ -525,10 +508,8 @@ Its parameters are:</p>
 </li>
 </ul>
 <p>The interface names and structures described above have a versioning suffix in their names. However, extension writers should use the unversioned macros to get the desired interfaces.</p>
-<h2>Build the project</h2>
-<p>You can just build the solution in Visual Studio which should just output the .DLL of your extension.</p>
-<h2>Run your extension</h2>
-<p>After downloading Crosswalk for Windows and unzipping it you can easily try your extension.</p>
+<h2>Build the project</h2><p>You can just build the solution in Visual Studio which should just output the .DLL of your extension.</p>
+<h2>Run your extension</h2><p>After downloading Crosswalk for Windows and unzipping it you can easily try your extension.</p>
 <p>Inside your command line, navigate to the path where you unzipped Crosswalk and launch it using the method described in Run using Crosswalk binary directly with the following parameters:</p>
 <ul>
 <li><p>--allow-external-extensions-for-remote-sources (which allow external extension for localhost, you do not need to worry about that when packing with Crosswalk app tools), and</p>
@@ -541,7 +522,6 @@ Its parameters are:</p>
             --external-extensions-path=/path/to/myextension/directory \
             http://localhost:8000</code></pre>
 <p>Your extension should be loaded. Please note that you can put multiple extensions in the same directory, Crosswalk will load all of them.</p>
-
   <footer class="article-next">
     
 
@@ -627,7 +607,7 @@ Its parameters are:</p>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

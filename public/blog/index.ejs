@@ -1,6 +1,6 @@
 <div class="container">
   <div class="doc-header">
-    <% include ../_includes/nav.ejs %>
+    // <!-- <% include ../_includes/nav.ejs %> -->
   </div>
   <br />
   <div class="doc-main">
@@ -18,14 +18,16 @@
                 <% if(article.author) { %> by <span class="article-author"><%= article.author %></span><% } %>
               </span>
             </header>
-            <% if(typeof article.url === 'undefined') { %>
-            <div class="article-excerpt">
-              <p><%-: partial(slug).replace(/<[^>]*>/g, "") | truncate_words: 50 %> <a href="<%= slug %>.html" title="Read the rest of “<%= article.title %>”">Read more&hellip;</a></p>
-            </div>
-            <% } else if(article.desc) { %>
-            <div class="article-excerpt">
-              <p><%- article.desc %> <a href="<%= article.url %>" title="Read the rest of “<%= article.title %>”">Read more&hellip;</a></p>
-            </div>
+            <% if( typeof article.url === 'undefined') { %>
+              <div class="article-excerpt">
+                <p>
+                  <%= slug %>
+                </p>
+              </div>
+            <% } else if (article.desc) { %>
+              <div class="article-excerpt">
+                <p><%- article.desc %> <a href="<%= article.url %>" title="Read the rest of “<%= article.title %>”">Read more&hellip;</a></p>
+              </div>
             <% } %>
               <hr class="presentation-splitter" style="margin:25px 0px 25px 0px"/>
           </li>

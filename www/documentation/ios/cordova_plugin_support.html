@@ -264,12 +264,10 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Cordova Plugin Support</h1>
+  <p>#Cordova Plugin Support</p>
 <p>Crosswalk for iOS provides support for Cordova Plugins by introducing the Cordova.framework based on the Crosswalk Extension mechanism. The <a href="https://cocoapods.org/pods/crosswalk-extension-cordova">Cordova extension</a> is responsible for managing the life cycle of the Cordova Plugins, replicates the environment that Cordova Plugins run in, and provides the functionalities that Cordova Plugins need based on the Crosswalk Extension framework. You can leverage the existing Cordova Plugins to extend Crosswalk&#39;s functionalities without changing any code of the plugins.</p>
-<h2>Cordova Plugin API</h2>
-<p>We are going to support all the Cordova Plugin API in the coming future, the status of API availability is:</p>
-<h3>Supported</h3>
-<ul>
+<h2>Cordova Plugin API</h2><p>We are going to support all the Cordova Plugin API in the coming future, the status of API availability is:</p>
+<h3>Supported</h3><ul>
 <li><a href="https://github.com/apache/cordova-plugin-battery-status">org.apache.cordova.battery-status</a></li>
 <li><a href="https://github.com/apache/cordova-plugin-console">org.apache.cordova.console</a></li>
 <li><a href="https://github.com/apache/cordova-plugin-contacts">org.apache.cordova.contacts</a></li>
@@ -289,16 +287,12 @@
 <li><a href="https://github.com/apache/cordova-plugin-splashscreen">org.apache.cordova.splashscreen</a></li>
 <li><a href="https://github.com/apache/cordova-plugin-statusbar">org.apache.cordova.statusbar</a></li>
 </ul>
-<h3>Under Development</h3>
-<ul>
+<h3>Under Development</h3><ul>
 <li><a href="https://github.com/apache/cordova-plugin-camera">org.apache.cordova.camera</a></li>
 </ul>
 <p>You are warmly welcome to contribute together with us to enable more Cordova Plugins for Crosswalk.</p>
-<h2>Quickstart</h2>
-<p>In this section we&#39;d like to show you a simple demo application with <code>org.apache.cordova.device</code> embedded to demonstrate the processes to create an application with Cordova Plugin support.</p>
-<h3>Setup DeviceDemo Project</h3>
-<h4>Create DeviceDemo Project</h4>
-<p>We need to create an application project to host the Cordova plugin and the web resources.</p>
+<h2>Quickstart</h2><p>In this section we&#39;d like to show you a simple demo application with <code>org.apache.cordova.device</code> embedded to demonstrate the processes to create an application with Cordova Plugin support.</p>
+<h3>Setup DeviceDemo Project</h3><h4>Create DeviceDemo Project</h4><p>We need to create an application project to host the Cordova plugin and the web resources.</p>
 <ol>
 <li><p>Create <code>DeviceDemo</code> Project</p>
 <ul>
@@ -319,8 +313,7 @@
 <p>With the contents as below:</p>
 <pre><code>platform :ios, &#39;8.1&#39;
 use_frameworks!
-pod &#39;crosswalk-extension-cordova&#39;, &#39;~&gt; 1.1&#39;</code></pre>
-<p>This will tell CocoaPods that the deploy target is iOS 8.1+ and to integrate library <code>crosswalk-extension-cordova</code> with the latest version of <code>1.1.x</code>. Remember to add <code>use_frameworks!</code> which is because <code>crosswalk-ios</code> is partly written in Swift and it has to be built as a framework instead of a static library.</p>
+pod &#39;crosswalk-extension-cordova&#39;, &#39;~&gt; 1.1&#39;</code></pre><p>This will tell CocoaPods that the deploy target is iOS 8.1+ and to integrate library <code>crosswalk-extension-cordova</code> with the latest version of <code>1.1.x</code>. Remember to add <code>use_frameworks!</code> which is because <code>crosswalk-ios</code> is partly written in Swift and it has to be built as a framework instead of a static library.</p>
 <p>You may notice that we haven&#39;t added the dependency of <code>crosswalk-ios</code>. This is not necessary because <code>crosswalk-extension-cordova</code> depends on <code>crosswalk-ios</code> and the dependency is automatically handled by CocoaPods.</p>
 <ul>
 <li>Install the <code>Pod</code> targets into the project.</li>
@@ -332,8 +325,7 @@ pod &#39;crosswalk-extension-cordova&#39;, &#39;~&gt; 1.1&#39;</code></pre>
 <li><p>Open the <code>DeviceDemo.xcworkspace</code>, try to build the <code>DeviceDemo</code> application target, to see if it works fine.</p>
 </li>
 </ol>
-<h4>Import <code>org.apache.cordova.device</code> Plugin Resources</h4>
-<p>Next step is to import both native and html5 resources from <a href="https://github.com/apache/cordova-plugin-device">org.apache.cordova.device</a> into the project.</p>
+<h4>Import <code>org.apache.cordova.device</code> Plugin Resources</h4><p>Next step is to import both native and html5 resources from <a href="https://github.com/apache/cordova-plugin-device">org.apache.cordova.device</a> into the project.</p>
 <ol>
 <li><p>Clone org.apache.cordova.device</p>
 <pre><code class="language-cmdline">&gt; git clone https://github.com/apache/cordova-plugin-device.git</code></pre>
@@ -384,8 +376,7 @@ module.exports.metadata =
 });</code></pre>
 </li>
 </ol>
-<h4>Create The Web Apps</h4>
-<p>After importing the device plugin, we need to create the web application part to leverage the ability of the device plugin.</p>
+<h4>Create The Web Apps</h4><p>After importing the device plugin, we need to create the web application part to leverage the ability of the device plugin.</p>
 <ol>
 <li><p>Create <code>index.html</code> in <code>www</code> directory.</p>
 <pre><code class="language-cmdline">&gt; touch index.html
@@ -476,9 +467,7 @@ module.exports.metadata =
 <p>Now the demo should be ready to use. That&#39;s it.</p>
 </li>
 </ol>
-<h2>Demos</h2>
-<p>In the <a href="https://github.com/crosswalk-project/ios-extensions-crosswalk/tree/master/demos">demos</a> directory of <a href="https://github.com/crosswalk-project/ios-extensions-crosswalk">ios-extension-crosswalk</a> project, there are two demos to demonstrate the usage of Cordova plugin support. You may try them out to see how it works.</p>
-
+<h2>Demos</h2><p>In the <a href="https://github.com/crosswalk-project/ios-extensions-crosswalk/tree/master/demos">demos</a> directory of <a href="https://github.com/crosswalk-project/ios-extensions-crosswalk">ios-extension-crosswalk</a> project, there are two demos to demonstrate the usage of Cordova plugin support. You may try them out to see how it works.</p>
   <footer class="article-next">
     
 
@@ -549,7 +538,7 @@ module.exports.metadata =
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

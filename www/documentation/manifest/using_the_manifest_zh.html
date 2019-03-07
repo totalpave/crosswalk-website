@@ -279,9 +279,8 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>使用manifest文件</h1>
-<p>这个页面叙述了在部署Crosswalk应用的时候如何使用<code>manifest.json</code>文件。</p>
-<p>manifest可以通过以下&quot;方式&quot;使用：</p>
+  <h1>使用manifest文件</h1><p>这个页面叙述了在部署Crosswalk应用的时候如何使用<code>manifest.json</code>文件。</p>
+<p>manifest可以通过以下"方式"使用：</p>
 
 <ol>
 <li><a href="#Configure-Android-packaging_zh">配置将Crosswalk应用打包成Android应用</a>.</li>
@@ -310,8 +309,7 @@
     &quot;name&quot;: &quot;XWalkEmbed&quot;,
     &quot;xwalk_version&quot;: &quot;0.0.1&quot;,
     &quot;start_url&quot;: &quot;index.html&quot;
-}</code></pre>
-</li>
+}</code></pre></li>
 <li><p>修改<code>org.crosswalkproject.xwalkembed.MainActivity</code>类（在<code>src/</code>下），它使用<code>loadAppFromManifest()</code>方法而不是<code>load()</code>方法：</p>
 <pre><code>package org.crosswalkproject.xwalkembed;
 
@@ -334,12 +332,10 @@ public class MainActivity extends Activity {
     // with this:
         mXWalkView.loadAppFromManifest(&quot;file:///android_asset/manifest.json&quot;, null);
     }
-}</code></pre>
-</li>
+}</code></pre></li>
 </ol>
 <p>当你运行应用时，<code>manifest.json</code>中<code>start_url</code>属性所规定的HTML文件将会被加载。它跟之前被加载的<code>index.html</code>文件相同；但是修改应用时，使用manifest会更加容易，而不用修改Java代码。</p>
 <p>注意，在嵌入式crosswalk模式中，<code>manifest.json</code>中某些被用于打包android应用的字段<em>不</em>会奏效。关于这些字段详见<a href="##Configure-Android-packaging_zh">this section</a>。</p>
-
   <footer class="article-next">
     
 
@@ -452,7 +448,7 @@ public class MainActivity extends Activity {
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

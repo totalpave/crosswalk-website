@@ -274,8 +274,7 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>WebCL Overview</h1>
-<p><a href="https://www.khronos.org/webcl/">WebCL</a> defines a JavaScript binding to
+  <h1>WebCL Overview</h1><p><a href="https://www.khronos.org/webcl/">WebCL</a> defines a JavaScript binding to
 <a href="https://www.khronos.org/opencl/">the Khronos OpenCL standard</a> for
 heterogeneous parallel computing. WebCL enables web applications to
 harness GPU and multi-core CPU parallel processing and achieve
@@ -304,8 +303,7 @@ var arr2 = new Float32Array(len);
 for (i = 0; i &lt; len; i++)
   arr1[i] = i;
 for (i = 0; i &lt; len; i++)
-  arr2[i] = Math.sqrt(arr1[i]);</code></pre>
-<p>A WebCL program is actually involved with two languages. The first one
+  arr2[i] = Math.sqrt(arr1[i]);</code></pre><p>A WebCL program is actually involved with two languages. The first one
 is the <strong>kernel</strong> program in C99-like syntax, which runs on your GPU or
 any other OpenCL devices. The other is the host side program in
 JavaScript, which controls the execution of the kernel program by
@@ -324,13 +322,11 @@ arguments.</li>
 <li>Kick off the computing by creating a command queue and enqueuing a
 series of commands into the command queue.</li>
 </ul>
-<h1>Creating a WebCL context</h1>
-<p>A WebCL context is the collection of a lot of things. It designates the
+<h1>Creating a WebCL context</h1><p>A WebCL context is the collection of a lot of things. It designates the
 device(s) we are going to use, and it also manages other WebCL objects
 like memory buffers, command queues and WebCL programs. The following
 shows how to create a WebCL context which utilizes GPU as the backend:</p>
-<pre><code>var context = webcl.createContext(webcl.DEVICE_TYPE_GPU);</code></pre>
-<p>In case the GPU is not OpenCL-capable, we also have a try on CPU, and if
+<pre><code>var context = webcl.createContext(webcl.DEVICE_TYPE_GPU);</code></pre><p>In case the GPU is not OpenCL-capable, we also have a try on CPU, and if
 that fails again, an exception will be thrown. Here is a more robust
 context creation:</p>
 <pre><code>var context;
@@ -343,31 +339,25 @@ try {
     alert(&quot;WebCL is not supported by your device!&quot;);
     throw e;
   }
-}</code></pre>
-<h1>Allocating input and output buffers</h1>
-<p>For the sake of simplicity, we still use the sequential way to construct
+}</code></pre><h1>Allocating input and output buffers</h1><p>For the sake of simplicity, we still use the sequential way to construct
 our input array:</p>
 <pre><code>var len = 1000000;
 var i;
 var arr1 = new Float32Array(len);
 for (i = 0; i &lt; len; i++)
-  arr1[i] = i;</code></pre>
-<p>However, the variable <code>arr1</code> cannot be accessed directly by the kernel
+  arr1[i] = i;</code></pre><p>However, the variable <code>arr1</code> cannot be accessed directly by the kernel
 program we are going to create soon. A buffer needs to be allocated in
 this WebCL context and initialized with data in <code>arr1</code>:</p>
-<pre><code>var buf1 = context.createBuffer(webcl.MEM_READ_ONLY, arr1.byteLength, arr1);</code></pre>
-<p>The constant <code>webcl.MEM_READ_ONLY</code> means that the created buffer will be
+<pre><code>var buf1 = context.createBuffer(webcl.MEM_READ_ONLY, arr1.byteLength, arr1);</code></pre><p>The constant <code>webcl.MEM_READ_ONLY</code> means that the created buffer will be
 read-only for the kernel program, so that specific optimizations can be
 performed based on this hint.</p>
 <p>Similarly, kernel program cannot write to a JavaScript typed array
 directly. We must create another buffer as an intermediate holder for
 the result:</p>
-<pre><code>var buf2 = context.createBuffer(webcl.MEM_WRITE_ONLY, arr1.byteLength);</code></pre>
-<p>You must have guessed what the first argument <code>webcl.MEM_WRITE_ONLY</code>
+<pre><code>var buf2 = context.createBuffer(webcl.MEM_WRITE_ONLY, arr1.byteLength);</code></pre><p>You must have guessed what the first argument <code>webcl.MEM_WRITE_ONLY</code>
 means. Also, we do not provide a third argument here since there&#39;s no
 need to initialize the output buffer with an existing typed array.</p>
-<h1>Creating the WebCL kernel program object</h1>
-<p>To parallelize the calculation, we divide the task into 1,000,000 <strong>work
+<h1>Creating the WebCL kernel program object</h1><p>To parallelize the calculation, we divide the task into 1,000,000 <strong>work
 item</strong>s. Each work item is assigned with a unique ID starting from 0,
 and it just calculates the square root of one element in the input
 array. The logic of each work item is programmed as a function in
@@ -379,8 +369,7 @@ program object:</p>
 &quot;  size_t i = get_global_id(0);\n&quot; +
 &quot;  buf2[i] = sqrt(buf1[i]);\n&quot; +
 &quot;}&quot;;
-var program = context.createProgram(source);</code></pre>
-<p><code>source</code> contains the source code of the WebCL kernel program. There are
+var program = context.createProgram(source);</code></pre><p><code>source</code> contains the source code of the WebCL kernel program. There are
 a few things to be explained here:</p>
 <ul>
 <li>The keyword <code>__kernel</code> indicates that the function <code>sqrtPar()</code> will be
@@ -409,25 +398,20 @@ root of a float number.</li>
 </ul>
 <p>Next, the WebCL kernel program is built into device-specific machine
 code:</p>
-<pre><code>program.build();</code></pre>
-<p>If there&#39;s anything wrong with your WebCL kernel program, then an
+<pre><code>program.build();</code></pre><p>If there&#39;s anything wrong with your WebCL kernel program, then an
 exception will be thrown.</p>
-<h1>Creating the WebCL kernel object</h1>
-<p>Now we set the value of <code>buf1</code> and <code>buf2</code> in our WebCL kernel program.</p>
+<h1>Creating the WebCL kernel object</h1><p>Now we set the value of <code>buf1</code> and <code>buf2</code> in our WebCL kernel program.</p>
 <p>In a complex WebCL kernel program, there might be multiple kernel
 functions, and one kernel function might be called multiple times with
 different arguments. Information about the kernel function name and its
 associated arguments are bundled in WebCL kernel objects. The following
 shows how to create a WebCL kernel object for function <code>sqrtPar()</code>:</p>
-<pre><code>var kernel = program.createKernel(&quot;sqrtPar&quot;);</code></pre>
-<p>And we let <code>buf1</code> and <code>buf2</code> point to the input and output buffer
+<pre><code>var kernel = program.createKernel(&quot;sqrtPar&quot;);</code></pre><p>And we let <code>buf1</code> and <code>buf2</code> point to the input and output buffer
 separately:</p>
 <pre><code>kernel.setArg(0, buf1);
-kernel.setArg(1, buf2);</code></pre>
-<p><code>0</code> and <code>1</code> are the corresponding indices in the kernel function&#39;s
+kernel.setArg(1, buf2);</code></pre><p><code>0</code> and <code>1</code> are the corresponding indices in the kernel function&#39;s
 parameter list.</p>
-<h1>Launching the WebCL kernel program</h1>
-<p>Finally, we are about to launch our WebCL kernel program. We create a
+<h1>Launching the WebCL kernel program</h1><p>Finally, we are about to launch our WebCL kernel program. We create a
 command queue, enqueue a kernel launch command into it, and copy the
 result back to JavaScript scope by enqueuing a buffer read command.
 Commands in the command queue will be submitted to your OpenCL device
@@ -443,8 +427,7 @@ var arr2 = new Float32Array(len);
 var blockingRead = true;
 var bufOffset = 0;
 var bufSize = arr2.byteLength;
-queue.enqueueReadBuffer(buf2, blockingRead, bufOffset, bufSize, arr2);</code></pre>
-<p>As it is mentioned before, <code>sqrtPar()</code> is launched in one dimension
+queue.enqueueReadBuffer(buf2, blockingRead, bufOffset, bufSize, arr2);</code></pre><p>As it is mentioned before, <code>sqrtPar()</code> is launched in one dimension
 (<code>workDim = 1</code>), and totally 1,000,000 work items are spawned
 (<code>globalWorkSize = [len]</code>). In this tutorial we do not care about
 <code>globalWorkOffset</code> and simply initialize it with <code>null</code>.</p>
@@ -454,8 +437,7 @@ main thread will be blocked, but to make things simple, we will not
 touch asynchronous read here. The meaning of <code>bufOffset</code> and <code>bufSize</code>
 is quite self-explanatory － they define the range of data to be copied
 to <code>arr2</code> from the output buffer.</p>
-<h1>Putting it all together</h1>
-<p>Here comes the complete program:</p>
+<h1>Putting it all together</h1><p>Here comes the complete program:</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;body&gt;
@@ -514,10 +496,8 @@ var bufSize = arr2.byteLength;
 queue.enqueueReadBuffer(buf2, blockingRead, bufOffset, bufSize, arr2);
 &lt;/script&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<p>You can check the result in <code>arr2</code> in your favorite way, e.g. within a
+&lt;/html&gt;</code></pre><p>You can check the result in <code>arr2</code> in your favorite way, e.g. within a
 JavaScript debugger.</p>
-
   <footer class="article-next">
     
 
@@ -585,7 +565,7 @@ JavaScript debugger.</p>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

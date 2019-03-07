@@ -279,11 +279,9 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Android target setup</h1>
-<p>Crosswalk applications will run on either a hardware or emulated Android device.</p>
+  <h1>Android target setup</h1><p>Crosswalk applications will run on either a hardware or emulated Android device.</p>
 <p>Any version of Android from 4.1 or higher should work.</p>
-<h2>Android device</h2>
-<p>To deploy a Crosswalk application to an Android device, you need a working connection between it and your host computer. The simplest way is to connect them together via a USB cable.</p>
+<h2>Android device</h2><p>To deploy a Crosswalk application to an Android device, you need a working connection between it and your host computer. The simplest way is to connect them together via a USB cable.</p>
 <p>To test whether the device has been detected, run the following command from a shell:</p>
 <pre><code class="language-cmdline">&gt; adb devices
 List of devices attached
@@ -310,27 +308,24 @@ List of devices attached
 &gt; adb devices
 List of devices attached
 HT23KW103989    device</code></pre>
-<h2>Android emulator</h2>
-<p>To test your application on Android platforms you don&#39;t own, the next best option is to use emulated devices. You can install these via the Android SDK.</p>
+<h2>Android emulator</h2><p>To test your application on Android platforms you don&#39;t own, the next best option is to use emulated devices. You can install these via the Android SDK.</p>
 <ol>
 <li><p>Start the Android SDK Manager via the <code>android</code> command on Linux or by running <code>SDK Manager.exe</code> on Windows.</p>
 </li>
 <li><p>In the SDK Manager window, check the following box in the list:</p>
 <pre><code>[ ] Android 4.3 (API 18)
-    [x] Intel x86 Atom System Image</code></pre>
-<p>If you want to test with other Android API versions, install the corresponding x86 system images.</p>
+    [x] Intel x86 Atom System Image</code></pre><p>If you want to test with other Android API versions, install the corresponding x86 system images.</p>
 </li>
 <li><p>On <strong>Windows only</strong>, use the SDK Manager to download HAXM as well:</p>
 <pre><code>[ ] Extras
-    [x] Intel x86 Emulator Accelerator (HAXM)</code></pre>
-<p>This provides better graphics performance for emulated x86 devices running on Windows.</p>
+    [x] Intel x86 Emulator Accelerator (HAXM)</code></pre><p>This provides better graphics performance for emulated x86 devices running on Windows.</p>
 <p>Note that the SDK Manager downloads HAXM, but does not install it, so you need to find and install it yourself. The file you need is called <code>IntelHaxm.exe</code>.</p>
 </li>
 <li><p>After the selected packages are installed, set up an emulator image by running the AVD Manager:</p>
 </li>
 </ol>
 <pre><code class="language-cmdline">&gt; android avd</code></pre>
-<ol>
+<ol start="5">
 <li><p>Create a new image called <strong>Tablet</strong> and select the following options:</p>
 <ul>
  <li><em>Target</em>: <strong>Android 4.3</strong></li>
@@ -339,7 +334,7 @@ HT23KW103989    device</code></pre>
 </ul>
 
 <p>The configuration should look something like this:</p>
-<p><img src='/assets/emulator.png' style="display:block;margin:0 auto"></p>
+<img src="/assets/emulator.png" style="display:block;margin:0 auto">
 </li>
 <li><p>Launch the new emulator image from a shell:</p>
 <pre><code class="language-cmdline">&gt; emulator -avd Tablet</code></pre>
@@ -350,7 +345,6 @@ emulator-5554   device</code></pre>
 </li>
 </ol>
 <p>The emulated Android device is now set up and ready to be used as a deployment target.</p>
-
   <footer class="article-next">
     
 
@@ -437,7 +431,7 @@ emulator-5554   device</code></pre>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

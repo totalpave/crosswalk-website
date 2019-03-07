@@ -294,22 +294,18 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Orientation</h1>
-<p>The <code>orientation</code> field sets the default orientation for the application running under Crosswalk. Even if the physical device is rotated to a different orientation, the application will remain in the orientation set in the manifest. However, the orientation may still be changed at runtime; for example, by using the <a href="http://www.w3.org/TR/screen-orientation/">screen orientation API</a>.</p>
+  <h1>Orientation</h1><p>The <code>orientation</code> field sets the default orientation for the application running under Crosswalk. Even if the physical device is rotated to a different orientation, the application will remain in the orientation set in the manifest. However, the orientation may still be changed at runtime; for example, by using the <a href="http://www.w3.org/TR/screen-orientation/">screen orientation API</a>.</p>
 <p>An example manifest setting the default orientation to portrait:</p>
 <pre><code>{
   &quot;name&quot;: &quot;app name&quot;,
   &quot;start_url&quot;: &quot;index.html&quot;,
   &quot;orientation&quot;: &quot;portrait&quot;
-}</code></pre>
-<p>Another example, setting the default orientation to landscape:</p>
+}</code></pre><p>Another example, setting the default orientation to landscape:</p>
 <pre><code>{
   &quot;name&quot;: &quot;app name&quot;,
   &quot;start_url&quot;: &quot;index.html&quot;,
   &quot;orientation&quot;: &quot;landscape&quot;
-}</code></pre>
-<p>Other values for the <code>orientation</code> field can be used: for example, on Crosswalk Android, <code>&quot;portrait-primary&quot;</code> refers to the &quot;natural&quot; portrait orientation, with respect to the user (i.e. application in portrait, with the top of the application at the <em>top</em> of the device screen); while <code>&quot;portrait-secondary&quot;</code> refers to &quot;inverted&quot; portrait orientation (i.e. application in portrait orientation, but with the top of the application at the <em>bottom</em> of the device screen). Similarly, <code>&quot;landscape-primary&quot;</code> sets &quot;natural&quot; landscape orientation, while <code>&quot;landscape-secondary&quot;</code> sets &quot;inverted&quot; landscape orientation. The full range of valid values is defined in <a href="https://w3c.github.io/screen-orientation/#idl-def-OrientationLockType">the screen orientation specification</a>.</p>
-
+}</code></pre><p>Other values for the <code>orientation</code> field can be used: for example, on Crosswalk Android, <code>&quot;portrait-primary&quot;</code> refers to the &quot;natural&quot; portrait orientation, with respect to the user (i.e. application in portrait, with the top of the application at the <em>top</em> of the device screen); while <code>&quot;portrait-secondary&quot;</code> refers to &quot;inverted&quot; portrait orientation (i.e. application in portrait orientation, but with the top of the application at the <em>bottom</em> of the device screen). Similarly, <code>&quot;landscape-primary&quot;</code> sets &quot;natural&quot; landscape orientation, while <code>&quot;landscape-secondary&quot;</code> sets &quot;inverted&quot; landscape orientation. The full range of valid values is defined in <a href="https://w3c.github.io/screen-orientation/#idl-def-OrientationLockType">the screen orientation specification</a>.</p>
   <footer class="article-next">
     
 
@@ -422,7 +418,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

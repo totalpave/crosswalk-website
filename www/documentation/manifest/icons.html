@@ -294,8 +294,7 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Icons</h1>
-<p>The <code>icons</code> field specifies one or more icon graphics which visually represent the application. </p>
+  <h1>Icons</h1><p>The <code>icons</code> field specifies one or more icon graphics which visually represent the application. </p>
 <p>An icon may be used by a task switcher, in a notifications area, or in an application list on the device. The image below shows the icon for the <em>townxelliot media player</em> being used in the <em>application list</em> (left) and <em>recent apps</em> (right) contexts on Android:</p>
 <p><img src="/assets/manifest-icon-contexts.png" alt="Manifest icon used in &quot;application list&quot; and &quot;recent apps&quot; context on Android"></p>
 <p>The <code>icons</code> field is compatible with the <a href="http://w3c.github.io/manifest/#icons-member"><code>icons</code> field in the W3C manifest specification</a>.</p>
@@ -325,22 +324,17 @@
   &quot;start_url&quot;: &quot;index.html&quot;,
   &quot;display&quot;: &quot;fullscreen&quot;,
   &quot;orientation&quot;: &quot;landscape&quot;
-}</code></pre>
-<p>The properties for each object in the <code>icons</code> array are described below.</p>
-<h3>src</h3>
-<p>The path to the icon file, relative to the manifest.</p>
-<h3>type</h3>
-<p>The <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">MIME type</a> of the icon.</p>
-<h3>sizes</h3>
-<p>The icon sizes for which this image is suitable, as space-separated <code>&lt;width&gt;x&lt;height&gt;</code> substrings. For example:</p>
+}</code></pre><p>The properties for each object in the <code>icons</code> array are described below.</p>
+<h3>src</h3><p>The path to the icon file, relative to the manifest.</p>
+<h3>type</h3><p>The <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">MIME type</a> of the icon.</p>
+<h3>sizes</h3><p>The icon sizes for which this image is suitable, as space-separated <code>&lt;width&gt;x&lt;height&gt;</code> substrings. For example:</p>
 <ul>
 <li><code>&quot;sizes&quot;: &quot;128x128&quot;</code>: this image is suitable for use as a 128x128 pixel icon.</li>
 <li><code>&quot;sizes&quot;: &quot;128x128 256x256&quot;</code>: this image is suitable for use as a 128x128 or 256x256 pixel icon.</li>
 </ul>
 <p>Note that the value for the <code>sizes</code> property is <em>not</em> the intrinsic size of the image (i.e. the pixel size stored in the image file): it is the set of icon sizes for which this image file is suitable. This means it is possible to have an image file with an intrinsic size smaller or larger than the icon it will serve as.</p>
 <p>For example, an image file may be 128x128 pixels in size; but the manifest may state that this image can be used for 128x128 or 256x256 pixel icons. When used as a 256x256 pixel icon, the image file will be scaled up (2x) to fit the required icon size (which may result in some degradation in its appearance).</p>
-<h3>density</h3>
-<p>The <code>density</code> property specifies which screen densities an icon should be used for. Coupled with the <code>sizes</code> property, it makes it possible to adjust which image file is delivered for a particular icon size at a given screen density.</p>
+<h3>density</h3><p>The <code>density</code> property specifies which screen densities an icon should be used for. Coupled with the <code>sizes</code> property, it makes it possible to adjust which image file is delivered for a particular icon size at a given screen density.</p>
 <p>If you are unfamiliar with the concept of screen density, see the <a href="/documentation/screens/screen_measurements.html">screen measurements page</a>.</p>
 <p>The property&#39;s value is a float representing the screen density for which the image is suitable, in dots per pixel (dppx). For example:</p>
 <ul>
@@ -378,18 +372,15 @@
     &quot;sizes&quot;: &quot;128x128&quot;,
     &quot;density&quot;: &quot;2.0&quot;
   }
-]</code></pre>
-<p>Note that we don&#39;t mention anywhere that <code>foo_hd.png</code> is 256x256 raw pixels in size: we just specify that it is suitable for a 128x128 pixel icon on a screen with density of 2dppx.</p>
+]</code></pre><p>Note that we don&#39;t mention anywhere that <code>foo_hd.png</code> is 256x256 raw pixels in size: we just specify that it is suitable for a 128x128 pixel icon on a screen with density of 2dppx.</p>
 <h2 id="Effect-on-Android-packaging">Effect on Android packaging</h2>
 
 <p>Rather than affecting the Crosswalk runtime on Android directly, the <code>icons</code> field affects how an application is packaged by <a href="/documentation/android/run_on_android.html"><code>make_apk.py</code></a>. The <code>make_apk.py</code> script discards some of the information included in the <code>icon</code> field, for example the <code>density</code>.</p>
 <p>If the <code>icons</code> field contains multiple icon sizes, the <code>make_apk.py</code> script will map the corresponding icon files to <a href="http://developer.android.com/guide/topics/resources/providing-resources.html">Android drawable resources</a> depending on their size.</p>
 <p>When the application is installed, Android will use the file appropriate for the target&#39;s screen resolution as the application icon in the home screen, application list and other relevant locations.</p>
-<h2>Acknowledgements</h2>
-<p>The <em>townxelliot media player</em> icon was modified from an original icon created by <a href="http://www.wpzoom.com/">wpzoom.com</a> under a <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA licence</a>. It was sourced from <a href="http://findicons.com/icon/457729/radio?id=457887">Find Icons</a>.</p>
+<h2>Acknowledgements</h2><p>The <em>townxelliot media player</em> icon was modified from an original icon created by <a href="http://www.wpzoom.com/">wpzoom.com</a> under a <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA licence</a>. It was sourced from <a href="http://findicons.com/icon/457729/radio?id=457887">Find Icons</a>.</p>
 <p>The modified icon is made available here to satisfy the terms of the licence, and is released under the same CC BY-SA licence:</p>
-<p><img alt="Modified radio icon" title="Modified radio icon" src="/assets/radio.png"></p>
-
+<img alt="Modified radio icon" title="Modified radio icon" src="/assets/radio.png">
   <footer class="article-next">
     
 
@@ -502,7 +493,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

@@ -185,20 +185,16 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h2>The OWNERS files</h2>
-<p>The <code>OWNERS</code> files are a way of specifying a set of reviewers whose review is required to modify certain areas of code.</p>
+  <h2>The OWNERS files</h2><p>The <code>OWNERS</code> files are a way of specifying a set of reviewers whose review is required to modify certain areas of code.</p>
 <p>When contributing code, for each file modified in a pull request, a &quot;LGTM&quot; review is required from someone listed in the OWNERS file in that directory, or in the OWNERS file in a parent / higher-level directory of that file. That means that the approver must type &quot;lgtm&quot; (case insensitive) into a comment on the pull request.</p>
-<h3>Examples</h3>
-<p>You want to change code in <code>xwalk/extensions/browser/xwalk_extension_service.h</code>.</p>
+<h3>Examples</h3><p>You want to change code in <code>xwalk/extensions/browser/xwalk_extension_service.h</code>.</p>
 <p>Either you or one of the change’s reviewers must be an owner of <code>xwalk/extensions/browser/</code>.</p>
 <p>Who owns <code>xwalk/extensions/browser</code>? Everyone named in <code>xwalk/extensions/browser/OWNERS</code>. In addition, everyone named in <code>xwalk/extensions/OWNERS</code> can review this code, and so on up the directory tree. If no <code>OWNERS</code> file exists in the directory containing a modified file, crawl up the hierarchy to find the nearest one. </p>
 <p>Another example:</p>
 <p>You want to do a refactoring and make some changes to <code>XWalkExtension</code> that require you touch code in many different directories due to a renamed method. You make changes to <code>xwalk/extensions/common/xwalk_extension.h</code> and to callsites in <code>xwalk/experimental</code>, <code>xwalk/application</code>, and elsewhere, across different sub directories. You could either get a LGTM from someone listed in the OWNERS file of each of these 20 subdirectories, or you could get a LGTM from someone listed in <code>xwalk/OWNERS</code>.</p>
-<h2>Why OWNERS?</h2>
-<p>OWNERS are people who are intimately familiar with specific areas of code. They have a deep understanding of how the code works, why it was built the way it was and what needs to happen to the code to improve it.</p>
+<h2>Why OWNERS?</h2><p>OWNERS are people who are intimately familiar with specific areas of code. They have a deep understanding of how the code works, why it was built the way it was and what needs to happen to the code to improve it.</p>
 <p>OWNERS are responsible for ensuring the quality of code in their directory remains high and improves over time.</p>
-<h2>Who should be in an OWNERS file?</h2>
-<p>Only the people who are actively investing energy in the improvement of a directory should be listed as OWNERS.</p>
+<h2>Who should be in an OWNERS file?</h2><p>Only the people who are actively investing energy in the improvement of a directory should be listed as OWNERS.</p>
 <p>OWNERS are expected to have demonstrated excellent judgment, teamwork and ability to uphold Crosswalk development principles. They must understand the development process.</p>
 <p>Additionally, for someone to be listed as an OWNER of a directory they must be approved by the other OWNERS of the affected directory. Some guidelines:</p>
 <ul>
@@ -208,12 +204,10 @@
 <li>have the bandwidth to contribute with other OWNERS to review of code within the affected directory</li>
 <li>have demonstrated ability to understand how the directory interacts with other parts of Crosswalk</li>
 </ul>
-<h2>How to change the OWNERS file?</h2>
-<p>It is up to OWNERS of a directory (and of its parent directories) to keep the list up to date. OWNERS lists should be as small as possible to encourage better code modularization. When a directory has many hundreds of files, it becomes hard to understand which OWNERS are familiar with which files.</p>
+<h2>How to change the OWNERS file?</h2><p>It is up to OWNERS of a directory (and of its parent directories) to keep the list up to date. OWNERS lists should be as small as possible to encourage better code modularization. When a directory has many hundreds of files, it becomes hard to understand which OWNERS are familiar with which files.</p>
 <p>There is a mailing list in Crosswalk dedicated to maintainence of the OWNERS files, in which all OWNERS participate. Before changing an OWNERS file in a directory, one OWNER must first send an email about the change to this list, making it clear the reasons why that change is in accordance with the guidelines above.</p>
 <p>To actually make the change, the change must get positive support from at least other two OWNERS. If there is negative feedback on the change, the OWNERS of the parent directory have the final word (up to the <code>xwalk/OWNERS</code>).</p>
 <p>The email and approval of other OWNERS ensure that guidelines are being followed and serve as notification for other OWNERS. After 7 days with at least two supporters and without negative feedback, a patch with the pull request should be created, and if it&#39;s a new OWNER, he/she should merge the pull request to ensure repository permissions are working.</p>
-
   <footer class="article-next">
     
 
@@ -249,7 +243,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

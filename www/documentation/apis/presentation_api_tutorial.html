@@ -249,22 +249,18 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Presentation API Tutorial</h1>
-<p>The Presentation API allows a web app to present web content on a secondary display connected to the device. It has several uses: presenting slides, sharing video and image, and playing game on a large screen TV via the mobile device.</p>
+  <h1>Presentation API Tutorial</h1><p>The Presentation API allows a web app to present web content on a secondary display connected to the device. It has several uses: presenting slides, sharing video and image, and playing game on a large screen TV via the mobile device.</p>
 <p>Presentation API is an experimental feature for Crosswalk for Android 4.2+ based on Miracast-compatible wireless display support. It is available in <a href="https://crosswalk-project.org/documentation/downloads.html">current versions</a> of Crosswalk.  This tutorial is based on an article from <a href="http://html5hub.com/presentation-api-tutorial/">HTML5 Hub</a> by Hongbo Min, and has been tested with <a href="https://crosswalk-project.org/documentation/downloads.html">Crosswalk Stable 11.40.277.7</a>.</p>
 <p>The Presentation API is defined as follows:</p>
 <pre><code>interface Presentation :EventTarget {
        void requestShow(DOMString url, successCallback, errorCallback);
        readonly attribute boolean displayAvailable;
        attributeEventHandler ondisplayavailablechange;
-};</code></pre>
-<p>In Crosswalk, the Presentation API is exposed as an additional property to the navigator object:</p>
+};</code></pre><p>In Crosswalk, the Presentation API is exposed as an additional property to the navigator object:</p>
 <pre><code>navigator.presentation.requestShow
 navigator.presentation.displayAvailable
-navigator.presentation.displayavailablechange</code></pre>
-<p>Note: the <a href="http://w3c.github.io/presentation-api/">Presentation API W3C spec</a> is still evolving, and may be modified to meet new usage scenarios, such as integration with Chromecast devices.</p>
-<h2>Setup Wireless Display</h2>
-<p><strong>Requirements</strong></p>
+navigator.presentation.displayavailablechange</code></pre><p>Note: the <a href="http://w3c.github.io/presentation-api/">Presentation API W3C spec</a> is still evolving, and may be modified to meet new usage scenarios, such as integration with Chromecast devices.</p>
+<h2>Setup Wireless Display</h2><p><strong>Requirements</strong></p>
 <ol>
 <li>Android 4.2 or newer device with Miracast protocol support.</li>
 <li>A TV or display with an HDMI port.</li>
@@ -279,8 +275,7 @@ navigator.presentation.displayavailablechange</code></pre>
 <li>Open the <code>Settings</code> app and select <code>Developer Options</code>.</li>
 <li>Use the <code>Simulate Secondary Display</code> option to select a display to simulate. </li>
 </ol>
-<h2>Sample Code</h2>
-<p>In the following sample, there are two HTML files:</p>
+<h2>Sample Code</h2><p>In the following sample, there are two HTML files:</p>
 <ul>
 <li><code>index.html</code> – a controller page which shows on the primary display and opens a page on the secondary display</li>
 <li><code>content.html</code> – the content page to show on the secondary display</li>
@@ -330,8 +325,7 @@ window.addEventListener(&quot;message&quot;, function(event) {
 
   &lt;div id=”msg”&gt;Error: No message from primary display&lt;/div&gt;
   &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<p><strong>content.html</strong></p>
+&lt;/html&gt;</code></pre><p><strong>content.html</strong></p>
 <pre><code>&lt;html&gt;
 &lt;head&gt;
   &lt;script&gt;
@@ -347,8 +341,7 @@ window.addEventListener(&quot;message&quot;, function(event) {
   Message from its opener:
   &lt;div id=”output”&gt;Error: No message received from secondary dispaly&lt;/div&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<p>Follow the instructions on <a href="/documentation/android/build_an_application.html">how to build a Crosswalk application</a> to package the above two HTML files into an Android application; then follow the instructions for <a href="/documentation/android/run_on_android.html">running on Android</a> to launch the application on a Android 4.2+ device. Make sure there is at least one available secondary display before running the application: see the Setup Wireless Display section above.</p>
+&lt;/html&gt;</code></pre><p>Follow the instructions on <a href="/documentation/android/build_an_application.html">how to build a Crosswalk application</a> to package the above two HTML files into an Android application; then follow the instructions for <a href="/documentation/android/run_on_android.html">running on Android</a> to launch the application on a Android 4.2+ device. Make sure there is at least one available secondary display before running the application: see the Setup Wireless Display section above.</p>
 <p>Once the application is running, clicking the “Show Presentation” button will open the <code>content.html</code> page on the secondary display.</p>
 <p>You should see the following output on the primary display:</p>
 <blockquote>
@@ -360,15 +353,14 @@ window.addEventListener(&quot;message&quot;, function(event) {
 </blockquote>
 <p>If there is no available wireless display, you will get an alert dialog with the message “No available display found”.</p>
 <p>For an example of a more realistic HTML5 app using a secondary display, check out the <a href="https://github.com/crosswalk-project/crosswalk-demos/tree/master/Gallery">ImageGallery</a> demo. This demonstrates how to use the Presentation API to view photos on a wireless display.</p>
-<h3>Details of the JavaScript API</h3>
-<h4><code>presentation.requestShow Method</code></h4>
+<h3>Details of the JavaScript API</h3><p>####<code>presentation.requestShow Method</code>####</p>
 <p><code>requestShow</code> sends a request to the user agent to show a presentation. If a secondary display is ready for use, a new presentation window for the HTML page specified by the url will be opened on the secondary display. This secondary window is opened from the current browsing context. Once the page has finished loading, the <code>successCallback</code> method is invoked with the window object of the new page as the input parameter. Thus, the communication between the opener window and presentation window follows the approach of <a href="http://www.w3.org/TR/webmessaging/">HTML5 Web Messaging</a>. You can call <code>postMessage</code> to post a message and register an <code>onmessage</code> event listener to handle the message from the other side.</p>
 <p>If an error occurs, <code>requestShow</code> will fail and the <code>errorCallback</code> method is called with a DOMError object. The following table describes the possible errors:</p>
 <table>
 <tr><th>Error Name</th><th>Description</th></tr>
-<tr><td>NotFoundError</t><td>No available secondary display found</td></tr>
+<tr><td>NotFoundError</td><td>No available secondary display found</td></tr>
 <tr><td>InvalidAccessError</td><td>A presentation is already showing on the secondary display</td></tr>
-<tr><td>NotSupportedError</td><td>The platform doesn&#39;t support the Miracast protocol</td></tr>
+<tr><td>NotSupportedError</td><td>The platform doesn't support the Miracast protocol</td></tr>
 <tr><td>InvalidParameterError</td><td>An invalid url parameter was passed</td></tr>
 </table>
 
@@ -378,25 +370,22 @@ window.addEventListener(&quot;message&quot;, function(event) {
 <li>Avoid JavaScript dialogs (e.g. alert and confirm).</li>
 <li>Do not expect click, touch or keyboard events or interaction in the presentation page context.</li>
 </ol>
-<h4><code>presentation.displayAvailable Property</code></h4>
+<p>####<code>presentation.displayAvailable Property</code>####</p>
 <p>The <code>presentation.displayAvailable</code> property is true if there is at least one secondary display available for showing a presentation; otherwise, it is false. When one secondary display is disconnected:</p>
 <ol>
 <li>If it is not the only secondary display connected to the device, the page content will be switched to the next available display automatically.</li>
 <li>If it is the only secondary display, the page content is disposed of and the <code>displayAvailable</code> property is set to false.</li>
 </ol>
-<h4><code>presentation.displayavailablechange Event</code></h4>
+<p>####<code>presentation.displayavailablechange Event</code>####</p>
 <p>The <code>displayavailablechange</code> event is fired when the first secondary display becomes available or the last secondary display is removed. The property of <code>displayAvailable</code> will also be updated to true or false (see above).</p>
 <p>The presentation browsing context is closed if the secondary display becomes unavailable. The app does not need to close it.</p>
-<h3>Summary</h3>
-<p>In this tutorial, we introduced a new W3C Presentation API for presenting web content on a secondary display. Currently, it is an experimental feature implemented in Crosswalk for Android 4.2+ devices.  It may be changed in the future as it evolves based on feedback from the community.</p>
-<h3>Resources</h3>
-<p>Here are a few related links:</p>
+<h3>Summary</h3><p>In this tutorial, we introduced a new W3C Presentation API for presenting web content on a secondary display. Currently, it is an experimental feature implemented in Crosswalk for Android 4.2+ devices.  It may be changed in the future as it evolves based on feedback from the community.</p>
+<h3>Resources</h3><p>Here are a few related links:</p>
 <ul>
 <li><a href="http://w3c.github.io/presentation-api/">W3C Presentation API Draft</a></li>
 <li><a href="http://www.w3.org/community/webscreens/">Second Screen Presentation Community Group</a></li>
 <li><a href="http://lists.w3.org/Archives/Public/public-webscreens/">Web Screens Mail List</a></li>
 </ul>
-
   <footer class="article-next">
     
 
@@ -447,7 +436,7 @@ window.addEventListener(&quot;message&quot;, function(event) {
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

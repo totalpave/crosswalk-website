@@ -235,14 +235,10 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Crosswalk with Cordova 4.0</h1>
-<h2>Overview</h2>
-<p>With the introduction in <a href="http://cordova.apache.org/announcements/2015/04/15/cordova-android-4.0.0.html">Cordova Android 4.0.0</a> of pluggable WebView support, it is now easy to use the Crosswalk WebView with your Cordova app. By using the Crosswalk WebView plugin, developers can enjoy remote debugging capabilities, cutting edge HTML5 features such as WebGL, WebAudio and WebRTC, and significant performance enhancements on Android devices all the way down to Android 4.0 Ice Cream Sandwich (ICS).</p>
-<h2>Prerequisites</h2>
-<p>Please refer to the <a href="https://cordova.apache.org/docs/en/4.0.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide">Android Platform Guide</a> to setup the Android SDK environment for Cordova application development.</p>
+  <h1>Crosswalk with Cordova 4.0</h1><h2>Overview</h2><p>With the introduction in <a href="http://cordova.apache.org/announcements/2015/04/15/cordova-android-4.0.0.html">Cordova Android 4.0.0</a> of pluggable WebView support, it is now easy to use the Crosswalk WebView with your Cordova app. By using the Crosswalk WebView plugin, developers can enjoy remote debugging capabilities, cutting edge HTML5 features such as WebGL, WebAudio and WebRTC, and significant performance enhancements on Android devices all the way down to Android 4.0 Ice Cream Sandwich (ICS).</p>
+<h2>Prerequisites</h2><p>Please refer to the <a href="https://cordova.apache.org/docs/en/4.0.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide">Android Platform Guide</a> to setup the Android SDK environment for Cordova application development.</p>
 <p>Make sure you have an up-to-date version of <a href="https://nodejs.org/">node.js</a> installed on your system.</p>
-<h2>Workflow</h2>
-<ol>
+<h2>Workflow</h2><ol>
 <li><p>Install the Cordova Command Line Interface (CLI)</p>
 <pre><code class="language-cmdline">&gt; npm install -g cordova</code></pre>
 <p>Check that the version of Cordova CLI is &gt;= 5.0.0:</p>
@@ -274,19 +270,20 @@
 <li><p>Launch it in the emulator</p>
 <pre><code class="language-cmdline">&gt; cordova emulate android</code></pre>
 <p>Launching a Cordova app using the Crosswalk WebView is done the same way as Cordova app. The command will launch the emulator, install the application APK, and then launch your app. As an example, after launching the above Cordova example, you will see the following result on your screen:</p>
-<p><img src="/assets/cordova-in-emulator.jpg" /></p>
+<img src="/assets/cordova-in-emulator.jpg">
+
 <p>Please refer to The <a href="https://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html#The%20Command-Line%20Interface">Command-Line Interface</a> for a full listing of commands and options.</p>
 </li>
 </ol>
-<h2>Remote debugging with Crosswalk</h2>
-<p>The Crosswalk WebView allows remote debugging the Cordova app, even on old Android devices (4.0+).</p>
+<h2>Remote debugging with Crosswalk</h2><p>The Crosswalk WebView allows remote debugging the Cordova app, even on old Android devices (4.0+).</p>
 <p>You can use desktop Google Chrome to debug any apps running on Crosswalk remotely. After the app launches, navigate to “chrome://inspect” to list the debuggable app on the device. For example, when inspecting the <code>HelloWorld</code> app running in the emulator with Crosswalk:</p>
-<p><img src="/assets/cordova-devtools-inspect.jpg" /></p>
+<img src="/assets/cordova-devtools-inspect.jpg">
+
 <p>By clicking the “inspect” link under <code>Hello World</code>, a Chrome DevTools window will be opened. In the JavaScript console tab, you can make sure the app is running on Crosswalk by inspecting <code>navigator.userAgent</code>. For example, the app is running on Crosswalk 13 (Chromium M42):</p>
-<p><img src="/assets/cordova-with-devtools.jpg" /></p>
+<img src="/assets/cordova-with-devtools.jpg">
+
 <p>Please refer to <a href="https://developer.chrome.com/devtools/docs/remote-debugging">Remote Debugging on Android with Chrome</a> for the user manual.</p>
-<h2>(Optional) Android Platform Only Workflow</h2>
-<p>This workflow is for developers who want to stay on the bleeding edge of development. Go to Cordova CLI workflow if you want a stable release.</p>
+<h2>(Optional) Android Platform Only Workflow</h2><p>This workflow is for developers who want to stay on the bleeding edge of development. Go to Cordova CLI workflow if you want a stable release.</p>
 <p><a href="http://www.google.com/url?q=http%3A%2F%2Fgit-scm.com%2F&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNFOqwvh2KbuCJQUVsR5fW38FrTRTw">git</a> is required.</p>
 <ol>
 <li><p>Pull the cordova-android repo</p>
@@ -324,7 +321,6 @@
 </li>
 </ol>
 <p>For more commands of cordova-android, please refer to <a href="https://github.com/apache/cordova-android">cordova-android README.md</a>.</p>
-
   <footer class="article-next">
     
 
@@ -360,7 +356,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

@@ -264,18 +264,14 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Quick Start Guide</h1>
-<p>This guide describes how to create a Crosswalk web application, and how to create a hybrid application with Crosswalk XWalkView support.</p>
-<h2>Create Crosswalk Web Application</h2>
-<h3>Prerequisites</h3>
-<ol>
+  <h1>Quick Start Guide</h1><p>This guide describes how to create a Crosswalk web application, and how to create a hybrid application with Crosswalk XWalkView support.</p>
+<h2>Create Crosswalk Web Application</h2><h3>Prerequisites</h3><ol>
 <li><a href="https://developer.apple.com/xcode/">Xcode</a></li>
 <li><a href="https://developer.apple.com/programs/">Valid Apple Developer Account</a></li>
 <li><a href="https://www.npmjs.com/">NPM</a></li>
 <li><a href="https://github.com/crosswalk-project/crosswalk-app-tools-ios">Crosswalk App Tools with iOS backend</a></li>
 </ol>
-<h3>Creation</h3>
-<ol>
+<h3>Creation</h3><ol>
 <li><p>Create a demo application <code>org.example.foo</code></p>
 <pre><code class="language-cmdline">&gt; crosswalk-app create org.example.foo</code></pre>
 </li>
@@ -292,9 +288,7 @@
 <p>Open iTunes. Connect an iOS device (iPhone/iPad) which is already registered in your development group. Select the <code>Application</code> page, drag <code>foo.ipa</code> into the <code>Applications</code> list, and sync. <code>&#39;foo.ipa</code> will be installed on the iOS device.</p>
 </li>
 </ol>
-<h2>Create Crosswalk Hybrid Application</h2>
-<h3>Create the application project</h3>
-<ol>
+<h2>Create Crosswalk Hybrid Application</h2><h3>Create the application project</h3><ol>
 <li><p>Open Xcode. Create an iOS application project with the &quot;Single View Application&quot; template in the working directory.  For this example, we use &quot;Echo&quot;.  Use Swift for convenience.</p>
 </li>
 <li><p>Use CocoaPods to integrate the <code>crosswalk-ios</code> library and Crosswalk extensions (if needed) into the demo application. For the CocoaPods installation and usage, please refer to: <a href="https://cocoapods.org/">CocoaPods</a>.</p>
@@ -304,11 +298,9 @@
 <p> With the contents as below:</p>
 <pre><code> platform :ios, &#39;8.1&#39;
  use_frameworks!
- pod &#39;crosswalk-ios&#39;, &#39;~&gt; 1.2&#39;</code></pre>
-<p> This tells CocoaPods that the deploy target is iOS 8.1+ and to integrate library <code>crosswalk-ios</code> with the latest version of <code>1.2.x</code>. Remember to add <code>use_frameworks!</code> because <code>crosswalk-ios</code> is partly written in Swift and it has to be built as a framework instead of a static library.</p>
+ pod &#39;crosswalk-ios&#39;, &#39;~&gt; 1.2&#39;</code></pre><p> This tells CocoaPods that the deploy target is iOS 8.1+ and to integrate library <code>crosswalk-ios</code> with the latest version of <code>1.2.x</code>. Remember to add <code>use_frameworks!</code> because <code>crosswalk-ios</code> is partly written in Swift and it has to be built as a framework instead of a static library.</p>
 <p> Install <code>Pods</code> target into the project. Quit the Xcode first, then in the <code>Echo</code> directory, use command:</p>
-<pre><code> &gt; pod install</code></pre>
-<p> After the installation, you will find an <code>Echo.xcworkspace</code> is generated, and CocoaPods output will notify you to use this workspace instead of the <code>Echo.xcodeproj</code> from now on.</p>
+<pre><code> &gt; pod install</code></pre><p> After the installation, you will find an <code>Echo.xcworkspace</code> is generated, and CocoaPods output will notify you to use this workspace instead of the <code>Echo.xcodeproj</code> from now on.</p>
 <p>Open the <code>Echo.xcworkspace</code>. There will be two projects: <code>Echo</code> and <code>Pods</code>.</p>
 <ul>
 <li>For quick test, replace the contents of the auto-generated <code>ViewController.swift</code> with the corresponding file in <a href="https://github.com/crosswalk-project/crosswalk-ios/blob/master/AppShell/AppShell/ViewController.swift">crosswalk-ios/AppShell/AppShell/ViewController.swift</a>, which has set up a <code>XWalkView</code> instance for you already.</li>
@@ -338,7 +330,6 @@
 </ol>
 <p>The <code>Echo</code> demo is ready to run now. Press &#39;Run&#39; button and it will be deployed and run on your iOS simulator.</p>
 <p>This is the first step in building the Echo demo. If you need to know how to setup a hybrid project with your own Crosswalk extension, please go to: <a href="extensions.html">Extension</a> for more details.</p>
-
   <footer class="article-next">
     
 
@@ -415,7 +406,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

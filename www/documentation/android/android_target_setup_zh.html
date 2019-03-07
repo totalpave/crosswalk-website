@@ -264,11 +264,9 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>安卓设备配置</h1>
-<p>Crosswalk应用将会运行在实体机或者安卓虚拟机上。</p>
+  <h1>安卓设备配置</h1><p>Crosswalk应用将会运行在实体机或者安卓虚拟机上。</p>
 <p>安卓4.0以及以上版本都可以正常运行应用。</p>
-<h2>安卓设备</h2>
-<p>为了在安卓设备上运行Crosswalk应用，您需要连接您的电脑主机和设备。最简单的方式是用USB线连接它们。</p>
+<h2>安卓设备</h2><p>为了在安卓设备上运行Crosswalk应用，您需要连接您的电脑主机和设备。最简单的方式是用USB线连接它们。</p>
 <p>在命令行下使用下面的命令，测试安卓设备是否连接上主机：</p>
 <pre><code class="language-cmdline">&gt; adb devices
 List of devices attached
@@ -295,27 +293,24 @@ List of devices attached
 &gt; adb devices
 List of devices attached
 HT23KW103989    device</code></pre>
-<h2>安卓虚拟机</h2>
-<p>如果需要在您没有的安卓平台上测试应用，最好的方法就是使用虚拟机。您可以通过Android SDK安装。</p>
+<h2>安卓虚拟机</h2><p>如果需要在您没有的安卓平台上测试应用，最好的方法就是使用虚拟机。您可以通过Android SDK安装。</p>
 <ol>
 <li><p>通过在Linux下运行<code>android</code>命令，或者在Windows下运行<code>SDK Manager.exe</code>，启动Android SDK。</p>
 </li>
 <li><p>在SDK Manager窗口，检查如下列表中的内容：</p>
 <pre><code>[ ] Android 4.3 (API 18)
-    [x] Intel x86 Atom System Image</code></pre>
-<p>如果您想要测试其他版本的Android API，只需要安装相应x86系统的镜像。</p>
+    [x] Intel x86 Atom System Image</code></pre><p>如果您想要测试其他版本的Android API，只需要安装相应x86系统的镜像。</p>
 </li>
 <li><p><strong>仅适用于Windows</strong>，使用SDK Manager下载HAXM：</p>
 <pre><code>[ ] Extras
-    [x] Intel x86 Emulator Accelerator (HAXM)</code></pre>
-<p>Windows平台上运行虚拟的x86设备，会获得更好的图形性能。</p>
+    [x] Intel x86 Emulator Accelerator (HAXM)</code></pre><p>Windows平台上运行虚拟的x86设备，会获得更好的图形性能。</p>
 <p>注意SDK Manager仅下载HAXM，并没有安装它，因此您需要找到并安装它。您需要的文件名称是<code>IntelHaxm.exe</code>。</p>
 </li>
 <li><p>在下载相应的包之后，通过运行AVD Manager来配置虚拟机的系统：</p>
 </li>
 </ol>
 <pre><code class="language-cmdline">&gt; android avd</code></pre>
-<ol>
+<ol start="5">
 <li><p>创建名为<strong>Tablet</strong>的系统并选择下面的选项：</p>
 <ul>
  <li><em>Target</em>: <strong>Android 4.3</strong></li>
@@ -324,7 +319,7 @@ HT23KW103989    device</code></pre>
 </ul>
 
 <p>配置如下：</p>
-<p><img src='/assets/emulator.png' style="display:block;margin:0 auto"></p>
+<img src="/assets/emulator.png" style="display:block;margin:0 auto">
 </li>
 <li><p>在命令行模式下启动新的模拟器：</p>
 <pre><code class="language-cmdline">&gt; emulator -avd Tablet</code></pre>
@@ -335,7 +330,6 @@ emulator-5554   device</code></pre>
 </li>
 </ol>
 <p>现在，虚拟机已经配置完毕，并且可以作为部署平台。</p>
-
   <footer class="article-next">
     
 
@@ -422,7 +416,7 @@ emulator-5554   device</code></pre>
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

@@ -244,29 +244,25 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Crosswalk Lite</h1>
-<p>Crosswalk Lite, or &quot;Lite&quot;, is the Crosswalk runtime designed to be as small as possible by removing less common libraries and features and compressing the APK.</p>
-<h2>Overview</h2>
-<p>Crosswalk is based on the <a href="https://www.chromium.org/Home">open-source Chromium project</a> which continues to grow as new features are added. For smaller applications, the additional ~20MB added to the APK size when built with Crosswalk might be too much. These applications may not require all of the advanced features that are part of the default Chromium (and Crosswalk) builds. Crosswalk Lite makes some hard cuts to create a smaller redistributable runtime, while still keeping the most commonly-used features.</p>
+  <h1>Crosswalk Lite</h1><p>Crosswalk Lite, or &quot;Lite&quot;, is the Crosswalk runtime designed to be as small as possible by removing less common libraries and features and compressing the APK.</p>
+<h2>Overview</h2><p>Crosswalk is based on the <a href="https://www.chromium.org/Home">open-source Chromium project</a> which continues to grow as new features are added. For smaller applications, the additional ~20MB added to the APK size when built with Crosswalk might be too much. These applications may not require all of the advanced features that are part of the default Chromium (and Crosswalk) builds. Crosswalk Lite makes some hard cuts to create a smaller redistributable runtime, while still keeping the most commonly-used features.</p>
 <p>In the end, what Crosswalk version you choose depends on your needs. We are happy to listen to input on your project requirements.</p>
-<h3>Supported platforms</h3>
-<ul>
+<h3>Supported platforms</h3><ul>
 <li>Lite is currently Android only and does not support shared mode</li>
 <li>Lite only supports 32-bit builds for x86 and ARM. x86_64 and ARM64 are not yet supported.</li>
 </ul>
-<h3>Size and Feature Selection</h3>
-<p>The table below shows the estimated <i>additional</i> size added to a web application built with Crosswalk and Crosswalk Lite.</p>
+<h3>Size and Feature Selection</h3><p>The table below shows the estimated <i>additional</i> size added to a web application built with Crosswalk and Crosswalk Lite.</p>
 <table style="text-align:center;border:1px solid black">
-<tr><th colspan=2 style="text-align:center;border:1px solid black">Crosswalk</th>
-    <th colspan=2 style="color:blue;text-align:center">Crosswalk Lite</th></tr>
+<tr><th colspan="2" style="text-align:center;border:1px solid black">Crosswalk</th>
+    <th colspan="2" style="color:blue;text-align:center">Crosswalk Lite</th></tr>
 <tr><td style="border:1px solid black">APK</td>
     <td style="border:1px solid black">Installed</td>
-    <td style="border:1px solid black;color:blue;">APK</td>
-    <td style="border:1px solid black;color:blue;">Installed</td></tr>
+    <td style="border:1px solid black;color:blue">APK</td>
+    <td style="border:1px solid black;color:blue">Installed</td></tr>
 <tr><td style="border:1px solid black">20MB</td>
      <td style="border:1px solid black">55MB</td>
-     <td style="border:1px solid black;color:blue;">10-15MB</td>
-     <td style="border:1px solid black;color:blue;">40MB</td></tr>
+     <td style="border:1px solid black;color:blue">10-15MB</td>
+     <td style="border:1px solid black;color:blue">40MB</td></tr>
 </table>
 
 <ul>
@@ -276,33 +272,27 @@
 <li>The final library is compressed using LZMA to produce a smaller APK. The APK must then be decompressed when the application is first run.  See <a href="#runtime-behavior">Runtime behavior</a> below.</li>
 <li>The compile options are set to optimize for size.</li>
 </ul>
-<h3>Configurability</h3>
-<p>Ideally developers could select which options they need and build a custom runtime for their project. Unfortunately Chromium, a large and relatively complex project, is not designed to be modular and the ability of the team to restructure it and guarantee reliable builds is not feasible at this time. In the long term, we would like to improve Chromium, Blink, and Crosswalk to modularize its features so that specific features (like WebRTC) can be turned on/off at APK build time.</p>
-<h3><a class="doc-anchor" id="runtime-behavior"></a> Runtime behavior</h3>
-<ul>
+<h3>Configurability</h3><p>Ideally developers could select which options they need and build a custom runtime for their project. Unfortunately Chromium, a large and relatively complex project, is not designed to be modular and the ability of the team to restructure it and guarantee reliable builds is not feasible at this time. In the long term, we would like to improve Chromium, Blink, and Crosswalk to modularize its features so that specific features (like WebRTC) can be turned on/off at APK build time.</p>
+<h3><a class="doc-anchor" id="runtime-behavior"></a> Runtime behavior</h3><ul>
 <li>A dialog showing <a href="/assets/crosswalk-lite-uncompress-dialog.png">&quot;Preparing runtime...&quot;</a> pops up when an application built with Lite is first started. This only happens the first time it is run.</li>
 </ul>
-<h3>Release cycle</h3>
-<ul>
+<h3>Release cycle</h3><ul>
 <li>Lite is not released as often as mainline Crosswalk, nor it is rebased to the latest Chromium with the same cadence. </li>
 <li>Lite does not follow canary/beta/stable channels like the main project. </li>
 <li>Release cycles are 12-weeks, or on request.</li>
 </ul>
-<h3>QA and validation</h3>
-<ul>
+<h3>QA and validation</h3><ul>
 <li>Lite is tested regularly.  However, our main focus remains on the mainstream Crosswalk. Also, because Lite diverges from Chromium more than Crosswalk does, there is more opportunity for unexpected bugs.</li>
 <li>Given that Lite removes many lesser-used features, please make sure your app does not require these before selecting to build with Lite</li>
 <li>If optimizations done in Lite are proven to be safe, they will be merged to the mainstream Crosswalk releases</li>
 </ul>
-<h2>How to contribute</h2>
-<p>To contribute to Crosswalk Lite, follow the same guideline as in <a href="https://crosswalk-project.org/contribute/">https://crosswalk-project.org/contribute/</a>.</p>
+<h2>How to contribute</h2><p>To contribute to Crosswalk Lite, follow the same guideline as in <a href="https://crosswalk-project.org/contribute/">https://crosswalk-project.org/contribute/</a>.</p>
 <pre><code class="language-cmdline">$ gclient config --name=src/xwalk \
     git://github.com/crosswalk-project/crosswalk.git@origin/crosswalk-lite</code></pre>
 <ul>
 <li>Code reviews and contribution model is the same as for Crosswalk</li>
 <li>Crosswalk Lite is developed in a separte branch, though we will consider backporting relevant patches to Crosswalk proper</li>
 </ul>
-
   <footer class="article-next">
     
 
@@ -338,7 +328,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>

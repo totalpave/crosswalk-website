@@ -283,10 +283,8 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Run on Android</h1>
-<p>Building a Crosswalk Android application with extensions is almost identical to building any other Crosswalk Android application, and uses the same <code>make_apk.py</code> script (see the <a href="/documentation/android/run_on_android.html"><em>Run on Android</em> documentation</a>). The main difference is that an additional <code>--extensions</code> option is required, to instruct the script where to find extension directories.</p>
-<h2>Create the Android packages</h2>
-<p>To make Android packages for your project, do the following:</p>
+  <h1>Run on Android</h1><p>Building a Crosswalk Android application with extensions is almost identical to building any other Crosswalk Android application, and uses the same <code>make_apk.py</code> script (see the <a href="/documentation/android/run_on_android.html"><em>Run on Android</em> documentation</a>). The main difference is that an additional <code>--extensions</code> option is required, to instruct the script where to find extension directories.</p>
+<h2>Create the Android packages</h2><p>To make Android packages for your project, do the following:</p>
 <ol>
 <li><p>Build the extension, as described <a href="/documentation/android/android_extensions/write_an_extension.html#Build-the-extension">previously</a>. This will create the <code>xwalk-echo-extension/</code> directory with the extension files inside.</p>
 </li>
@@ -294,31 +292,25 @@
 <p>Follow the <a href="/documentation/android/system_setup.html">system setup page</a> to installed the Android SDK. Then use these commands to create the packages:</p>
 <ul>
 <li><p>Set an environment variable to the location of the project</p>
-<pre><code>  &gt; PROJECT_DIR=~/&lt;my projects directory&gt;/xwalk-echo-project</code></pre>
-</li>
+<pre><code>  &gt; PROJECT_DIR=~/&lt;my projects directory&gt;/xwalk-echo-project</code></pre></li>
 <li><p>Enter the unpacked Crosswalk Android directory</p>
-<pre><code>  &gt; cd $PROJECT_DIR/xwalk-echo-extension-src/lib/crosswalk-${XWALK-STABLE-ANDROID-X86}</code></pre>
-</li>
+<pre><code>  &gt; cd $PROJECT_DIR/xwalk-echo-extension-src/lib/crosswalk-${XWALK-STABLE-ANDROID-X86}</code></pre></li>
 <li><p>Invoke the package builder</p>
 <pre><code>  &gt; python make_apk.py --package=org.crosswalkproject.example \
     --enable-remote-debugging --fullscreen \
     --manifest=$PROJECT_DIR/xwalk-echo-app/manifest.json \
-    --extensions=$PROJECT_DIR/xwalk-echo-extension-src/xwalk-echo-extension/</code></pre>
-</li>
+    --extensions=$PROJECT_DIR/xwalk-echo-extension-src/xwalk-echo-extension/</code></pre></li>
 </ul>
 <p>The generated packages are in the <code>~/&lt;my projects directory&gt;/xwalk-echo-project/xwalk-echo-extension-src/lib/crosswalk-${XWALK-STABLE-ANDROID-X86}</code> directory, and called <code>xwalk_echo_app_x86.apk</code> and <code>xwalk_echo_app_arm.apk</code>.</p>
 <p>Note that if you are using multiple extension directories, you still have a single <code>--extensions</code> option but supply the paths as a comma-delimited string, e.g. <code>--extensions=myextension1,myextension2</code></p>
 </li>
 </ol>
-<h2>Install a package on a target</h2>
-<p>Choose the correct package for your Android target&#39;s architecture and install it with a command like:</p>
-<pre><code>$ adb install -r ~/&lt;my projects directory&gt;/xwalk-echo-project/xwalk-echo-extension-src/lib/crosswalk-${XWALK-STABLE-ANDROID-X86}/xwalk_echo_app_x86.apk</code></pre>
-<p>This command installs the x86 package. For more details about installing Crosswalk packages on Android, see <a href="/documentation/android/run_on_android.html">this page</a>.</p>
+<h2>Install a package on a target</h2><p>Choose the correct package for your Android target&#39;s architecture and install it with a command like:</p>
+<pre><code>$ adb install -r ~/&lt;my projects directory&gt;/xwalk-echo-project/xwalk-echo-extension-src/lib/crosswalk-${XWALK-STABLE-ANDROID-X86}/xwalk_echo_app_x86.apk</code></pre><p>This command installs the x86 package. For more details about installing Crosswalk packages on Android, see <a href="/documentation/android/run_on_android.html">this page</a>.</p>
 <p>The icon for the application should now be in the application menu on the Android target. Tap the icon to start the application and you should see something like this:</p>
 <p><img src="/assets/android-extensions-x86.png" alt="Crosswalk Android application with extensions on x86 ZTE Geek"></p>
 <p>(The screenshot above shows the application running on an x86 ZTE Geek.)</p>
 <p>The application should display the text &quot;You said: Hello world&quot;, which demonstrates that the Java and JavaScript parts of the Crosswalk extension are communicating correctly.</p>
-
   <footer class="article-next">
     
 
@@ -354,7 +346,7 @@
               
               
                 <b><a href="/blog">Crosswalk 23 to be the last Crosswalk release</a></b><br/>
-                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 09:30:00 GMT">2017-02-10T09:30</time></span>)
+                &nbsp;(<span ><time class="js-vagueTime" datetime="Fri, 10 Feb 2017 13:30:00 GMT">2017-02-10T09:30</time></span>)
               
               <br/>
            </div>
