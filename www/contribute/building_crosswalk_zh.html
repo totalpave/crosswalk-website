@@ -241,7 +241,7 @@ cd crosswalk-src</code></pre></li>
 <pre><code>gclient config --name=src/xwalk \
   git://github.com/crosswalk-project/crosswalk.git@origin/crosswalk-2</code></pre><p><em>为一个已经存在的checkout改变分支</em></p>
 <p>如果你已经克隆了一个Crosswalk，并且想改变追踪的分支，你需要新建一个git分支，然后编辑你的<code>.gclient</code>文件。</p>
-<p>例如，假设你想要追踪<em>crosswalk-2</em>分支。
+<p>例如，假设你想要追踪_crosswalk-2_分支。
 首先，在你的Crosswalk仓库中新建一个分支：</p>
 <pre><code>cd /path/to/src/xwalk
 git checkout -b crosswalk-2 origin/crosswalk-2</code></pre><p>然后，编辑你的<code>.gclient</code>文件（上面产生的）并且改变入口<code>url</code>。它看上去应该像这样：</p>

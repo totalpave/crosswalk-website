@@ -253,15 +253,30 @@
     &lt;meta-data android:name=&quot;xwalk_apk_url&quot;
                    android:value=&quot;http://host/XWalkRuntimeLib.apk&quot; /&gt;
                        ...
-                       &lt;/application&gt;</code></pre><h1><a class="doc-anchor" id="Using-shared-mode-with-the-embedding-API"></a>在嵌入模式API中使用共享模式</h1><p>使用嵌入模式API嵌入Crosswalk的开发者可以遵循下文的指南来更好地利用共享模式。</p>
-<h2><a class="doc-anchor" id="Permissions"></a>权限</h2><p>共享模式需要下列权限的保障：</p>
-<pre><code>ACCESS_NETWORK_STATE
+                       &lt;/application&gt;
+                       ```
+
+# &lt;a class=&quot;doc-anchor&quot; id=&quot;Using-shared-mode-with-the-embedding-API&quot;&gt;&lt;/a&gt;在嵌入模式API中使用共享模式
+
+使用嵌入模式API嵌入Crosswalk的开发者可以遵循下文的指南来更好地利用共享模式。
+
+## &lt;a class=&quot;doc-anchor&quot; id=&quot;Permissions&quot;&gt;&lt;/a&gt;权限
+
+共享模式需要下列权限的保障：
+</code></pre><p>ACCESS_NETWORK_STATE
 ACCESS_WIFI_STATE
 INTERNET
-WRITE_EXTERNAL_STORAGE</code></pre><h2><a class="doc-anchor" id="XWalkApplication"></a>XWalkApplication</h2><p> XWalkApplication对于从Crosswalk运行时环境库中获取资源很必要。你可以在Android manifest中直接使用XWalkApplication，或者让你的类继承XMwalApplication类。</p>
-<pre><code> &lt;application android:name=&quot;org.xwalk.core.XWalkApplication&quot;&gt;
+WRITE_EXTERNAL_STORAGE</p>
+<pre><code>
+## &lt;a class=&quot;doc-anchor&quot; id=&quot;XWalkApplication&quot;&gt;&lt;/a&gt;XWalkApplication
+
+ XWalkApplication对于从Crosswalk运行时环境库中获取资源很必要。你可以在Android manifest中直接使用XWalkApplication，或者让你的类继承XMwalApplication类。
+</code></pre> <application android:name="org.xwalk.core.XWalkApplication">
      ...
-     &lt;/application&gt;</code></pre><h2><a class="doc-anchor" id="XWalkActivity"></a>XWalkActivity</h2><p>XWalkActivity可以帮助运行所有用于初始化Crosswalk环境的程序，如果需要还可以展示用于与终端用户交互的对话框。包含XWalkView对象的活动可能想要通过继承XWalkActivity来获取它的功能。对于那些活动，覆盖负责通知Crosswalk环境已经就绪的抽象方法onXWalkReady()很重要。 </p>
+     </application>
+     ```
+
+<h2><a class="doc-anchor" id="XWalkActivity"></a>XWalkActivity</h2><p>XWalkActivity可以帮助运行所有用于初始化Crosswalk环境的程序，如果需要还可以展示用于与终端用户交互的对话框。包含XWalkView对象的活动可能想要通过继承XWalkActivity来获取它的功能。对于那些活动，覆盖负责通知Crosswalk环境已经就绪的抽象方法onXWalkReady()很重要。 </p>
 <p>在共享模式下，Crosswalk运行时库在活动已经被创建时还没有加载。所以开发者不能在onCreate()中使用嵌入模式API。所有对嵌入式API的使用通常都应该在onXWalkReady()中或者在onXWalkReady被调用后。</p>
 <pre><code>public class MyXWalkActivity extends XWalkActivity {
         @Override
@@ -301,14 +316,29 @@ WRITE_EXTERNAL_STORAGE</code></pre><h2><a class="doc-anchor" id="XWalkApplicatio
     // Do anything with embedding API
     mXWalkView.load(&quot;index.html&quot;, null);
     }
-}</code></pre><h2><a class="doc-anchor" id="Version-Check-Mechanism"></a>版本检查机制</h2><p>除了版本名称（例如13.38.208.0），Crosswalk的每次发布都有一个独立的版本，这是为了展示嵌入式API版次的一串递增的版本号。这个版本号按下文中的格式记录在API_VERSION文件中：</p>
-<p>API: 4
-API_SDK: 2</p>
-<p>API版本号是针对Crosswalk应用和运行时库的。MIN_API版本号只是针对运行时库，和运行时库支持的最低版本的Crosswalk应用。</p>
-<p>当被加载时，Crosswalk应用将会检查安装在设备上的运行时库的版本。如果应用的版本号在当前版本和最低的向下兼容版本之间，则版本匹配，应用可以开启。否则，将会弹出一个对话框来提醒用户获取最新版本的运行时库。</p>
-<h1><a class="doc-anchor" id="Architecture-Independence"></a>架构无关性</h1><p>现在，嵌入模式的Crosswalk应用会检测嵌入的Crosswalk运行时库的架构是否与设备匹配。如果架构匹配，则应用使用嵌入式运行时库。否则，它切换到共享模式。这意味着如果你仅发布了一个ARM版本的包，而你应用的用户却使用了一个x86架构的设备，那么他将被指引到Play Store上下载x86兼容版本的Crosswalk运行时环境。</p>
-<h1><a class="doc-anchor" id="Built-in Updater"></a>内置更新器</h1><p>这个是个帮助用户获得Crosswalk运行时库的内置更新器。默认情况下，这个更新器将会跳转到Crosswalk运行时库在Google Play Store上的主页，后续操作就取决于用户了。如果一个开发者规定了一个下载链接，更新器将启动下载管理器来获取APK。</p>
-<p>开发者可以用他们自己的方式发布和维护特定版本的Crosswalk运行时库。只要安装的运行时库的版本匹配Crosswalk应用，内置的更新器将不会被触发。</p>
+}
+     ```
+
+## &lt;a class=&quot;doc-anchor&quot; id=&quot;Version-Check-Mechanism&quot;&gt;&lt;/a&gt;版本检查机制
+
+除了版本名称（例如13.38.208.0），Crosswalk的每次发布都有一个独立的版本，这是为了展示嵌入式API版次的一串递增的版本号。这个版本号按下文中的格式记录在API_VERSION文件中：
+
+API: 4
+API_SDK: 2
+
+API版本号是针对Crosswalk应用和运行时库的。MIN_API版本号只是针对运行时库，和运行时库支持的最低版本的Crosswalk应用。
+
+当被加载时，Crosswalk应用将会检查安装在设备上的运行时库的版本。如果应用的版本号在当前版本和最低的向下兼容版本之间，则版本匹配，应用可以开启。否则，将会弹出一个对话框来提醒用户获取最新版本的运行时库。
+
+# &lt;a class=&quot;doc-anchor&quot; id=&quot;Architecture-Independence&quot;&gt;&lt;/a&gt;架构无关性
+
+现在，嵌入模式的Crosswalk应用会检测嵌入的Crosswalk运行时库的架构是否与设备匹配。如果架构匹配，则应用使用嵌入式运行时库。否则，它切换到共享模式。这意味着如果你仅发布了一个ARM版本的包，而你应用的用户却使用了一个x86架构的设备，那么他将被指引到Play Store上下载x86兼容版本的Crosswalk运行时环境。
+
+# &lt;a class=&quot;doc-anchor&quot; id=&quot;Built-in Updater&quot;&gt;&lt;/a&gt;内置更新器
+
+这个是个帮助用户获得Crosswalk运行时库的内置更新器。默认情况下，这个更新器将会跳转到Crosswalk运行时库在Google Play Store上的主页，后续操作就取决于用户了。如果一个开发者规定了一个下载链接，更新器将启动下载管理器来获取APK。
+
+开发者可以用他们自己的方式发布和维护特定版本的Crosswalk运行时库。只要安装的运行时库的版本匹配Crosswalk应用，内置的更新器将不会被触发。</code></pre>
   <footer class="article-next">
     
 

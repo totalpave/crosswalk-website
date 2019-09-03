@@ -172,9 +172,15 @@
 <li>We do not yet support Intel XDK APIs when building Crosswalk apps. So, if you are using Intel XDK Javascript APIs, we recommend you either use the equivalent Cordova APIs or build using the non-Crosswalk version of Android Build target.</li>
 <li>Use the Debug tab (and not the test tab) to test a Crosswalk based app. The test feature using App Preview uses a different runtime on your Android phone and hence will not be an accurate representation of the final apk.</li>
 <li>Currently Crosswalk build target builds and provides download links for two apks - one each for x86 and ARM CPUs. We strongly recommend you submit both the apks to Stores like <a href="http://developer.android.com/google/play/publishing/multiple-apks.html">Google Play Store</a> to insure all of your customers can run your Crosswalk app.</li>
-<li>If your Crosswalk build fails, check for the following:
--- Verify that your bundle id/app name and other identifiers do not contain special characters (!$#% or even numbers at times). While we have covered most of them for you, we might have forgotten a few. You can verify this in the App Details page in the Build tab.
--- Verify that there are no files in your www directory with unicode characters in all file names. In short, try to avoid special characters in filenames. This is particularly important for non-English locations. We are hoping to add support for unicode characters in the build system, but this will take some time.</li>
+<li>If your Crosswalk build fails, check for the following:</li>
+<li><ul>
+<li>Verify that your bundle id/app name and other identifiers do not contain special characters (!$#% or even numbers at times). While we have covered most of them for you, we might have forgotten a few. You can verify this in the App Details page in the Build tab.</li>
+</ul>
+</li>
+<li><ul>
+<li>Verify that there are no files in your www directory with unicode characters in all file names. In short, try to avoid special characters in filenames. This is particularly important for non-English locations. We are hoping to add support for unicode characters in the build system, but this will take some time.</li>
+</ul>
+</li>
 </ul>
   
    

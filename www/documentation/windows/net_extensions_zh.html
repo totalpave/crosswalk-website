@@ -292,7 +292,8 @@
 </ol>
 <p>在<code>XWalkExtension</code>类中有两个你应该实现的方法：</p>
 <ul>
-<li><code>ExtensionName()</code>: 这个是你用JavaScript编写的扩展程序的前缀，并且关于如何调用你的扩展程序提供的API。例如，你可以返回“echo”，那么你所有使用JavaScript的调用都将以“echo”为前缀。</li>
+<li><p><code>ExtensionName()</code>: 这个是你用JavaScript编写的扩展程序的前缀，并且关于如何调用你的扩展程序提供的API。例如，你可以返回“echo”，那么你所有使用JavaScript的调用都将以“echo”为前缀。</p>
+</li>
 <li><p><code>ExtensionAPI()</code>: 这个是你将暴露给JavaScript的API。下图是关于一个简单的&quot;Echo&quot;应用如何使用这API的示例。</p>
 <p><a href="/assets/win7-extension-config.png"><img src="/assets/win7-extension-config.png" style="display: block; margin: 0 auto"></a></p>
 </li>
@@ -330,13 +331,14 @@ exports.echoAsync = function (message, callback) {
 exports.echo2 = function (message, callback) { 
   extension.PostMessage(messageToJson(“echo2”, message));
   ...
-}</code></pre><p>关于.NET方面请参见[<a href="https://msdn.microsoft.com/en-us/library/bb412179(v=vs.110).aspx%5D(https://msdn.microsoft.com/en-us/library/bb412179(v=vs.110)">https://msdn.microsoft.com/en-us/library/bb412179(v=vs.110).aspx](https://msdn.microsoft.com/en-us/library/bb412179(v=vs.110)</a></p>
+}</code></pre><p>关于.NET方面请参见<a href="https://msdn.microsoft.com/en-us/library/bb412179(v=vs.110">https://msdn.microsoft.com/en-us/library/bb412179(v=vs.110).aspx</a></p>
 <p>你可能想要基于<a href="http://promises-aplus.github.io/promises-spec/">Promises</a>实现一个API。在前面的样例中，我们展示了一种回调机制但是必须谨慎使用：如果回调是包含在回调中的回调等，它可能导致所谓的<a href="https://github.com/survivejs/js_tricks_and_tips/blob/master/common_problems/pyramid.md">金字塔效应</a>。</p>
 <h3>使用crosswalk-app-tools打包你的扩展</h3><p>通过你的.NET扩展打包你的.MSI安装程序的功能正在被实现。当功能被完成并且成为Crosswalk打包工具的一部分时，本小节将被更新。</p>
 <h3>使用针对Windows二进制文件的Crosswalk测试你的.NET扩展。</h3><p>下载完针对Windows平台的Crosswalk并且解压后，你可以轻松地测试你的扩展程序。</p>
 <p>如果你没有使用Visual Studio的模板，你需要做接下来的两步。开启2.0版本的模板，bridge将会被自动添加。</p>
 <ol>
-<li>确保在你创建.NET扩展的文件夹（.DLL位于的地方）中复制了xwalk_extension_bridge.dll文件。</li>
+<li><p>确保在你创建.NET扩展的文件夹（.DLL位于的地方）中复制了xwalk_extension_bridge.dll文件。</p>
+</li>
 <li><p>重命名<code>xwalk_extension_bridge.dll</code>，除了后缀<code>_bridge</code>唯一不同，其余部分和你的扩展 DLL命名完全相同。例如：</p>
 <img src="/assets/win9-extension-net-bridge.png" style="display: block; margin: 0 auto">
 </li>

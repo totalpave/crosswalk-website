@@ -251,7 +251,7 @@
 <li><p>为了关闭一个相关的Jira issue，向PR描述中添加一行格式为<strong>BUG=XWALK-N</strong>的信息（大小写敏感）。通过这种方法，当PR被合并时,JIRA上的issue状态会自动被标识位resolved状态。使用issue URL<code>(**BUG=https://path/to/issue/XWALK-N**)</code>也是可行的。</p>
 <p>例如，如果你的PR可以解决问题XWALK-898，那么PR的描述应该包含下面的内容：</p>
 <pre><code>BUG=XWALK-898</code></pre><p>或者这样：</p>
-<pre><code>BUG=https://crosswalk-project.org/jira/browse/XWALK-898</code></pre><p>如果一个PR不能完全解决一个问题，不要使用&quot;BUG=&quot;的前缀，因为JIRA ticket可能被错误关闭。一个不同的前缀，例如&quot;Related to: XWALK-898&quot;，仅描述标签号（例如， &quot;XWALK-898&quot;）是比较合适的。还需要注意，我们在这里仅仅谈论的是<em>pull请求信息</em>。你真正的git提交信息应该使用前缀&quot;BUG=&quot;，因为它的内容不会被用来引入或者关闭任何JIRA ticket。</p>
+<pre><code>BUG=https://crosswalk-project.org/jira/browse/XWALK-898</code></pre><p>如果一个PR不能完全解决一个问题，不要使用&quot;BUG=&quot;的前缀，因为JIRA ticket可能被错误关闭。一个不同的前缀，例如&quot;Related to: XWALK-898&quot;，仅描述标签号（例如， &quot;XWALK-898&quot;）是比较合适的。还需要注意，我们在这里仅仅谈论的是_pull请求信息_。你真正的git提交信息应该使用前缀&quot;BUG=&quot;，因为它的内容不会被用来引入或者关闭任何JIRA ticket。</p>
 <p>如果一个PR解决了多个issue，可以在描述信息中的不同行分别引用它们，其中每行的开始均为&quot;BUG=&quot;。</p>
 </li>
 </ul>

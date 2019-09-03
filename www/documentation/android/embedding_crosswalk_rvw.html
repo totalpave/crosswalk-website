@@ -299,8 +299,10 @@
 <li><p>Select <em>File</em> &gt; <em>New</em> &gt; <em>New Project</em>.
 Fill in the <em>New Project</em> panel as follows:</p>
 <ul>
-<li><em>Application Name</em>: MyApplication</li>
-<li><em>Company Domain</em>: xwalk.org</li>
+<li><p><em>Application Name</em>: MyApplication</p>
+</li>
+<li><p><em>Company Domain</em>: xwalk.org</p>
+</li>
 <li><p><em>Project location</em>: choose the location you want to place your project</p>
 <p>It should look like this:</p>
 <img src="/assets/embedding-api1.png" style="display: block; margin: 0 auto">
@@ -499,8 +501,9 @@ public void onXWalkInitFailed() {
  @Override
  public void onXWalkUpdateCancelled() {
      // Perform error handling here
- }</code></pre><p> }</p>
-<pre><code>  ```</code></pre><p>If you want the end-user to download the Crosswalk Project runtime from a specific URL instead of switching to the application store, add following <meta-data> element inside the <application> element:</application></meta-data></p>
+ }</code></pre><p> }
+      ```</p>
+<p>If you want the end-user to download the Crosswalk Project runtime from a specific URL instead of switching to the application store, add following <meta-data> element inside the <application> element:</application></meta-data></p>
 <pre><code>&lt;meta-data android:name=&quot;xwalk_apk_url&quot; 
            android:value=&quot;http://myhost/XWalkRuntimeLib.apk&quot; /&gt;</code></pre><ol start="2">
 <li><p>Download Mode</p>

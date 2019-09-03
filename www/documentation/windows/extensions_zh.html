@@ -451,7 +451,8 @@ int32_t XW_Initialize(XW_Extension extension, XW_GetInterface get_interface) {
 
     return XW_OK;
 }</code></pre><h4>关于代码:</h4><ul>
-<li><code>XW_Extension.h</code>头文件被用于定义扩展系统使用的结构。</li>
+<li><p><code>XW_Extension.h</code>头文件被用于定义扩展系统使用的结构。</p>
+</li>
 <li><p>唯一应该被暴露的符号是函数：
 <code>int32_t XW_Initialize(XW_Extension extension, XW_GetInterface get_interface)</code>
 它的参数是：</p>
@@ -462,13 +463,20 @@ int32_t XW_Initialize(XW_Extension extension, XW_GetInterface get_interface) {
 </li>
 <li><p>这个函数应该被实现并且暴露给共享的实体；当扩展被正确初始化时，它应该返回<code>XW_OK</code>。</p>
 </li>
-<li>定义这个函数时为了避免如果使用C++编译器时的方法重载，请确保使用<code>extern &quot;C&quot;</code>。</li>
-<li><code>SetExtensionName()</code> 设定了针对你的web应用可访问的JavaScript接口的公有名称。</li>
-<li><code>SetJavaScriptAPI()</code> 使用将要展示的JavaScript字符串作为API。你在<code>SetExtensionName()</code>中设置的名称应该匹配你在JavaScript接口字符串中使用的那个。在这种扩展的情况下，接口字符串将被从一个头文件中加载，它在构建中生成。</li>
-<li>这个例子提供了针对相同的处理者的同步和异步两种版本。但是一个扩展不是必须要同时处理同步和异步消息：如果需要它可以仅仅处理一种类型。</li>
-<li>当C语言的扩展程序执行的处理可能花费一些时间（例如，多于几毫秒；通常，这个意味着任何调用磁盘或者网络访问）时，你应该使用异步消息。当C语言代码将被快速返回（可能几十毫秒），同步消息是足够安全的。</li>
-<li>然而，在大多数情况下，最安全的方法是提供一个异步的接口。为了完整性，同步的方法也可以被展示。</li>
-<li>同步函数(<code>XW_Internal_SyncMessagingInterface-&gt;SetSyncReply()</code>)和异步函数(<code>XW_MessagingInterface-&gt;PostMessage()</code>)均返回一个回应“保存它们的输入”，所以一旦你已经调用它们便可以随意释放任何你传递给这些函数的指针。</li>
+<li><p>定义这个函数时为了避免如果使用C++编译器时的方法重载，请确保使用<code>extern &quot;C&quot;</code>。</p>
+</li>
+<li><p><code>SetExtensionName()</code> 设定了针对你的web应用可访问的JavaScript接口的公有名称。</p>
+</li>
+<li><p><code>SetJavaScriptAPI()</code> 使用将要展示的JavaScript字符串作为API。你在<code>SetExtensionName()</code>中设置的名称应该匹配你在JavaScript接口字符串中使用的那个。在这种扩展的情况下，接口字符串将被从一个头文件中加载，它在构建中生成。</p>
+</li>
+<li><p>这个例子提供了针对相同的处理者的同步和异步两种版本。但是一个扩展不是必须要同时处理同步和异步消息：如果需要它可以仅仅处理一种类型。</p>
+</li>
+<li><p>当C语言的扩展程序执行的处理可能花费一些时间（例如，多于几毫秒；通常，这个意味着任何调用磁盘或者网络访问）时，你应该使用异步消息。当C语言代码将被快速返回（可能几十毫秒），同步消息是足够安全的。</p>
+</li>
+<li><p>然而，在大多数情况下，最安全的方法是提供一个异步的接口。为了完整性，同步的方法也可以被展示。</p>
+</li>
+<li><p>同步函数(<code>XW_Internal_SyncMessagingInterface-&gt;SetSyncReply()</code>)和异步函数(<code>XW_MessagingInterface-&gt;PostMessage()</code>)均返回一个回应“保存它们的输入”，所以一旦你已经调用它们便可以随意释放任何你传递给这些函数的指针。</p>
+</li>
 </ul>
 <h2>更多关于C语言接口的细节</h2><h3>核心接口：XW_CORE_INTERFACE</h3><ul>
 <li>这个接口在<code>XW_Extension.h</code>头文件中定义。</li>

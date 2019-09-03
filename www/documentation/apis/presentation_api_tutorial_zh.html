@@ -234,7 +234,7 @@
 </nav>
 
 <article class="article article--hasToC">
-  <h1>Presentation API教程</h1><p>Presentation API允许一个web应用在一个连接在设备上的第二显示屏上展示web内容。它有如下几个用途：展示幻灯片，分享视频和图片，以及通过移动设备在一个大屏幕电视上玩游戏。</p>
+  <h1>Presentation API教程#</h1><p>Presentation API允许一个web应用在一个连接在设备上的第二显示屏上展示web内容。它有如下几个用途：展示幻灯片，分享视频和图片，以及通过移动设备在一个大屏幕电视上玩游戏。</p>
 <p>Presentation API是是针对Android 4.2版本Crosswalk的一个实验性功能，它基于兼容Miracast的wireless display支持实现。它在<a href="https://crosswalk-project.org/documentation/downloads.html">当前版本</a>的Crosswalk中可以使用。这篇教程是基于<a href="http://html5hub.com/presentation-api-tutorial/">HTML5 Hub</a>上由Hongbo Min发表的一篇文章，并且已经经过<a href="https://crosswalk-project.org/documentation/downloads.html">Crosswalk Stable 11.40.277.7</a>的测试。</p>
 <p>Presentation API定义如下：</p>
 <pre><code>interface Presentation :EventTarget {
@@ -265,7 +265,8 @@ navigator.presentation.displayavailablechange
 </ol>
 <h2>简单代码</h2><p>在下文的样例中存在两个HTML文件：</p>
 <ul>
-<li><code>index.html</code> – 一个展示主屏幕的控制页，同时还会打开第二显示器上的一个页面。</li>
+<li><p><code>index.html</code> – 一个展示主屏幕的控制页，同时还会打开第二显示器上的一个页面。</p>
+</li>
 <li><p><code>content.html</code> – 在第二显示器上展示的页面内容</p>
 <p><strong>index.html</strong></p>
 <pre><code>&lt;!DOCTYPE html&gt;
@@ -312,25 +313,29 @@ var presentationWindow = null;
 
                &lt;div id=”msg”&gt;Error: No message from primary display&lt;/div&gt;
                  &lt;/body&gt;
-                 &lt;/html&gt;</code></pre><pre><code>             **content.html**
-             ```
-             &lt;html&gt;
-             &lt;head&gt;
-               &lt;script&gt;
-                  window.addEventListener(&quot;message&quot;, function(event) {
-                           var msg = event.data;
-                                var elem = document.getElementById(“output”);
-                                     elem.innerHTML = msg;
-                                          event.source.postMessage(&quot;Hello from the secondary display&quot;, &quot;*&quot;);
-                                             });
-                    &lt;/script&gt;
-                    &lt;/head&gt;
-                    &lt;body&gt;
-                      Message from its opener:
-                        &lt;div id=”output”&gt;Error: No message received from secondary dispaly&lt;/div&gt;
-                        &lt;/body&gt;
-                        &lt;/html&gt;
-                        ```</code></pre></li>
+                 &lt;/html&gt;
+                 ``` 
+
+                 **content.html**
+                 ```
+                 &lt;html&gt;
+                 &lt;head&gt;
+                   &lt;script&gt;
+                      window.addEventListener(&quot;message&quot;, function(event) {
+                               var msg = event.data;
+                                    var elem = document.getElementById(“output”);
+                                         elem.innerHTML = msg;
+                                              event.source.postMessage(&quot;Hello from the secondary display&quot;, &quot;*&quot;);
+                                                 });
+                        &lt;/script&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                          Message from its opener:
+                            &lt;div id=”output”&gt;Error: No message received from secondary dispaly&lt;/div&gt;
+                            &lt;/body&gt;
+                            &lt;/html&gt;
+                            ```
+</code></pre></li>
 </ul>
 <p>遵循<a href="/documentation/android/build_an_application_zh.html">如何编译一个Crosswalk应用</a>来将上文中的两个HTML文件打包成一个Android应用；然后根据<a href="/documentation/android/run_on_android_zh.html">如何在Android环境下运行</a>的指导在一个Android 4.2+的设备上启动应用。在运行应用前请确保至少有一个可用的第二显示器：参见上文中的如何搭建一个无线显示器。</p>
 <p>一旦应用开始运行，点击&quot;show Presentation&quot;按钮将会在第二显示器上打开<code>content.html</code>页面。</p>

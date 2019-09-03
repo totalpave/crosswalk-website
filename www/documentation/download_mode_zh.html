@@ -314,7 +314,7 @@
 ```
 
 <h2>部署</h2><p>在Crosswalk运行时APK从服务器端下载完成后，需要进行一个签名检测来保证它的完整性。签名检测要求签署Crosswalk运行时APK的关键字与用来签署你的应用的关键字相同。你可以通过在AndroidManifest.xml文件中将<code>xwalk_verify</code>设置为<code>disable</code>来取消部署阶段的签名检测:</p>
-<pre><code>&lt;meta-data android:name=&quot;xwalk_verify&quot; android:value=&quot;disable&quot; /&gt;</code></pre><p>通常，一个Crosswalk运行时APK(<code>XWalkRuntimeLib.apk</code>)大小约为为~28MB。我们也提供一个大小约为~18MB的LZMA压缩版的运行时APK。虽然压缩后的APK可以节省带宽，但是当应用第一次启动时，APK必须被解压。仅在第一次启动时执行。</p>
+<pre><code>&lt;meta-data android:name=&quot;xwalk_verify&quot; android:value=&quot;disable&quot; /&gt;</code></pre><p>通常，一个Crosswalk运行时APK(<code>XWalkRuntimeLib.apk</code>)大小约为为<del>28MB。我们也提供一个大小约为</del>18MB的LZMA压缩版的运行时APK。虽然压缩后的APK可以节省带宽，但是当应用第一次启动时，APK必须被解压。仅在第一次启动时执行。</p>
 <h2>Crosswalk运行时更新</h2><p>一个使用下载模式的Crosswalk应用必须使用服务器端相同版本的Crosswalk运行时APK进行编译。特别是你的应用使用的<code>xwalk_shared_library</code>和服务器端<code>XWalkRuntimeLib.apk</code> (或者<code>XWalkRuntimeLibLzma.apk</code>)必须来自同一版本。因此，无论你何时在应用商店更新你的应用，你也必须更新你服务器的运行时APK。如果你客户端设备上的应用更新到了一个新版本，你的应用将尝试重新下载与新版本匹配的运行时，即使它已经下载过之前的版本。</p>
   <footer class="article-next">
     

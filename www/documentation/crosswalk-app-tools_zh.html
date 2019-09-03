@@ -294,22 +294,25 @@
       &quot;shared&quot;  编译APK，这个APK依赖谷歌应用商店中的crosswalk
       &quot;lite&quot;    使用crosswalk-lite，详情参见Crosswalk Wiki</p>
 <p>  &lt;package-id&gt;
-    标准的包名，例如com.example.foo，需要</p>
-<pre><code> - 包括3个或者更多以“.”隔开的部分
- - 需要以小写字母开头</code></pre><p>  &lt;target-archs&gt;
+    标准的包名，例如com.example.foo，需要
+     - 包括3个或者更多以“.”隔开的部分
+     - 需要以小写字母开头</p>
+<p>  &lt;target-archs&gt;
     指定应用的CPU架构
-    目前支持的ABIs有：armeabi-v7a, arm64-v8a, x86, x86_64</p>
-<pre><code> - 前缀的字母将会匹配相应平台，例如&quot;a&quot;，&quot;ar&quot;，或者&quot;arm&quot; 都将生成基于ARM运行的APK
- - &quot;x&quot;和&quot;x8&quot;也是类似的，他们匹配的是x86和x86_64俩个平台, 但是&quot;x86&quot;只能匹配32位的x86平台
- - &quot;32&quot; and &quot;64&quot;将会编译相应的ARM和x86平台下的APK
- - 默认情况下，将会采用&quot;32&quot;，创建32位的可安装程序
-示例： --targets=&quot;arm x86&quot;将会编译ARM和32位的x86安装包</code></pre><p>  &lt;version-spec&gt; 本参数是指定使用打包的Crosswalk详细信息(同上方crosswalk-app下的参数&quot;--android-crosswalk&quot;一样)</p>
-<pre><code> - 指定Crosswalk版本周期名称，例如stable/beta/canary
- - 指定Crosswalk版本号，例如14.43.343.25
- - 下载的Crosswalk压缩包路径，例如$HOME/Downloads/crosswalk-14.43.343.25.zip
- - 编译Crosswalk源码产生的xwalk_app_template路径，例如crosswalk/src/out/Release/xwalk_app_template
-当传递一个本地的文件或者路径时，只有包含ABIs时，才能进行编译
-详情参见&amp;lt;target-archs&amp;gt;。</code></pre><p>  环境变量
+    目前支持的ABIs有：armeabi-v7a, arm64-v8a, x86, x86_64
+     - 前缀的字母将会匹配相应平台，例如&quot;a&quot;，&quot;ar&quot;，或者&quot;arm&quot; 都将生成基于ARM运行的APK
+     - &quot;x&quot;和&quot;x8&quot;也是类似的，他们匹配的是x86和x86_64俩个平台, 但是&quot;x86&quot;只能匹配32位的x86平台
+     - &quot;32&quot; and &quot;64&quot;将会编译相应的ARM和x86平台下的APK
+     - 默认情况下，将会采用&quot;32&quot;，创建32位的可安装程序
+    示例： --targets=&quot;arm x86&quot;将会编译ARM和32位的x86安装包</p>
+<p>  &lt;version-spec&gt; 本参数是指定使用打包的Crosswalk详细信息(同上方crosswalk-app下的参数&quot;--android-crosswalk&quot;一样)
+     - 指定Crosswalk版本周期名称，例如stable/beta/canary
+     - 指定Crosswalk版本号，例如14.43.343.25
+     - 下载的Crosswalk压缩包路径，例如$HOME/Downloads/crosswalk-14.43.343.25.zip
+     - 编译Crosswalk源码产生的xwalk_app_template路径，例如crosswalk/src/out/Release/xwalk_app_template
+    当传递一个本地的文件或者路径时，只有包含ABIs时，才能进行编译
+    详情参见&lt;target-archs&gt;。</p>
+<p>  环境变量
     CROSSWALK_APP_TOOLS_CACHE_DIR=&lt;path&gt;: 保存下载文件的路径</p>
 </div>
 

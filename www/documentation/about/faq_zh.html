@@ -267,7 +267,7 @@
 <h3><a class="doc-anchor" id="Can-I-customise-the-Crosswalk-Project"></a>我可以自定义Crosswalk项目吗？</h3><p>可以。Crosswalk项目自身是可以被修改的，因为代码是开源的。我们积极地鼓励<a href="https://crosswalk-project.org/contribute/index_zh.html">贡献</a>。</p>
 <p>或者，你可以通过它的<a href="https://github.com/crosswalk-project/crosswalk-website/wiki/Crosswalk-Extensions">扩展机制</a>为Crosswalk项目添加新的额外功能，这样便可以不必修改代码。这使得一个应用可以通过原生代码（安卓的Java，Tizen的C/C++）访问平台的特征，并且超越了web运行时环境的范围。</p>
 <h2><a class="doc-anchor" id="Distributing-Crosswalk-Project-applications"></a>发布基于Crosswalk的应用</h2><h3><a class="doc-anchor" id="How-big-is-the-Crosswalk-Project-runtime-and-how-will-it-affect-my-applications-size"></a>Crosswalk项目运行时占用多大空间，同时它将怎样影响我的应用程序的大小？</h3><p>粗略估算，<a href="https://github.com/crosswalk-project/crosswalk-samples/tree/master/hello_world">一个项目的样例应用</a>中的HTML/JS/CSS文件大概占据24kb的磁盘空间。</p>
-<p>一旦这个应用通过它自身的Crosswalk 10 (x86 Android)运行时打包，apk文件的大小为~20Mb。安装完成后，整个应用占据~58Mb的磁盘空间。</p>
+<p>一旦这个应用通过它自身的Crosswalk 10 (x86 Android)运行时打包，apk文件的大小为<del>20Mb。安装完成后，整个应用占据</del>58Mb的磁盘空间。</p>
 <h3><a class="doc-anchor" id="Can-one-Crosswalk-installation-be-shared-between-multiple-applications"></a>一个Crosswalk安装包可以在多个应用之间共享吗？</h3><p>将运行时环境绑定应用（又称为“嵌入式模式”）是解决应用分发的最简单的方法。另外，多个Crosswalk应用<em>可以</em>共享同一个Crosswalk运行时环境库（“共享模式”）；共享模式的Crosswalk运行时环境库需要作为Crosswalk fpr Android一部分来开发，用户需要自己部署这个共享的运行时环境库。</p>
 <h3><a class="doc-anchor" id="How-can-I-distribute-a-Crosswalk-Android-application-across-multiple-architectures"></a>如何在多个架构上部署Crosswalk的Android应用？</h3><p>Crosswalk的二进制文件是针对特定架构的。这意味着在安装x86芯片的Android设备上，你需要同x86兼容的Crosswalk；在安装了ARM芯片的Android设备上需要与ARM兼容的Crosswalk。</p>
 <p>其中存在两种方法来构建兼容支持x86和ARM的应用：</p>
