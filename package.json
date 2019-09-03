@@ -10,6 +10,9 @@
     "deploy": "npm run styleguide && npm run dropbox",
     "serve": "harp server"
   },
+  "engines": {
+    "node": ">=10 <11"
+  },
   "devDependencies": {
     "harp": "^0.29.0",
     "kss": "^0.4.0"
